@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 func player_ready(player_num:int) -> void:
 	players_ready[player_num] = true
 	(get_node("Player Text %s" % player_num) as Label).hide()
-	(get_node("Player %s" % player_num) as Sprite2D).show()
+	(get_node("Player %s" % player_num) as CharacterBody2D).show()
 	
 	if all_players_ready:
 		(get_node("Start Game") as Label).show()
@@ -39,6 +39,7 @@ func _input(event: InputEvent) -> void:
 		
 		if all_players_ready and event.is_action_released(&"p1_start"):
 			get_tree().change_scene_to_file("res://Scenes/map_select.tscn")
+			return
 			
 		if event.is_action_released(&"p1_start"):
 			player_ready(1)

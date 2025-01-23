@@ -62,19 +62,27 @@ text = "Player 1: Press Start to Begin"
 [node name="Player 1" parent="." instance=ExtResource("2_77kn1")]
 visible = false
 position = Vector2(170, 246)
+player_num = 1
+physics_enabled = false
 color = Color(0, 0.534775, 0.766988, 1)
 
 [node name="Player 2" parent="." instance=ExtResource("2_77kn1")]
 visible = false
 position = Vector2(172, 486)
+player_num = 2
+physics_enabled = false
 color = Color(0, 0.565915, 0.60189, 1)
 
 [node name="Player 3" parent="." instance=ExtResource("2_77kn1")]
 visible = false
 position = Vector2(797, 258)
+player_num = 3
+physics_enabled = false
 color = Color(0.979576, 0, 0.478244, 1)
 
 [node name="Player 4" parent="." instance=ExtResource("2_77kn1")]
 visible = false
 position = Vector2(796, 495)
+player_num = 4
+physics_enabled = false
 color = Color(0.973041, 0.000273383, 0.854655, 1)

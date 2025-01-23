@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var JUMP_SPEED = 200
 
 @export var player_num:int = 0 # must be 1-4
+@export var physics_enabled:bool = true
 
 @export var color:Color:
 	set(value):
@@ -21,7 +22,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta):
-	
+	if !physics_enabled:
+		return
+		
 	var walk := WALK_FORCE * (Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num))
 	
 	if walk == 0:
