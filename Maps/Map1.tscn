@@ -12,17 +12,21 @@ size = Vector2(448, 33)
 
 [node name="UI" type="Node" parent="."]
 
+[node name="Bubbles" type="Node" parent="."]
+
 [node name="Players" type="Node" parent="."]
 
-[node name="Player 1" parent="Players" instance=ExtResource("1_eil7l")]
+[node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container") instance=ExtResource("1_eil7l")]
 position = Vector2(463, 418)
 player_num = 1
 color = Color(0.150753, 0.385059, 1, 1)
+bubbles_container = NodePath("../../Bubbles")
 
-[node name="Player 2" parent="Players" instance=ExtResource("1_eil7l")]
+[node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container") instance=ExtResource("1_eil7l")]
 position = Vector2(689, 417)
 player_num = 2
 color = Color(0, 0.565367, 1.73271e-06, 1)
+bubbles_container = NodePath("../../Bubbles")
 
 [node name="Platforms" type="Node" parent="."]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://diguu5g15r80f"]
+
+[ext_resource type="PackedScene" uid="uid://bwkxw72btoexi" path="res://Sprites/Bubble.tscn" id="1_byehe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oprqa"]
+
+[node name="Bubble" instance=ExtResource("1_byehe")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_oprqa")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
+color = Color(0, 0.545098, 0.54902, 0.764706)
+polygon = PackedVector2Array(0, -10, 10, 0, 0, 11, -10, 0)
