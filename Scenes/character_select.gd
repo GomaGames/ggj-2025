@@ -35,20 +35,18 @@ func player_ready(player_num:int) -> void:
 		(get_node("Start Game") as Label).show()
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventJoypadButton:
+	if all_players_ready and event.is_action_released(&"p1_start"):
+		get_tree().change_scene_to_file("res://Scenes/map_select.tscn")
+		return
 		
-		if all_players_ready and event.is_action_released(&"p1_start"):
-			get_tree().change_scene_to_file("res://Scenes/map_select.tscn")
-			return
-			
-		if event.is_action_released(&"p1_start"):
-			player_ready(1)
-			
-		if event.is_action_released(&"p2_start"):
-			player_ready(2)
-			
-		if event.is_action_released(&"p3_start"):
-			player_ready(3)
-			
-		if event.is_action_released(&"p4_start"):
-			player_ready(4)
+	if event.is_action_released(&"p1_start"):
+		player_ready(1)
+		
+	if event.is_action_released(&"p2_start"):
+		player_ready(2)
+		
+	if event.is_action_released(&"p3_start"):
+		player_ready(3)
+		
+	if event.is_action_released(&"p4_start"):
+		player_ready(4)

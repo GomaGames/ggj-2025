@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventJoypadButton:
-		if event.is_action_released(&"any_start"):
-			get_tree().change_scene_to_file("res://Scenes/character_select.tscn")
+	if event.is_action_released(&"any_start"):
+		get_tree().change_scene_to_file("res://Scenes/character_select.tscn")
