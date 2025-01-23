@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://krin33njcqc2"]
+
+[ext_resource type="Script" path="res://Scenes/map_select.gd" id="1_al5cp"]
+
+[node name="MapSelect" type="Node2D"]
+script = ExtResource("1_al5cp")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 391.0
+offset_top = 77.0
+offset_right = 490.0
+offset_bottom = 100.0
+scale = Vector2(4.28, 4.28)
+text = "Select a map"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 248.0
+offset_top = 280.0
+offset_right = 414.0
+offset_bottom = 329.0
+scale = Vector2(4.28, 4.28)
+text = "There's only one map
+Press Start"
+horizontal_alignment = 1

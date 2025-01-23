@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0lqm45h8177a"]
+
+[ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
+[ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8gma"]
+size = Vector2(448, 33)
+
+[node name="Map1" type="Node2D"]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player 1" parent="Players" instance=ExtResource("1_eil7l")]
+position = Vector2(463, 418)
+player_num = 1
+color = Color(0.150753, 0.385059, 1, 1)
+
+[node name="Player 2" parent="Players" instance=ExtResource("1_eil7l")]
+position = Vector2(689, 417)
+player_num = 2
+color = Color(0, 0.565367, 1.73271e-06, 1)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms"]
+physics_material_override = SubResource("PhysicsMaterial_yguc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(225, 16.5)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(928, 17)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(581, 443)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(928, 626)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(225, 627)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(4, 258)
+rotation = -1.56615
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(5, 315)
+rotation = -1.56615
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(1148, 243)
+rotation = -1.56615
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(1148, 315)
+rotation = -1.56615
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_w8gma")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/StaticBody2D"]
+color = Color(0.324165, 0.251997, 0.0847757, 1)
+polygon = PackedVector2Array(1, 610, 450, 610, 450, 645, 0, 647)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Platforms/StaticBody2D"]
+position = Vector2(0, -612)
+color = Color(0.32549, 0.25098, 0.0862745, 1)
+polygon = PackedVector2Array(1, 610, 450, 610, 450, 645, 0, 647)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Platforms/StaticBody2D"]
+position = Vector2(702, -2)
+color = Color(0.32549, 0.25098, 0.0862745, 1)
+polygon = PackedVector2Array(1, 610, 450, 610, 450, 645, 0, 647)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Platforms/StaticBody2D"]
+position = Vector2(356, -185)
+color = Color(0.32549, 0.25098, 0.0862745, 1)
+polygon = PackedVector2Array(1, 610, 450, 610, 450, 645, 0, 647)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Platforms/StaticBody2D"]
+position = Vector2(703, -613)
+color = Color(0.32549, 0.25098, 0.0862745, 1)
+polygon = PackedVector2Array(1, 610, 450, 610, 450, 645, 0, 647)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Platforms/StaticBody2D"]
+position = Vector2(1640, 57)
+rotation = 1.57172
+color = Color(0.32549, 0.25098, 0.0862745, 1)
+polygon = PackedVector2Array(-29.5541, 485.027, 482.447, 485.557, 483.468, 508.556, -28.5329, 508.026)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Platforms/StaticBody2D"]
+position = Vector2(507, 57)
+rotation = 1.57172
+color = Color(0.32549, 0.25098, 0.0862745, 1)
+polygon = PackedVector2Array(-29.5541, 485.027, 482.447, 485.557, 483.468, 508.556, -28.5329, 508.026)
+
+[node name="BG" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 1155.0
+offset_bottom = 647.0
+texture = ExtResource("1_pw27w")
+metadata/_edit_lock_ = true

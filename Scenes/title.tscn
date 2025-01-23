@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceg7v2rqshiig"]
+
+[ext_resource type="Script" path="res://Scenes/title.gd" id="1_6u0wm"]
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_6u0wm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 371.0
+offset_top = 213.0
+offset_right = 464.0
+offset_bottom = 267.0
+scale = Vector2(4.08279, 4.08279)
+text = "GGJ 2025
+Press Start"

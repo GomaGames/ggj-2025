@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2m7gfo3x5hwu"]
+
+[ext_resource type="Script" path="res://Scenes/character_select.gd" id="1_waoq6"]
+[ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="2_77kn1"]
+
+[node name="CharacterSelect" type="Node2D"]
+script = ExtResource("1_waoq6")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 386.0
+offset_top = 55.0
+offset_right = 513.0
+offset_bottom = 78.0
+scale = Vector2(3.34991, 3.34231)
+text = "Character Select"
+
+[node name="Player Text 1" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 149.0
+offset_right = 183.0
+offset_bottom = 198.0
+scale = Vector2(3.34991, 3.34231)
+text = "Player 1
+Press Start"
+
+[node name="Player Text 2" type="Label" parent="."]
+offset_left = 53.0
+offset_top = 393.0
+offset_right = 180.0
+offset_bottom = 442.0
+scale = Vector2(3.34991, 3.34231)
+text = "Player 2
+Press Start"
+
+[node name="Player Text 3" type="Label" parent="."]
+offset_left = 666.0
+offset_top = 153.0
+offset_right = 793.0
+offset_bottom = 202.0
+scale = Vector2(3.34991, 3.34231)
+text = "Player 3
+Press Start"
+
+[node name="Player Text 4" type="Label" parent="."]
+offset_left = 664.0
+offset_top = 402.0
+offset_right = 791.0
+offset_bottom = 451.0
+scale = Vector2(3.34991, 3.34231)
+text = "Player 4
+Press Start"
+
+[node name="Start Game" type="Label" parent="."]
+visible = false
+offset_left = 234.0
+offset_top = 563.0
+offset_right = 456.0
+offset_bottom = 586.0
+scale = Vector2(3.34991, 3.34231)
+text = "Player 1: Press Start to Begin"
+
+[node name="Player 1" parent="." instance=ExtResource("2_77kn1")]
+visible = false
+position = Vector2(170, 246)
+color = Color(0, 0.534775, 0.766988, 1)
+
+[node name="Player 2" parent="." instance=ExtResource("2_77kn1")]
+visible = false
+position = Vector2(172, 486)
+color = Color(0, 0.565915, 0.60189, 1)
+
+[node name="Player 3" parent="." instance=ExtResource("2_77kn1")]
+visible = false
+position = Vector2(797, 258)
+color = Color(0.979576, 0, 0.478244, 1)
+
+[node name="Player 4" parent="." instance=ExtResource("2_77kn1")]
+visible = false
+position = Vector2(796, 495)
+color = Color(0.973041, 0.000273383, 0.854655, 1)
