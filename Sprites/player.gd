@@ -21,6 +21,8 @@ const Bubble = preload("res://Sprites/bubble.gd")
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
 
+@onready var screen_size = get_viewport_rect().size
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
@@ -69,6 +71,8 @@ func handle_movement(delta):
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if is_on_floor() and Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		velocity.y = -JUMP_SPEED
+	
+	handle_screen_wrap()
 
 func handle_fire():
 	if bubbles_container == null:
@@ -82,3 +86,7 @@ func handle_fire():
 		
 func handle_bash():
 	pass
+
+func handle_screen_wrap():
+	position.x = wrapf(position.x, 0, screen_size.x)
+	position.y = wrapf(position.y, 0, screen_size.y)
