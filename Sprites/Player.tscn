@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1opgus8oy0s2"]
+[gd_scene load_steps=6 format=3 uid="uid://d1opgus8oy0s2"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_8b4kp"]
+[ext_resource type="Script" path="res://Sprites/player_in_bubble.gd" id="2_116ps"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgne3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgcfs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_61phm"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_8b4kp")
@@ -47,8 +52,21 @@ position = Vector2(4, 9)
 color = Color(0, 0.203922, 0, 1)
 polygon = PackedVector2Array(7, -24, 4, -23, 7, -22, 9, -23)
 
-[node name="InBubble" type="Node2D" parent="."]
+[node name="Fist" type="Area2D" parent="Facing"]
 visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/Fist"]
+position = Vector2(19, -15)
+shape = SubResource("CircleShape2D_tgcfs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Facing/Fist"]
+position = Vector2(20, -14)
+color = Color(0.688299, 1.18402e-05, 0.476449, 1)
+polygon = PackedVector2Array(-3, -4, -1, -6, 2, -6, 4, -4, 4, 2, 2, 4, -1, 4, -3, 1, -9, 1, -9, -2, -2, -4)
+
+[node name="InBubble" type="Area2D" parent="."]
+visible = false
+script = ExtResource("2_116ps")
 
 [node name="Bubble" type="Polygon2D" parent="InBubble"]
 position = Vector2(0, -26)
@@ -67,3 +85,10 @@ position = Vector2(9, 1)
 rotation = -0.438817
 color = Color(0, 0.203922, 0, 1)
 polygon = PackedVector2Array(7, -26, 4, -23, 7, -20, 9, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InBubble"]
+position = Vector2(0, -16)
+scale = Vector2(1.49323, 1.49323)
+shape = SubResource("CircleShape2D_61phm")
+
+[connection signal="body_entered" from="Facing/Fist" to="." method="_on_fist_body_entered"]

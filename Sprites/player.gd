@@ -14,6 +14,8 @@ class_name Player
 @export var STUCK_BUBBLE_MASS:float = 0.1 # kg, default is 1kg
 @export var STUCK_BUBBLE_GRAVITY:float = -10
 @export var TRAPPED_BUBBLE_TTL:float = 1500 # ms
+@export var FIST_VISIBLE_DURATION:int = 200 # ms
+@export var PUNCH_FORCE:float = 450.0
 
 @export var player_num:int = 0 # must be 1-4
 @export var physics_enabled:bool = true
@@ -26,6 +28,8 @@ class_name Player
 
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
+@onready var fist:Area2D = $"Facing/Fist"
+@onready var in_bubble_area:PlayerInBubble = $"InBubble"
 
 @onready var screen_size = get_viewport_rect().size
 
@@ -70,6 +74,9 @@ var trapped_in_bubble:bool:
 
 var stuck_bubble_lifetime_ms:int = 0
 var trapped_in_bubble_lifetime_ms:int = 0
+var fist_visible_lifetime_ms:int = 0
+
+var other_players: Array[Player] = []
 
 func bubble_hit(b:Bubble):
 	stuck_bubble_count += b.size
@@ -85,12 +92,17 @@ func become_trapped_in_bubble():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
+	
+	for p in get_parent().get_children():
+		if p != self:
+			assert(p is Player)
+			other_players.append(p)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	if !physics_enabled:
 		return
 
@@ -110,13 +122,13 @@ func _physics_process(delta):
 
 	handle_movement(delta)
 	handle_fire()
-	handle_bash()
+	handle_bash(delta)
 
-func handle_floating(delta):
+func handle_floating(delta:float):
 	velocity.y += delta * STUCK_BUBBLE_GRAVITY
 	move_and_slide()
 
-func handle_movement(delta):
+func handle_movement(delta:float):
 	# keyboard input
 	var walk := WALK_FORCE * (Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num))
 
@@ -159,11 +171,62 @@ func handle_fire():
 		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.linear_velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
+	
+		# hide fist if in case it's still visible
+		fist.hide()
 
 
-func handle_bash():
-	pass
+func handle_bash(delta:float):
+	if bubbles_container == null:
+		return
+	
+	if fist_visible_lifetime_ms > 0:
+		fist_visible_lifetime_ms -= delta * 1000
+	
+	if fist_visible_lifetime_ms <= 0:
+		fist_visible_lifetime_ms = 0
+		fist.hide()
+
+	if Input.is_action_just_released(&"p%s_bash" % player_num):
+		fist.show()
+		fist_visible_lifetime_ms = FIST_VISIBLE_DURATION
+		
+		# extra check for collision since fist may overlap with another body or area
+		# and the _on_fist_area_entered signal won't trigger
+		for p in other_players:
+			if fist.overlaps_area(p.in_bubble_area):
+				p.bashed(fist, PUNCH_FORCE)
+	
+func bashed(f:Area2D, force:float):
+		
+	var direction = (global_position - f.global_position).normalized()
+	var bounce_force = direction * force
+	velocity = bounce_force
 
 func handle_screen_wrap():
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
+
+func _on_fist_body_entered(body: Node2D) -> void:
+	if !fist.visible:
+		return
+	
+	if body is Bubble:
+		var direction = (body.global_position - fist.global_position).normalized()
+		var bounce_force = direction * PUNCH_FORCE
+		body.apply_impulse(bounce_force)
+
+# disconnected
+# may not even need this
+# 
+#func _on_fist_area_entered(area: Area2D) -> void:
+	#if !fist.visible:
+		#return
+	#
+	## this only triggers when a collision occurs by a body 'entering' the fist area
+	## if the fist "appears" and they overlap, nothing will happen
+	#if area is PlayerInBubble:
+		#var other_player = area.get_parent()
+		#assert(other_player is Player)
+		#other_player.bashed(fist, PUNCH_FORCE)
+		
