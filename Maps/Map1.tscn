@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0lqm45h8177a"]
+[gd_scene load_steps=6 format=3 uid="uid://b0lqm45h8177a"]
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
+[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
 
@@ -108,6 +109,20 @@ position = Vector2(507, 57)
 rotation = 1.57172
 color = Color(0.32549, 0.25098, 0.0862745, 1)
 polygon = PackedVector2Array(-29.5541, 485.027, 482.447, 485.557, 483.468, 508.556, -28.5329, 508.026)
+
+[node name="Hazards" type="Node" parent="."]
+
+[node name="Spike" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(927, 391)
+rotation = -1.61623
+
+[node name="Spike2" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(927, 403)
+rotation = -1.61623
+
+[node name="Spike3" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(927, 380)
+rotation = -1.61623
 
 [node name="BG" type="TextureRect" parent="."]
 offset_left = -1.0

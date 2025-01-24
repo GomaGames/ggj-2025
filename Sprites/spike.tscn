@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ubrfbm4i0ttf"]
+
+[node name="Spike" type="StaticBody2D" groups=["hazard"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -30, -5, 0, 5, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -29, -5, 0, 5, 0)

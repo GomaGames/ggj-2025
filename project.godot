@@ -19,6 +19,10 @@ config/icon="res://Assets/Icons/icon.svg"
 
 window/size/resizable=false
 
+[global_group]
+
+hazard="Any hazard that will pop a bubble when touched"
+
 [input]
 
 any_start={

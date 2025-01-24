@@ -60,6 +60,8 @@ var stuck_bubble_count:int:
 var _trapped_in_bubble:bool = false
 var trapped_in_bubble:bool:
 	set(value):
+		_trapped_in_bubble = value
+		
 		if value:
 			$"InBubble".show()
 			$"Polygon2D".hide()
@@ -68,7 +70,6 @@ var trapped_in_bubble:bool:
 			$"InBubble".hide()
 			$"Polygon2D".show()
 			$"Facing".show()
-		_trapped_in_bubble = value
 	get():
 		return _trapped_in_bubble
 
@@ -89,13 +90,18 @@ func become_trapped_in_bubble():
 	trapped_in_bubble = true
 	trapped_in_bubble_lifetime_ms = TRAPPED_BUBBLE_TTL
 
+func knocked_out():
+	# @TODO grand pop animation
+	$"GPUParticles2D".restart()
+	$"InBubble".hide()
+	$"Facing".hide()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
 	
 	for p in get_parent().get_children():
-		if p != self:
-			assert(p is Player)
+		if p is Player && p != self:
 			other_players.append(p)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -105,6 +111,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float):
 	if !physics_enabled:
 		return
+		
 
 	if trapped_in_bubble:
 		trapped_in_bubble_lifetime_ms -= delta * 1000
@@ -119,7 +126,7 @@ func _physics_process(delta: float):
 	if stuck_bubble_lifetime_ms > 0:
 		stuck_bubble_lifetime_ms -= delta * 1000
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
-
+		
 	handle_movement(delta)
 	handle_fire()
 	handle_bash(delta)
@@ -127,6 +134,7 @@ func _physics_process(delta: float):
 func handle_floating(delta:float):
 	velocity.y += delta * STUCK_BUBBLE_GRAVITY
 	move_and_slide()
+	
 
 func handle_movement(delta:float):
 	# keyboard input
@@ -230,3 +238,12 @@ func _on_fist_body_entered(body: Node2D) -> void:
 		#assert(other_player is Player)
 		#other_player.bashed(fist, PUNCH_FORCE)
 		
+
+# check if we touch any hazards
+# @TODO may want to handle this in other cases too, such as when not trapped
+func _on_in_bubble_body_entered(body: Node2D) -> void:
+	if !trapped_in_bubble:
+		return
+		
+	if body.is_in_group(&"hazard"):
+		knocked_out()
