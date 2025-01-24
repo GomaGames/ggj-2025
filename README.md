@@ -26,6 +26,7 @@ System:
   - Life: shared within each team; when character trapped in a bubble hits a environmental hazard remove one life from their team
   - Win/lose condition: when a team is out of lives and loses another one they lose and the opposing team wins
   - Screen wraping: when reaching one end of the screen if there are no obstacles, character will appear on the opposite side
+  - Environmental hazards: repels characters that hit them, if a character is trapped in a bubble and hits the hazard, they lose a life
 
 Bubbles:
   - Propreties: float upwards at set rate,
