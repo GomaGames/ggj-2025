@@ -15,10 +15,28 @@ shape = SubResource("CapsuleShape2D_jgne3")
 color = Color(0.70885, 0.000269725, 0.677756, 1)
 polygon = PackedVector2Array(-10, -30, 10, -30, 10, 0, -10, 0)
 
+[node name="Bubble1" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-4, -30)
+color = Color(0, 0.545098, 0.54902, 0.764706)
+polygon = PackedVector2Array(0, -6, 5, -1, 0, 4, -4, -1)
+
+[node name="Bubble2" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(12, -27)
+color = Color(0, 0.545098, 0.54902, 0.764706)
+polygon = PackedVector2Array(0, -6, 5, -1, 0, 4, -4, -1)
+
+[node name="Bubble3" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-10, -4)
+color = Color(0, 0.545098, 0.54902, 0.764706)
+polygon = PackedVector2Array(0, -6, 5, -1, 0, 4, -4, -1)
+
 [node name="Facing" type="Node2D" parent="."]
 
 [node name="FireOriginPoint" type="Marker2D" parent="Facing"]
-position = Vector2(13, -14)
+position = Vector2(20, -14)
 
 [node name="Eyes" type="Polygon2D" parent="Facing"]
 color = Color(0, 0.203922, 0, 1)
@@ -28,3 +46,24 @@ polygon = PackedVector2Array(7, -26, 4, -23, 7, -20, 9, -23)
 position = Vector2(4, 9)
 color = Color(0, 0.203922, 0, 1)
 polygon = PackedVector2Array(7, -24, 4, -23, 7, -22, 9, -23)
+
+[node name="InBubble" type="Node2D" parent="."]
+visible = false
+
+[node name="Bubble" type="Polygon2D" parent="InBubble"]
+position = Vector2(0, -26)
+color = Color(0, 0.545098, 0.54902, 0.764706)
+polygon = PackedVector2Array(-8, -2, 0, -6, 9, -3, 13, 8, 10, 22, 0, 27, -11, 20, -12, 7)
+
+[node name="Polygon2D" type="Polygon2D" parent="InBubble"]
+position = Vector2(2, -5)
+rotation = -0.161273
+scale = Vector2(0.72728, 0.72728)
+color = Color(0.70885, 0.000269725, 0.677756, 1)
+polygon = PackedVector2Array(-10, -30, 10, -30, 10, 0, -10, 0)
+
+[node name="Eyes" type="Polygon2D" parent="InBubble"]
+position = Vector2(9, 1)
+rotation = -0.438817
+color = Color(0, 0.203922, 0, 1)
+polygon = PackedVector2Array(7, -26, 4, -23, 7, -20, 9, -23)

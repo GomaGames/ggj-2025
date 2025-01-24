@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name Bubble
 
+@onready var Player = load("res://Sprites/player.gd")
+
 enum Size {
 	Small = 1,
 	Medium = 2,
@@ -110,6 +112,10 @@ func _on_body_entered(body: Node) -> void:
 			
 		# @TODO @DESIGN only allow merges from same size or smaller
 		# prevent both bubbles from getting bigger by only merging in if you are newer
-		# |--------------------------v
+		# 							 v-----------------------------------------------|
 		if self.size < body.size || (self.size == body.size && self.lifetime_ms > body.lifetime_ms):
 			merge_into_bubble(body)
+	
+	if body is Player && !(body as Player).trapped_in_bubble:
+		body.bubble_hit(self)
+		queue_free()
