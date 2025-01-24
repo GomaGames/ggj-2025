@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const Bubble = preload("res://Sprites/bubble.gd")
+
 @export var GRAVITY:float = 200.0
 @export var WALK_FORCE:float = 600.0
 @export var WALK_MAX_SPEED:float = 200
@@ -74,8 +76,7 @@ func handle_fire():
 		return
 		
 	if Input.is_action_just_released(&"p%s_fire" % player_num):
-		var sm_bubble:RigidBody2D = small_bubble_scene.instantiate()
-		bubbles_container.add_child(sm_bubble)
+		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.linear_velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
 		
