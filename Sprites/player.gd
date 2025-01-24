@@ -13,6 +13,7 @@ class_name Player
 @export var STUCK_BUBBLE_TTL:float = 750 # ms per bubble, new bubbles reset ttl
 @export var STUCK_BUBBLE_MASS:float = 0.1 # kg, default is 1kg
 @export var STUCK_BUBBLE_GRAVITY:float = -10
+@export var TRAPPED_BUBBLE_TTL:float = 1500 # ms
 
 @export var player_num:int = 0 # must be 1-4
 @export var physics_enabled:bool = true
@@ -68,14 +69,18 @@ var trapped_in_bubble:bool:
 		return _trapped_in_bubble
 
 var stuck_bubble_lifetime_ms:int = 0
+var trapped_in_bubble_lifetime_ms:int = 0
 
 func bubble_hit(b:Bubble):
 	stuck_bubble_count += b.size
 	if stuck_bubble_count >= 4:
 		become_trapped_in_bubble()
+	else:
+		stuck_bubble_lifetime_ms = stuck_bubble_count * STUCK_BUBBLE_TTL
 
 func become_trapped_in_bubble():
 	trapped_in_bubble = true
+	trapped_in_bubble_lifetime_ms = TRAPPED_BUBBLE_TTL
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -90,8 +95,18 @@ func _physics_process(delta):
 		return
 
 	if trapped_in_bubble:
-		handle_floating(delta)
-		return
+		trapped_in_bubble_lifetime_ms -= delta * 1000
+		if trapped_in_bubble_lifetime_ms <= 0:
+			stuck_bubble_count = 0
+			trapped_in_bubble = false
+			trapped_in_bubble_lifetime_ms = 0
+		else:
+			handle_floating(delta)
+			return
+
+	if stuck_bubble_lifetime_ms > 0:
+		stuck_bubble_lifetime_ms -= delta * 1000
+		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
 
 	handle_movement(delta)
 	handle_fire()
