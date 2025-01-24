@@ -26,7 +26,7 @@ System:
   - Life: shared within each team; when character trapped in a bubble hits a environmental hazard remove one life from their team
   - Win/lose condition: when a team is out of lives and loses another one they lose and the opposing team wins
   - Screen wraping: when reaching one end of the screen if there are no obstacles, character will appear on the opposite side
-  - Environmental hazards: repels characters that hit them, if a character is trapped in a bubble and hits the hazard, they lose a life
+  - Environmental hazards: repels characters that hit them, if a character is trapped in a bubble and hits the hazard, their team loses a life
 
 Bubbles:
   - Propreties: float upwards at set rate,
@@ -35,3 +35,24 @@ Bubbles:
   - Collision with any character: projectile attaches itself and increases bubble meter on character (bubbles size changes the increase value)
   - Collision with other bubble: combine bubbles into larger one
   - Collision with environment: bubbles are blocked and nothing happens to them
+
+# Milestones
+
+Milestone 1:
+  - Air dash
+  - Double jump
+  - Multi-directional melee
+  - Character art
+  - Background art
+
+Milestone 2:
+  - Polishing mechanics
+  - Platform art
+  - Hazards art
+  - SFX
+  - Music
+
+Milestone 3: (Stretch goals)
+  - Polishing game feel
+  - Menus
+  - Second map (moving hazards)
