@@ -17,7 +17,6 @@ const Bubble = preload("res://Sprites/bubble.gd")
 		(get_node("Polygon2D") as Polygon2D).color = value
 
 @export var bubbles_container:Node
-@onready var small_bubble_scene = preload("res://Sprites/SmallBubble.tscn")
 
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"

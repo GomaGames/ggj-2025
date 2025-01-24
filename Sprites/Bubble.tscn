@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwkxw72btoexi"]
+[gd_scene load_steps=3 format=3 uid="uid://bwkxw72btoexi"]
 
 [ext_resource type="Script" path="res://Sprites/bubble.gd" id="1_83yux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmem4"]
 
 [node name="Bubble" type="RigidBody2D"]
 mass = 0.1
 gravity_scale = -0.07
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_83yux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rmem4")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0.545098, 0.54902, 0.764706)
+polygon = PackedVector2Array(0, -10, 10, 0, 0, 11, -10, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
