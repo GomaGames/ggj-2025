@@ -238,8 +238,6 @@ func handle_movement(delta:float):
 
 		horizontal_air_momentum = max(abs(velocity.x), MIN_AIR_MOVEMENT_SPEED)
 
-	#handle_screen_wrap()
-
 func handle_fire():
 	if bubbles_container == null:
 		return

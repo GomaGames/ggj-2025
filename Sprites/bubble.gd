@@ -102,7 +102,6 @@ func _process(delta: float) -> void:
 		pop()
 	
 	handle_screen_wrap()
-	
 
 func _on_body_entered(body: Node) -> void:
 	if body is Bubble:
@@ -125,5 +124,11 @@ func _on_body_entered(body: Node) -> void:
 		queue_free()
 
 func handle_screen_wrap():
-	position.x = wrapf(position.x, 0, screen_size.x)
-	position.y = wrapf(position.y, 0, screen_size.y)
+	if position.x > screen_size.x:
+		position.x = 0
+	if position.x < 0:
+		position.x = screen_size.x
+	if position.y > screen_size.y:
+		position.y = 0
+	if position.y < 0:
+		position.y = screen_size.y
