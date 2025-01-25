@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djy0ouigy4p4e"]
+
+[ext_resource type="Texture2D" uid="uid://dyl4o4ym6u73n" path="res://Assets/Sprites/TMP_Team2Victory.png" id="1_183si"]
+
+[node name="UITeam2Victory" type="Sprite2D"]
+texture = ExtResource("1_183si")

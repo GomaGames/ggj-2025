@@ -60,6 +60,11 @@ func _on_player_kod(team_id:int):
 		team_life_1 -= 1
 	else:
 		team_life_2 -= 1
+	
+	if team_life_1 == 0:
+		$"UI/Team1Victory".show()
+	elif team_life_2 == 0:
+		$"UI/Team2Victory".show()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
