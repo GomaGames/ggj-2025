@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
-[ext_resource type="PackedScene" path="res://Sprites/spike.tscn" id="2_2hbjn"]
+[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
 [ext_resource type="Texture2D" uid="uid://d1jopgd02ycop" path="res://Assets/Sprites/Map1.png" id="2_484jh"]
 [ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
 [ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
@@ -207,12 +207,4 @@ polygon = PackedVector2Array(-29.5541, 485.027, 482.447, 485.557, 483.468, 508.5
 
 [node name="Spike" parent="Hazards" instance=ExtResource("2_2hbjn")]
 position = Vector2(927, 391)
-rotation = -1.61623
-
-[node name="Spike2" parent="Hazards" instance=ExtResource("2_2hbjn")]
-position = Vector2(927, 403)
-rotation = -1.61623
-
-[node name="Spike3" parent="Hazards" instance=ExtResource("2_2hbjn")]
-position = Vector2(927, 380)
-rotation = -1.61623
+rotation = -1.5708
