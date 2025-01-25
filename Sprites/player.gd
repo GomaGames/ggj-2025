@@ -2,6 +2,12 @@ extends CharacterBody2D
 
 class_name Player
 
+# emitted when this player gets knocked out
+signal kod(team_id:int)
+
+# emitted when this player respawns
+signal respawned
+
 @onready var Bubble = load("res://Sprites/bubble.gd")
 
 @export var GRAVITY:float = 2400.0
@@ -18,6 +24,7 @@ class_name Player
 @export var MIN_AIR_MOVEMENT_SPEED:float = 250.0
 
 @export var player_num:int = 0 # must be 1-4
+@export var team_id:int # must be 1 or 2
 @export var physics_enabled:bool = true
 
 @export var DASH_DURATION:float = 200 # ms for how long the dash locks movement
@@ -288,6 +295,7 @@ func knocked_out():
 	trapped_in_bubble = false
 	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
 	respawn_timer = RESPAWN_TIME
+	kod.emit(team_id)
 
 func respawn():
 	var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
@@ -295,6 +303,7 @@ func respawn():
 	global_position = Vector2(spawn_point.global_position)
 	show()
 	dead = false
+	respawned.emit()
 
 func handle_screen_wrap():
 	position.x = wrapf(position.x, 0, screen_size.x)
