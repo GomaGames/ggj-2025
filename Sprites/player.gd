@@ -25,6 +25,7 @@ class_name Player
 		(get_node("Polygon2D") as Polygon2D).color = value
 
 @export var bubbles_container:Node
+@export var map_oneshot_anims_container:Node
 
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
@@ -79,6 +80,8 @@ var fist_visible_lifetime_ms:int = 0
 
 var other_players: Array[Player] = []
 
+var dead: bool = false
+
 func bubble_hit(b:Bubble):
 	stuck_bubble_count += b.size
 	if stuck_bubble_count >= 4:
@@ -91,10 +94,9 @@ func become_trapped_in_bubble():
 	trapped_in_bubble_lifetime_ms = TRAPPED_BUBBLE_TTL
 
 func knocked_out():
-	# @TODO grand pop animation
-	$"GPUParticles2D".restart()
-	$"InBubble".hide()
-	$"Facing".hide()
+	hide()
+	dead = true
+	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -111,8 +113,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float):
 	if !physics_enabled:
 		return
+	
+	if dead:
+		return
 		
-
 	if trapped_in_bubble:
 		trapped_in_bubble_lifetime_ms -= delta * 1000
 		if trapped_in_bubble_lifetime_ms <= 0:
@@ -135,7 +139,6 @@ func handle_floating(delta:float):
 	velocity.y += delta * STUCK_BUBBLE_GRAVITY
 	move_and_slide()
 	
-
 func handle_movement(delta:float):
 	# keyboard input
 	var walk := WALK_FORCE * (Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num))
@@ -183,7 +186,6 @@ func handle_fire():
 		# hide fist if in case it's still visible
 		fist.hide()
 
-
 func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
@@ -204,9 +206,18 @@ func handle_bash(delta:float):
 		for p in other_players:
 			if fist.overlaps_area(p.in_bubble_area):
 				p.bashed(fist, PUNCH_FORCE)
+
+func play_oneshot_animation_in_map(node:Node2D):
+	assert(map_oneshot_anims_container != null)
 	
+	var clone = node.duplicate()
+	map_oneshot_anims_container.add_child(clone)
+	clone.global_position = Vector2(global_position)
+	
+	if clone is GPUParticles2D:
+		clone.restart()
+
 func bashed(f:Area2D, force:float):
-		
 	var direction = (global_position - f.global_position).normalized()
 	var bounce_force = direction * force
 	velocity = bounce_force
@@ -223,21 +234,6 @@ func _on_fist_body_entered(body: Node2D) -> void:
 		var direction = (body.global_position - fist.global_position).normalized()
 		var bounce_force = direction * PUNCH_FORCE
 		body.apply_impulse(bounce_force)
-
-# disconnected
-# may not even need this
-# 
-#func _on_fist_area_entered(area: Area2D) -> void:
-	#if !fist.visible:
-		#return
-	#
-	## this only triggers when a collision occurs by a body 'entering' the fist area
-	## if the fist "appears" and they overlap, nothing will happen
-	#if area is PlayerInBubble:
-		#var other_player = area.get_parent()
-		#assert(other_player is Player)
-		#other_player.bashed(fist, PUNCH_FORCE)
-		
 
 # check if we touch any hazards
 # @TODO may want to handle this in other cases too, such as when not trapped

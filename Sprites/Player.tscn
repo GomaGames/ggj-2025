@@ -14,11 +14,10 @@ lifetime_randomness = 0.6
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 5.0
-inherit_velocity_ratio = 0.837
 direction = Vector3(0, 0, 0)
 spread = 180.0
-initial_velocity_min = 43.61
-initial_velocity_max = 43.61
+initial_velocity_min = 15.57
+initial_velocity_max = 93.97
 radial_velocity_min = -10.0
 radial_velocity_max = 9.99998
 gravity = Vector3(0, -0.07, 0)
@@ -108,16 +107,23 @@ position = Vector2(0, -16)
 scale = Vector2(1.49323, 1.49323)
 shape = SubResource("CircleShape2D_61phm")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="OneShotAnimations" type="Node2D" parent="."]
+editor_description = "these should never be visible from this scene.
+These will be cloned as new instances into the MapScene OneShotAnimations layer"
+visible = false
+
+[node name="PopGPUParticles2D" type="GPUParticles2D" parent="OneShotAnimations"]
 position = Vector2(0, -15)
 emitting = false
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_ltwy0")
 texture = SubResource("PlaceholderTexture2D_nyd0i")
+lifetime = 1.5
 one_shot = true
 preprocess = 0.1
 explosiveness = 1.0
 randomness = 0.15
+fixed_fps = 60
 
 [connection signal="body_entered" from="Facing/Fist" to="." method="_on_fist_body_entered"]
 [connection signal="body_entered" from="InBubble" to="." method="_on_in_bubble_body_entered"]
