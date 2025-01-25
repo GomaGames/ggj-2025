@@ -42,17 +42,23 @@ Milestone 1:
   - Air dash
   - Double jump
   - Multi-directional melee
-  - Character art
-  - Background art
+  - Basic music
+  - Basic SFX
+  - Polishing base mechanics
 
 Milestone 2:
-  - Polishing mechanics
+  - Character art
+  - Bubble art
+  - Background art
   - Platform art
   - Hazards art
-  - SFX
-  - Music
 
-Milestone 3: (Stretch goals)
+Milestone 3:
   - Polishing game feel
+  - Melee art
+
+Milestone 4: (Stretch goals)
   - Menus
   - Second map (moving hazards)
+  - Original music
+  - Original SFX
