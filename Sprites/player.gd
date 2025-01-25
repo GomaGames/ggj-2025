@@ -166,7 +166,7 @@ func _physics_process(delta: float):
 		dash_lifetime_ms -= delta * 1000
 		if dash_lifetime_ms <= 0:
 			dash_lifetime_ms = 0
-			dash_reset_ms = DASH_COOLDOWN
+			dash_reset_ms = DASH_COOLDOWN # set cooldown to prevent more dashes
 		else:
 			move_and_slide()
 			return
@@ -196,7 +196,7 @@ func handle_movement(delta:float):
 			
 	# Check if dash is being pressed, move to dash logic if so
 	if dash_reset_ms == 0 && Input.is_action_just_pressed(&"p%s_dash" % player_num) && walk != 0:
-		velocity.x = DASH_SPEED * walk * delta
+		velocity.x = DASH_SPEED * walk * 1000
 		velocity.x = clamp(velocity.x, -DASH_SPEED, DASH_SPEED)
 		dash_lifetime_ms = DASH_DURATION
 		move_and_slide()
