@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0lqm45h8177a"]
+[gd_scene load_steps=12 format=3 uid="uid://b0lqm45h8177a"]
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
 [ext_resource type="PackedScene" path="res://Sprites/spike.tscn" id="2_2hbjn"]
 [ext_resource type="Texture2D" uid="uid://d1jopgd02ycop" path="res://Assets/Sprites/Map1.png" id="2_484jh"]
-[ext_resource type="PackedScene" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
+[ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
+[ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
 [ext_resource type="PackedScene" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
 [ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
@@ -32,12 +34,18 @@ position = Vector2(54, 626)
 
 [node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
 position = Vector2(-25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0jpcu")
 
 [node name="Life2" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
 position = Vector2(0, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0jpcu")
 
 [node name="Life3" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
 position = Vector2(25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0jpcu")
 
 [node name="TeamLifeSupply2" type="Node2D" parent="UI"]
 modulate = Color(1, 1, 1, 0.513726)
@@ -45,12 +53,18 @@ position = Vector2(1099, 626)
 
 [node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
 position = Vector2(-25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hxww0")
 
 [node name="Life2" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
 position = Vector2(0, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hxww0")
 
 [node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
 position = Vector2(25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hxww0")
 
 [node name="Team1Victory" parent="UI" instance=ExtResource("4_drhtd")]
 visible = false
