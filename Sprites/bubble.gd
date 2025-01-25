@@ -26,6 +26,8 @@ const TTL_MS_SMALL:int = 2200
 const TTL_MS_MEDIUM:int = 3100
 const TTL_MS_LARGE:int = 4000
 
+var velocity = Vector2(-200, 0)
+
 # constructor
 static func new_bubble(size:Size, bubble_container:Node) -> Bubble:
 	var b:Bubble = BubbleScene.instantiate()
@@ -104,9 +106,9 @@ func _process(delta: float) -> void:
 	handle_screen_wrap()
 
 func _physics_process(delta: float) -> void:
-	var collision_info = move_and_collide(self.linear_velocity * delta)
+	var collision_info = move_and_collide(velocity * delta)
 	if collision_info && collision_info.get_collider().name == 'StaticBody2D':
-		self.linear_velocity = self.linear_velocity.bounce(collision_info.get_normal())
+		velocity = velocity.bounce(collision_info.get_normal())
 		
 
 func _on_body_entered(body: Node) -> void:
