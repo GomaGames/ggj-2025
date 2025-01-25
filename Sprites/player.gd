@@ -182,6 +182,9 @@ func _physics_process(delta: float):
 func handle_floating(delta:float):
 	velocity.y += delta * STUCK_BUBBLE_GRAVITY
 	move_and_slide()
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info && collision_info.get_collider().name == 'StaticBody2D':
+		velocity = velocity.bounce(collision_info.get_normal())
 
 func handle_movement(delta:float):
 	# keyboard input

@@ -108,7 +108,7 @@ player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
 [node name="Bubbles" type="Node" parent="."]
 
-[node name="Platforms" type="Node2D" parent="."]
+[node name="Platforms" type="Node2D" parent="." groups=["Platforms"]]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms"]
 physics_material_override = SubResource("PhysicsMaterial_yguc5")

@@ -103,6 +103,12 @@ func _process(delta: float) -> void:
 	
 	handle_screen_wrap()
 
+func _physics_process(delta: float) -> void:
+	var collision_info = move_and_collide(self.linear_velocity * delta)
+	if collision_info && collision_info.get_collider().name == 'StaticBody2D':
+		self.linear_velocity = self.linear_velocity.bounce(collision_info.get_normal())
+		
+
 func _on_body_entered(body: Node) -> void:
 	if body is Bubble:
 		# if we're both Large, do nothing
