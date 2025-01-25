@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name Bubble
 
 @onready var Player = load("res://Sprites/player.gd")
+@onready var screen_size = get_viewport_rect().size
 
 enum Size {
 	Small = 1,
@@ -99,6 +100,9 @@ func _process(delta: float) -> void:
 	
 	if lifetime_ms <= 0:
 		pop()
+	
+	handle_screen_wrap()
+	
 
 func _on_body_entered(body: Node) -> void:
 	if body is Bubble:
@@ -119,3 +123,7 @@ func _on_body_entered(body: Node) -> void:
 	if body is Player && !(body as Player).trapped_in_bubble:
 		body.bubble_hit(self)
 		queue_free()
+
+func handle_screen_wrap():
+	position.x = wrapf(position.x, 0, screen_size.x)
+	position.y = wrapf(position.y, 0, screen_size.y)
