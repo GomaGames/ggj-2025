@@ -2,6 +2,10 @@ extends Node2D
 
 class_name Map
 
+signal match_resolved
+
+var is_match_resolved:bool = false
+
 var _team_life_1:int = 3 # must match the number of $"LifeN" in TeamLifeSupply
 var team_life_1:int:
 	get():
@@ -28,7 +32,7 @@ var team_life_1:int:
 			_:
 				assert(false, "OOB error. number of lives set is not supported")
 
-var _team_life_2:int = 3 # must match the number of $"LifeN" in TeamLifeSupply
+var _team_life_2:int = 1 # must match the number of $"LifeN" in TeamLifeSupply
 var team_life_2:int:
 	get():
 		return _team_life_2
@@ -63,11 +67,17 @@ func _on_player_kod(team_id:int):
 	
 	if team_life_1 == 0:
 		$"UI/Team1Victory".show()
+		match_resolved.emit()
 	elif team_life_2 == 0:
 		$"UI/Team2Victory".show()
+		match_resolved.emit()
+
+func _on_match_resolved():
+	is_match_resolved = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	match_resolved.connect(_on_match_resolved)
 	$"Players/Player 1".kod.connect(_on_player_kod)
 	$"Players/Player 2".kod.connect(_on_player_kod)
 	$"Players/Player 3".kod.connect(_on_player_kod)
@@ -75,4 +85,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_match_resolved && Input.is_action_just_pressed(&"any_start"):
+		get_tree().reload_current_scene()
