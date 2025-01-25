@@ -135,6 +135,10 @@ p2_right={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+p2_dash={
+"deadzone": 0.5,
+"events": []
+}
 p3_start={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":2,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
@@ -177,6 +181,10 @@ p3_bash={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":2,"button_index":10,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+p3_dash={
+"deadzone": 0.5,
+"events": []
+}
 p4_start={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":3,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
@@ -218,4 +226,8 @@ p4_right={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":3,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
 ]
+}
+p4_dash={
+"deadzone": 0.5,
+"events": []
 }
