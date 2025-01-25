@@ -4,19 +4,18 @@ class_name Player
 
 @onready var Bubble = load("res://Sprites/bubble.gd")
 
-@export var GRAVITY:float = 200.0
-@export var WALK_FORCE:float = 600.0
-@export var WALK_MAX_SPEED:float = 200
-@export var STOP_FORCE:float = 1300
-@export var JUMP_SPEED:float = 200
+@export var GRAVITY:float = 2400.0
+@export var WALK_SPEED:float = 20000
+@export var JUMP_SPEED:float = 600
 @export var FIRE_FORCE:float = 500
 @export var STUCK_BUBBLE_TTL:float = 750 # ms per bubble, new bubbles reset ttl
 @export var STUCK_BUBBLE_MASS:float = 0.1 # kg, default is 1kg
 @export var STUCK_BUBBLE_GRAVITY:float = -10
-@export var TRAPPED_BUBBLE_TTL:float = 1500 # ms
+@export var TRAPPED_BUBBLE_TTL:float = 3000 # ms
 @export var FIST_VISIBLE_DURATION:int = 200 # ms
 @export var PUNCH_FORCE:float = 450.0
 @export var RESPAWN_TIME:float = 1500.0 # ms
+@export var MIN_AIR_MOVEMENT_SPEED:float = 250.0
 
 @export var player_num:int = 0 # must be 1-4
 @export var physics_enabled:bool = true
@@ -64,7 +63,7 @@ var _trapped_in_bubble:bool = false
 var trapped_in_bubble:bool:
 	set(value):
 		_trapped_in_bubble = value
-		
+
 		if value:
 			$"InBubble".show()
 			$"Polygon2D".hide()
@@ -76,6 +75,7 @@ var trapped_in_bubble:bool:
 	get():
 		return _trapped_in_bubble
 
+var horizontal_air_momentum:float = 0
 var stuck_bubble_lifetime_ms:int = 0
 var trapped_in_bubble_lifetime_ms:int = 0
 var fist_visible_lifetime_ms:int = 0
@@ -102,11 +102,11 @@ func become_trapped_in_bubble():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
-	
+
 	for p in get_parent().get_children():
 		if p is Player && p != self:
 			other_players.append(p)
-	
+
 	# save spawn point in the map's PlayerSpawnPoints layer
 	if player_spawn_points_container != null:
 		var spawn_point = Marker2D.new()
@@ -118,13 +118,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !physics_enabled:
 		return
-	
+
 	if dead:
 		respawn_timer -= delta * 1000
 		if respawn_timer <= 0:
 			respawn_timer = 0
 			respawn()
-	
+
 	if !dead && !trapped_in_bubble && stuck_bubble_lifetime_ms > 0:
 		stuck_bubble_lifetime_ms -= delta * 1000
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
@@ -133,10 +133,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float):
 	if !physics_enabled:
 		return
-	
+
 	if dead:
 		return
-		
+
 	if trapped_in_bubble:
 		trapped_in_bubble_lifetime_ms -= delta * 1000
 		if trapped_in_bubble_lifetime_ms <= 0:
@@ -147,7 +147,7 @@ func _physics_process(delta: float):
 			handle_floating(delta)
 			return
 
-		
+
 	handle_movement(delta)
 	handle_fire()
 	handle_bash(delta)
@@ -155,24 +155,28 @@ func _physics_process(delta: float):
 func handle_floating(delta:float):
 	velocity.y += delta * STUCK_BUBBLE_GRAVITY
 	move_and_slide()
-	
+
 func handle_movement(delta:float):
 	# keyboard input
-	var walk := WALK_FORCE * (Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num))
+	var walk := Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num)
 
 	# gamepad input
 	if walk == 0:
-		walk = WALK_FORCE * Input.get_joy_axis(player_num-1,JOY_AXIS_LEFT_X)
+		if Input.get_joy_axis(player_num-1,JOY_AXIS_LEFT_X) < -0.2:
+			walk = -1
+		elif Input.get_joy_axis(player_num-1,JOY_AXIS_LEFT_X) > 0.2:
+			walk = 1
 
-	# Slow down the player if they're not trying to move.
-	if abs(walk) < WALK_FORCE * 0.2:
-		# The velocity, slowed down a bit, and then reassigned.
-		velocity.x = move_toward(velocity.x, 0, STOP_FORCE * delta)
+	var horiz_speed:float
+	if self.is_on_floor():
+		horiz_speed = WALK_SPEED
 	else:
-		velocity.x += walk * delta
+		horiz_speed = horizontal_air_momentum * 50
 
-	# Clamp to the maximum horizontal movement speed.
-	velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
+	if walk != 0:
+		velocity.x = walk * horiz_speed * delta
+	else:
+		velocity.x = 0
 
 	# flip facing direction
 	if velocity.x < 0:
@@ -189,13 +193,15 @@ func handle_movement(delta:float):
 	if is_on_floor() and Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		velocity.y = -JUMP_SPEED
 		jump_count = 1
-	
+
 	if !is_on_floor() and jump_count == 1 and Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		velocity.y = -JUMP_SPEED
 		jump_count = 2
-	
+
 	if is_on_floor() and !Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		jump_count = 0
+
+		horizontal_air_momentum = max(abs(velocity.x), MIN_AIR_MOVEMENT_SPEED)
 
 	#handle_screen_wrap()
 
@@ -207,17 +213,17 @@ func handle_fire():
 		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.linear_velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
-	
+
 		# hide fist if in case it's still visible
 		fist.hide()
 
 func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
-	
+
 	if fist_visible_lifetime_ms > 0:
 		fist_visible_lifetime_ms -= delta * 1000
-	
+
 	if fist_visible_lifetime_ms <= 0:
 		fist_visible_lifetime_ms = 0
 		fist.hide()
@@ -225,7 +231,7 @@ func handle_bash(delta:float):
 	if Input.is_action_just_released(&"p%s_bash" % player_num):
 		fist.show()
 		fist_visible_lifetime_ms = FIST_VISIBLE_DURATION
-		
+
 		# extra check for collision since fist may overlap with another body or area
 		# and the _on_fist_area_entered signal won't trigger
 		for p in other_players:
@@ -234,11 +240,11 @@ func handle_bash(delta:float):
 
 func play_oneshot_animation_in_map(node:Node2D):
 	assert(map_oneshot_anims_container != null)
-	
+
 	var clone = node.duplicate()
 	map_oneshot_anims_container.add_child(clone)
 	clone.global_position = Vector2(global_position)
-	
+
 	if clone is GPUParticles2D:
 		clone.restart()
 
@@ -254,7 +260,7 @@ func knocked_out():
 	trapped_in_bubble = false
 	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
 	respawn_timer = RESPAWN_TIME
-	
+
 func respawn():
 	var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
 	assert(spawn_point is Marker2D)
@@ -269,7 +275,7 @@ func handle_screen_wrap():
 func _on_fist_body_entered(body: Node2D) -> void:
 	if !fist.visible:
 		return
-	
+
 	if body is Bubble:
 		var direction = (body.global_position - fist.global_position).normalized()
 		var bounce_force = direction * PUNCH_FORCE
@@ -280,6 +286,6 @@ func _on_fist_body_entered(body: Node2D) -> void:
 func _on_in_bubble_body_entered(body: Node2D) -> void:
 	if !trapped_in_bubble:
 		return
-		
+
 	if body.is_in_group(&"hazard"):
 		knocked_out()
