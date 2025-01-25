@@ -16,6 +16,7 @@ class_name Player
 @export var TRAPPED_BUBBLE_TTL:float = 1500 # ms
 @export var FIST_VISIBLE_DURATION:int = 200 # ms
 @export var PUNCH_FORCE:float = 450.0
+@export var RESPAWN_TIME:float = 1500.0 # ms
 
 @export var player_num:int = 0 # must be 1-4
 @export var physics_enabled:bool = true
@@ -26,6 +27,7 @@ class_name Player
 
 @export var bubbles_container:Node
 @export var map_oneshot_anims_container:Node
+@export var player_spawn_points_container:Node
 
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
@@ -77,6 +79,7 @@ var trapped_in_bubble:bool:
 var stuck_bubble_lifetime_ms:int = 0
 var trapped_in_bubble_lifetime_ms:int = 0
 var fist_visible_lifetime_ms:int = 0
+var respawn_timer:float = 0
 
 var other_players: Array[Player] = []
 
@@ -92,12 +95,8 @@ func bubble_hit(b:Bubble):
 func become_trapped_in_bubble():
 	trapped_in_bubble = true
 	trapped_in_bubble_lifetime_ms = TRAPPED_BUBBLE_TTL
+	stuck_bubble_lifetime_ms = 0
 
-func knocked_out():
-	hide()
-	dead = true
-	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
-	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
@@ -105,10 +104,28 @@ func _ready() -> void:
 	for p in get_parent().get_children():
 		if p is Player && p != self:
 			other_players.append(p)
+	
+	# save spawn point in the map's PlayerSpawnPoints layer
+	if player_spawn_points_container != null:
+		var spawn_point = Marker2D.new()
+		spawn_point.global_position = global_position
+		spawn_point.name = &"SpawnPointPlayer%s" % player_num
+		player_spawn_points_container.add_child(spawn_point)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if !physics_enabled:
+		return
+	
+	if dead:
+		respawn_timer -= delta * 1000
+		if respawn_timer <= 0:
+			respawn_timer = 0
+			respawn()
+	
+	if !dead && !trapped_in_bubble && stuck_bubble_lifetime_ms > 0:
+		stuck_bubble_lifetime_ms -= delta * 1000
+		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
 
 func _physics_process(delta: float):
 	if !physics_enabled:
@@ -127,9 +144,6 @@ func _physics_process(delta: float):
 			handle_floating(delta)
 			return
 
-	if stuck_bubble_lifetime_ms > 0:
-		stuck_bubble_lifetime_ms -= delta * 1000
-		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
 		
 	handle_movement(delta)
 	handle_fire()
@@ -221,6 +235,21 @@ func bashed(f:Area2D, force:float):
 	var direction = (global_position - f.global_position).normalized()
 	var bounce_force = direction * force
 	velocity = bounce_force
+
+func knocked_out():
+	hide()
+	dead = true
+	stuck_bubble_count = 0
+	trapped_in_bubble = false
+	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
+	respawn_timer = RESPAWN_TIME
+	
+func respawn():
+	var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
+	assert(spawn_point is Marker2D)
+	global_position = Vector2(spawn_point.global_position)
+	show()
+	dead = false
 
 func handle_screen_wrap():
 	position.x = wrapf(position.x, 0, screen_size.x)

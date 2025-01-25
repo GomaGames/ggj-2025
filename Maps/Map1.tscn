@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
-[ext_resource type="PackedScene" path="res://Sprites/spike.tscn" id="2_2hbjn"]
+[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
 
@@ -13,24 +13,31 @@ size = Vector2(448, 33)
 
 [node name="UI" type="Node" parent="."]
 
+[node name="PlayerSpawnPoints" type="Node" parent="."]
+editor_description = "This layer should be kept empty.
+When players are actually ready'd on a map, they will imprint their initial spawn points as Marker2D children here.
+If we ever choose to have different spawn points, we can add Marker2Ds to this layer and change this behavior."
+
 [node name="OneShotAnimations" type="Node" parent="."]
 editor_description = "Layer for adding animations, particles, effects etc"
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container") instance=ExtResource("1_eil7l")]
+[node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(463, 418)
 player_num = 1
 color = Color(0.150753, 0.385059, 1, 1)
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
+player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
-[node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container") instance=ExtResource("1_eil7l")]
+[node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(689, 417)
 player_num = 2
 color = Color(0, 0.565367, 1.73271e-06, 1)
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
+player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
 [node name="Bubbles" type="Node" parent="."]
 
