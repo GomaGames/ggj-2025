@@ -15,11 +15,6 @@ script = ExtResource("1_83yux")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rmem4")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
-color = Color(0, 0.545098, 0.54902, 0.764706)
-polygon = PackedVector2Array(0, -10, 10, 0, 0, 11, -10, 0)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_nqur8")
 
