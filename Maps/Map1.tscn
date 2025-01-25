@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0lqm45h8177a"]
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
-[ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
 [ext_resource type="PackedScene" path="res://Sprites/spike.tscn" id="2_2hbjn"]
+[ext_resource type="Texture2D" uid="uid://d1jopgd02ycop" path="res://Assets/Sprites/Map1.png" id="2_484jh"]
 [ext_resource type="PackedScene" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
 [ext_resource type="PackedScene" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
 [ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
@@ -21,7 +21,7 @@ offset_left = -1.0
 offset_top = -12.0
 offset_right = 1155.0
 offset_bottom = 647.0
-texture = ExtResource("1_pw27w")
+texture = ExtResource("2_484jh")
 metadata/_edit_lock_ = true
 
 [node name="UI" type="Node" parent="."]
