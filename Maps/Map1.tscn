@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
-[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
-[ext_resource type="PackedScene" uid="uid://deob4jkhujgh8" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
-[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
-[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
+[ext_resource type="PackedScene" path="res://Sprites/spike.tscn" id="2_2hbjn"]
+[ext_resource type="PackedScene" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
+[ext_resource type="PackedScene" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
 

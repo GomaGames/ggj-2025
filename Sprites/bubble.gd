@@ -38,12 +38,12 @@ static func new_bubble(size:Size, bubble_container:Node) -> Bubble:
 			b.ttl_ms = TTL_MS_MEDIUM
 			b.lifetime_ms = TTL_MS_MEDIUM
 			b.get_node("CollisionShape2D").scale = Vector2(2,2)
-			b.get_node("Polygon2D").scale = Vector2(2,2)
+			b.get_node("Sprite2D").scale = Vector2(2,2)
 		Size.Large:
 			b.ttl_ms = TTL_MS_LARGE
 			b.lifetime_ms = TTL_MS_LARGE
 			b.get_node("CollisionShape2D").scale = Vector2(3,3)
-			b.get_node("Polygon2D").scale = Vector2(3,3)
+			b.get_node("Sprite2D").scale = Vector2(3,3)
 		_:
 			assert(false, "Invalid value for 'size' or not yet implemented")
 			
@@ -73,11 +73,11 @@ func merge(b:Bubble):
 	match size:
 		Size.Small: # become Medium
 			$"CollisionShape2D".scale = Vector2(2,2)
-			$"Polygon2D".scale = Vector2(2,2)
+			$"Sprite2D".scale = Vector2(2,2)
 			size = Size.Medium
 		Size.Medium: # become Large
 			$"CollisionShape2D".scale = Vector2(3,3)
-			$"Polygon2D".scale = Vector2(3,3)
+			$"Sprite2D".scale = Vector2(3,3)
 			size = Size.Large
 		Size.Large:
 			pass

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwkxw72btoexi"]
+[gd_scene load_steps=4 format=3 uid="uid://bwkxw72btoexi"]
 
 [ext_resource type="Script" path="res://Sprites/bubble.gd" id="1_83yux"]
+[ext_resource type="Texture2D" uid="uid://rwyi1hglac7l" path="res://Assets/Sprites/bubble.png" id="2_nqur8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmem4"]
 
@@ -15,7 +16,11 @@ script = ExtResource("1_83yux")
 shape = SubResource("CircleShape2D_rmem4")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color(0, 0.545098, 0.54902, 0.764706)
 polygon = PackedVector2Array(0, -10, 10, 0, 0, 11, -10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nqur8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
