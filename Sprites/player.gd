@@ -128,6 +128,7 @@ func _process(delta: float) -> void:
 	if !dead && !trapped_in_bubble && stuck_bubble_lifetime_ms > 0:
 		stuck_bubble_lifetime_ms -= delta * 1000
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
+	handle_screen_wrap()
 
 func _physics_process(delta: float):
 	if !physics_enabled:
@@ -196,7 +197,7 @@ func handle_movement(delta:float):
 	if is_on_floor() and !Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		jump_count = 0
 
-	handle_screen_wrap()
+	#handle_screen_wrap()
 
 func handle_fire():
 	if bubbles_container == null:
