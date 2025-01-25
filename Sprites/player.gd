@@ -85,6 +85,8 @@ var other_players: Array[Player] = []
 
 var dead: bool = false
 
+var jump_count = 0
+
 func bubble_hit(b:Bubble):
 	stuck_bubble_count += b.size
 	if stuck_bubble_count >= 4:
@@ -185,6 +187,14 @@ func handle_movement(delta:float):
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if is_on_floor() and Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		velocity.y = -JUMP_SPEED
+		jump_count = 1
+	
+	if !is_on_floor() and jump_count == 1 and Input.is_action_just_pressed(&"p%s_jump" % player_num):
+		velocity.y = -JUMP_SPEED
+		jump_count = 2
+	
+	if is_on_floor() and !Input.is_action_just_pressed(&"p%s_jump" % player_num):
+		jump_count = 0
 
 	handle_screen_wrap()
 

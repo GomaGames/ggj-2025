@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
-[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
+[ext_resource type="PackedScene" path="res://Sprites/spike.tscn" id="2_2hbjn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
 
