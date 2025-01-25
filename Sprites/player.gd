@@ -21,6 +21,11 @@ class_name Player
 @export var player_num:int = 0 # must be 1-4
 @export var physics_enabled:bool = true
 
+@export var DASH_DURATION:float = 200 # ms for how long the dash locks movement
+@export var DASH_COOLDOWN:float = 1000 # ms for how long after a dash completes that you can go again
+@export var DASH_SPEED:float = 600;
+
+
 @export var color:Color:
 	set(value):
 		(get_node("Polygon2D") as Polygon2D).color = value
@@ -75,6 +80,9 @@ var trapped_in_bubble:bool:
 			$"Facing".show()
 	get():
 		return _trapped_in_bubble
+
+var dash_lifetime_ms:int = 0
+var dash_reset_ms:int = 0
 
 var stuck_bubble_lifetime_ms:int = 0
 var trapped_in_bubble_lifetime_ms:int = 0
@@ -145,7 +153,19 @@ func _physics_process(delta: float):
 		else:
 			handle_floating(delta)
 			return
-
+	
+	if dash_lifetime_ms > 0: # Lock out movement during dash
+		dash_lifetime_ms -= delta * 1000
+		if dash_lifetime_ms <= 0:
+			dash_lifetime_ms = 0
+			dash_reset_ms = DASH_COOLDOWN
+		else:
+			move_and_slide()
+			return
+	if dash_reset_ms > 0: # handle dash reset
+		dash_reset_ms -= delta * 1000
+		if dash_reset_ms <= 0:
+			dash_reset_ms = 0
 		
 	handle_movement(delta)
 	handle_fire()
@@ -163,6 +183,15 @@ func handle_movement(delta:float):
 	if walk == 0:
 		walk = WALK_FORCE * Input.get_joy_axis(player_num-1,JOY_AXIS_LEFT_X)
 
+
+	# Check if dash is being pressed, move to dash logic if so
+	if dash_reset_ms == 0 && Input.is_action_just_pressed(&"p%s_dash" % player_num) && walk != 0:
+		velocity.x = DASH_SPEED * walk * delta
+		velocity.x = clamp(velocity.x, -DASH_SPEED, DASH_SPEED)
+		dash_lifetime_ms = DASH_DURATION
+		move_and_slide()
+		return
+		
 	# Slow down the player if they're not trying to move.
 	if abs(walk) < WALK_FORCE * 0.2:
 		# The velocity, slowed down a bit, and then reassigned.
