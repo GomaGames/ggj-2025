@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0lqm45h8177a"]
+[gd_scene load_steps=10 format=3 uid="uid://b0lqm45h8177a"]
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Texture2D" uid="uid://mv0awqi5ygq" path="res://Assets/Maps/tmp-map1.png" id="1_pw27w"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
 [ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
 [ext_resource type="PackedScene" uid="uid://deob4jkhujgh8" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
+[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yguc5"]
 
@@ -49,6 +51,14 @@ position = Vector2(0, -5)
 
 [node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
 position = Vector2(25, 7)
+
+[node name="Team1Victory" parent="UI" instance=ExtResource("4_drhtd")]
+visible = false
+position = Vector2(599, 276)
+
+[node name="Team2Victory" parent="UI" instance=ExtResource("5_p4m3y")]
+visible = false
+position = Vector2(598, 275)
 
 [node name="PlayerSpawnPoints" type="Node" parent="."]
 editor_description = "This layer should be kept empty.
