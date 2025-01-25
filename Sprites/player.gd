@@ -272,7 +272,7 @@ func handle_bash(delta:float):
 		# and the _on_fist_area_entered signal won't trigger
 		for p in other_players:
 			if fist.overlaps_area(p.in_bubble_area):
-				p.bashed(fist, PUNCH_FORCE)
+				p.bashed(fist, PUNCH_FORCE, team_id)
 
 func play_oneshot_animation_in_map(node:Node2D):
 	assert(map_oneshot_anims_container != null)
@@ -284,9 +284,14 @@ func play_oneshot_animation_in_map(node:Node2D):
 	if clone is GPUParticles2D:
 		clone.restart()
 
-func bashed(f:Area2D, force:float):
+func bashed(f:Area2D, force:float, basherTeamId:int):
 	var direction = (global_position - f.global_position).normalized()
 	var bounce_force = direction * force
+	if trapped_in_bubble:
+		if basherTeamId == team_id:
+			trapped_in_bubble_lifetime_ms -= 500 # 500ms for ally
+		else:
+			trapped_in_bubble_lifetime_ms -= 300 # 300 for enemy
 	velocity = bounce_force
 
 func knocked_out():
