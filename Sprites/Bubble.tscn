@@ -1,9 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwkxw72btoexi"]
+[gd_scene load_steps=6 format=3 uid="uid://bwkxw72btoexi"]
 
 [ext_resource type="Script" path="res://Sprites/bubble.gd" id="1_83yux"]
 [ext_resource type="Texture2D" uid="uid://rwyi1hglac7l" path="res://Assets/Sprites/bubble.png" id="2_nqur8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmem4"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhrbe"]
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 15.57
+initial_velocity_max = 93.97
+radial_velocity_min = -10.0
+radial_velocity_max = 9.99998
+gravity = Vector3(0, -0.07, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oddnc"]
+size = Vector2(3, 3)
 
 [node name="Bubble" type="RigidBody2D"]
 mass = 0.1
@@ -17,5 +33,23 @@ shape = SubResource("CircleShape2D_rmem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_nqur8")
+
+[node name="OneShotAnimations" type="Node2D" parent="."]
+editor_description = "these should never be visible from this scene.
+These will be cloned as new instances into the MapScene OneShotAnimations layer"
+visible = false
+
+[node name="PopGPUParticles2D" type="GPUParticles2D" parent="OneShotAnimations"]
+position = Vector2(0, -15)
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_bhrbe")
+texture = SubResource("PlaceholderTexture2D_oddnc")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.1
+explosiveness = 1.0
+randomness = 0.15
+fixed_fps = 60
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
