@@ -102,9 +102,6 @@ var dead: bool = false
 
 var jump_count = 0
 
-const TTL_MS_SMALL:int = 2200
-const TTL_MS_MEDIUM:int = 3100
-
 func bubble_hit(b:Bubble):
 	if !trapped_in_bubble:
 		stuck_bubble_count += b.size
@@ -362,9 +359,13 @@ func _on_in_bubble_body_entered(body: Node2D) -> void:
 		knocked_out()
 
 func handle_ttl_color():
-	if trapped_in_bubble_lifetime_ms >= TTL_MS_MEDIUM:
-		$"InBubble".modulate = Color.HOT_PINK
-	elif trapped_in_bubble_lifetime_ms >= TTL_MS_SMALL:
-		$"InBubble".modulate = Color.AQUA
+	var time_percentage_left = (trapped_in_bubble_lifetime_ms / TRAPPED_BUBBLE_TTL) * 100
+	
+	if time_percentage_left >= 75:
+		$"InBubble".modulate = Bubble.TTL_COLOR_DEFAULT
+	elif time_percentage_left >= 50:
+		$"InBubble".modulate = Bubble.TTL_COLOR_YELLOW
+	elif time_percentage_left >= 25:
+		$"InBubble".modulate = Bubble.TTL_COLOR_ORANGE
 	else:
-		$"InBubble".modulate = Color.WHITE
+		$"InBubble".modulate = Bubble.TTL_COLOR_RED

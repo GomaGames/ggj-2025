@@ -18,6 +18,7 @@ var size:Size
 var bubble_container:Node
 var ttl_ms:float
 var lifetime_ms:float
+var starting_ttl_ms:float
 
 # validate that this has not been instantiated without the constructor
 var used_constructor:bool = false
@@ -25,6 +26,10 @@ var used_constructor:bool = false
 const TTL_MS_SMALL:int = 3500
 const TTL_MS_MEDIUM:int = 4200
 const TTL_MS_LARGE:int = 5000
+const TTL_COLOR_DEFAULT = Color.WHITE
+const TTL_COLOR_YELLOW = Color.YELLOW
+const TTL_COLOR_ORANGE = Color.ORANGE
+const TTL_COLOR_RED = Color.RED
 
 const merge_into_trapped_bubble_ttl:Array[int] = [
 	0,		# nothing
@@ -43,14 +48,17 @@ static func new_bubble(size:Size, bubble_container:Node) -> Bubble:
 		Size.Small:
 			b.ttl_ms = TTL_MS_SMALL
 			b.lifetime_ms = TTL_MS_SMALL
+			b.starting_ttl_ms = TTL_MS_SMALL
 		Size.Medium:
 			b.ttl_ms = TTL_MS_MEDIUM
 			b.lifetime_ms = TTL_MS_MEDIUM
+			b.starting_ttl_ms = TTL_MS_MEDIUM
 			b.get_node("CollisionShape2D").scale = Vector2(2,2)
 			b.get_node("Sprite2D").scale = Vector2(2,2)
 		Size.Large:
 			b.ttl_ms = TTL_MS_LARGE
 			b.lifetime_ms = TTL_MS_LARGE
+			b.starting_ttl_ms = TTL_MS_LARGE
 			b.get_node("CollisionShape2D").scale = Vector2(3,3)
 			b.get_node("Sprite2D").scale = Vector2(3,3)
 		_:
@@ -85,11 +93,13 @@ func merge(b:Bubble):
 			$"Sprite2D".scale = Vector2(2,2)
 			size = Size.Medium
 			ttl_ms = TTL_MS_MEDIUM
+			starting_ttl_ms = TTL_MS_MEDIUM
 		Size.Medium: # become Large
 			$"CollisionShape2D".scale = Vector2(3,3)
 			$"Sprite2D".scale = Vector2(3,3)
 			size = Size.Large
 			ttl_ms = TTL_MS_LARGE
+			starting_ttl_ms = TTL_MS_LARGE
 		Size.Large:
 			pass
 	
@@ -156,9 +166,13 @@ func handle_screen_wrap():
 		position.y = screen_size.y
 
 func handle_ttl_color():
-	if lifetime_ms >= TTL_MS_MEDIUM:
-		$"Sprite2D".modulate = Color.HOT_PINK
-	elif lifetime_ms >= TTL_MS_SMALL:
-		$"Sprite2D".modulate = Color.AQUA
+	var time_percentage_left = (lifetime_ms / starting_ttl_ms) * 100
+	
+	if time_percentage_left >= 75:
+		$"Sprite2D".modulate = TTL_COLOR_DEFAULT
+	elif time_percentage_left >= 50:
+		$"Sprite2D".modulate = TTL_COLOR_YELLOW
+	elif time_percentage_left >= 25:
+		$"Sprite2D".modulate = TTL_COLOR_ORANGE
 	else:
-		$"Sprite2D".modulate = Color.WHITE
+		$"Sprite2D".modulate = TTL_COLOR_RED
