@@ -27,6 +27,7 @@ project/assembly_name="GGJ 2025"
 [global_group]
 
 hazard="Any hazard that will pop a bubble when touched"
+platforms=""
 
 [input]
 

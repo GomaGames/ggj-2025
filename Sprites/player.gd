@@ -254,7 +254,7 @@ func handle_fire():
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
 
-		# hide fist if in case it's still visible
+		# hide fist in case it's still visible
 		fist.hide()
 
 func handle_bash(delta:float):
