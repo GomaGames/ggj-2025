@@ -272,7 +272,7 @@ func handle_fire():
 	if Input.is_action_just_released(&"p%s_fire" % player_num):
 		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
-		sm_bubble.linear_velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
+		sm_bubble.velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
 
 		# hide fist if in case it's still visible
 		fist.hide()
