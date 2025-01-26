@@ -91,12 +91,14 @@ func merge(b:Bubble):
 		Size.Small: # become Medium
 			$"CollisionShape2D".scale = Vector2(2,2)
 			$"Sprite2D".scale = Vector2(2,2)
+			$"BubbleOutline".scale = Vector2(2,2) * .5
 			size = Size.Medium
 			ttl_ms = TTL_MS_MEDIUM
 			starting_ttl_ms = TTL_MS_MEDIUM
 		Size.Medium: # become Large
 			$"CollisionShape2D".scale = Vector2(3,3)
 			$"Sprite2D".scale = Vector2(3,3)
+			$"BubbleOutline".scale = Vector2(3,3) * .5
 			size = Size.Large
 			ttl_ms = TTL_MS_LARGE
 			starting_ttl_ms = TTL_MS_LARGE

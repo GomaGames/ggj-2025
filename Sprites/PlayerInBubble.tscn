@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgurf5yo1f4cp"]
+[gd_scene load_steps=5 format=3 uid="uid://bgurf5yo1f4cp"]
 
 [ext_resource type="Script" path="res://Sprites/player_in_bubble.gd" id="1_supdv"]
 [ext_resource type="Texture2D" uid="uid://rwyi1hglac7l" path="res://Assets/Sprites/bubble.png" id="2_de3ra"]
+[ext_resource type="Texture2D" uid="uid://dcq2qb24ax188" path="res://Assets/Sprites/bubble_outline.png" id="2_n0g3d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_61phm"]
 
@@ -9,6 +10,11 @@
 mass = 2.0
 gravity_scale = -0.07
 script = ExtResource("1_supdv")
+
+[node name="BubbleOutline" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.25004, 1.25004)
+texture = ExtResource("2_n0g3d")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(2, 10)

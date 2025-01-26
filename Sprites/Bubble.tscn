@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwkxw72btoexi"]
+[gd_scene load_steps=7 format=3 uid="uid://bwkxw72btoexi"]
 
 [ext_resource type="Script" path="res://Sprites/bubble.gd" id="1_83yux"]
 [ext_resource type="Texture2D" uid="uid://rwyi1hglac7l" path="res://Assets/Sprites/bubble.png" id="2_nqur8"]
+[ext_resource type="Texture2D" uid="uid://dcq2qb24ax188" path="res://Assets/Sprites/bubble_outline.png" id="3_g20au"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmem4"]
 
@@ -28,10 +29,15 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_83yux")
 
+[node name="BubbleOutline" type="Sprite2D" parent="."]
+scale = Vector2(0.469266, 0.469266)
+texture = ExtResource("3_g20au")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rmem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.784806, 0.784806)
 texture = ExtResource("2_nqur8")
 
 [node name="OneShotAnimations" type="Node2D" parent="."]
