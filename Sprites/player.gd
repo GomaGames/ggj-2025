@@ -138,13 +138,13 @@ func _ready() -> void:
 				animatedSprite = $"Sprite/Player 1"
 			2:
 				$"Sprite/Player 2".show()
-				animatedSprite = $"Sprite/Player 1"
+				animatedSprite = $"Sprite/Player 2"
 			3:
 				$"Sprite/Player 3".show()
-				animatedSprite = $"Sprite/Player 1"
+				animatedSprite = $"Sprite/Player 3"
 			4:
 				$"Sprite/Player 4".show()
-				animatedSprite = $"Sprite/Player 1"
+				animatedSprite = $"Sprite/Player 4"
 
 	# set collision layers based on teams
 	# you don't collide with your own teammates
@@ -269,14 +269,14 @@ func handle_movement(delta:float):
 func handle_fire():
 	if bubbles_container == null:
 		return
-
+	
 	if Input.is_action_just_released(&"p%s_fire" % player_num):
 		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
 		
 		animatedSprite.play('Kick')
-
+		
 		# hide fist in case it's still visible
 		fist.hide()
 
@@ -306,7 +306,6 @@ func handle_bash(delta:float):
 	if fist_visible_lifetime_ms <= 0:
 		fist_visible_lifetime_ms = 0
 		fist.hide()
-		animatedSprite.play('Idle')
 
 	# visual stuff ## END  @TODO can be removed when real animations are added
 

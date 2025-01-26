@@ -324,6 +324,38 @@ region = Rect2(360, 0, 24, 24)
 atlas = ExtResource("5_bhv6p")
 region = Rect2(384, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vekfd"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ews"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2vqq"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk85g"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoqg1"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(240, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cisn7"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(264, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctyyp"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(288, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hytdu"]
+atlas = ExtResource("5_bhv6p")
+region = Rect2(312, 0, 24, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj8hr"]
 atlas = ExtResource("5_bhv6p")
 region = Rect2(96, 0, 24, 24)
@@ -348,38 +380,6 @@ region = Rect2(192, 0, 24, 24)
 atlas = ExtResource("5_bhv6p")
 region = Rect2(216, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aoqg1"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(240, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cisn7"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(264, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctyyp"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(288, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hytdu"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(312, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vekfd"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6ews"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b2vqq"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vk85g"]
-atlas = ExtResource("5_bhv6p")
-region = Rect2(72, 0, 24, 24)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_61kys"]
 animations = [{
 "frames": [{
@@ -398,22 +398,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cj8hr")
+"texture": SubResource("AtlasTexture_vekfd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u41hw")
+"texture": SubResource("AtlasTexture_r6ews")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mb5fq")
+"texture": SubResource("AtlasTexture_b2vqq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sw37f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p1wsl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3004d")
+"texture": SubResource("AtlasTexture_vk85g")
 }],
 "loop": true,
 "name": &"Idle",
@@ -438,19 +432,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vekfd")
+"texture": SubResource("AtlasTexture_cj8hr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r6ews")
+"texture": SubResource("AtlasTexture_u41hw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b2vqq")
+"texture": SubResource("AtlasTexture_mb5fq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vk85g")
+"texture": SubResource("AtlasTexture_sw37f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1wsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3004d")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -707,8 +707,8 @@ visible = false
 position = Vector2(1, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_f7ulr")
-animation = &"Idle"
-frame_progress = 0.571687
+animation = &"Walk"
+frame_progress = 0.68331
 
 [node name="Player 3" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
@@ -722,7 +722,7 @@ visible = false
 position = Vector2(2, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_61kys")
-animation = &"Hurt"
+animation = &"Idle"
 
 [node name="Player 4" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
