@@ -220,16 +220,11 @@ func handle_movement(delta:float):
 	velocity += shove_velocity
 	move_and_slide()
 
-	# Check for jumping. is_on_floor() must be called after movement code.
-	if is_on_floor() and Input.is_action_just_pressed(&"p%s_jump" % player_num):
+	if jump_count < 2 and Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		velocity.y = -JUMP_SPEED
-		jump_count = 1
+		jump_count += 1
 
-	if !is_on_floor() and jump_count == 1 and Input.is_action_just_pressed(&"p%s_jump" % player_num):
-		velocity.y = -JUMP_SPEED
-		jump_count = 2
-
-	if is_on_floor() and !Input.is_action_just_pressed(&"p%s_jump" % player_num):
+	if !Input.is_action_just_pressed(&"p%s_jump" % player_num) and is_on_floor():
 		jump_count = 0
 
 		horizontal_air_momentum = max(abs(velocity.x), MIN_AIR_MOVEMENT_SPEED)
