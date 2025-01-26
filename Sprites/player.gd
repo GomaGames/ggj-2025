@@ -277,13 +277,19 @@ func handle_fire():
 		
 		animatedSprite.play('Kick')
 		
-		# hide fist in case it's still visible
-		fist.hide()
+		retract_fist()
+
+func retract_fist():
+	# hide fist in case it's still visible
+	fist.hide()
+	fist_down.hide()
+	fist_forward.hide()
+	fist_up.hide()
 
 func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
-
+	
 	# handle directional bash
 	var direction:BashDirection = BashDirection.FORWARD
 	fist = fist_forward
@@ -304,11 +310,12 @@ func handle_bash(delta:float):
 
 	if fist_visible_lifetime_ms <= 0:
 		fist_visible_lifetime_ms = 0
-		fist.hide()
+		retract_fist()
 
 	# visual stuff ## END  @TODO can be removed when real animations are added
 
 	if Input.is_action_just_released(&"p%s_bash" % player_num):
+		retract_fist()
 		animatedSprite.play('Kick')
 		fist.show()
 		fist_visible_lifetime_ms = FIST_VISIBLE_DURATION

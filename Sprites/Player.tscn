@@ -10,24 +10,6 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgne3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tgcfs"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ltwy0"]
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 5.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 15.57
-initial_velocity_max = 93.97
-radial_velocity_min = -10.0
-radial_velocity_max = 9.99998
-gravity = Vector3(0, -0.07, 0)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nyd0i"]
-size = Vector2(3, 3)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvlrn"]
 atlas = ExtResource("3_o1xon")
 region = Rect2(336, 0, 24, 24)
@@ -596,6 +578,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgcfs"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ltwy0"]
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 15.57
+initial_velocity_max = 93.97
+radial_velocity_min = -10.0
+radial_velocity_max = 9.99998
+gravity = Vector3(0, -0.07, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nyd0i"]
+size = Vector2(3, 3)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_8b4kp")
@@ -604,25 +604,41 @@ script = ExtResource("1_8b4kp")
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_jgne3")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Player 1" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
-color = Color(0.70885, 0.000269725, 0.677756, 1)
-polygon = PackedVector2Array(-10, -30, 10, -30, 10, 0, -10, 0)
+position = Vector2(1, -17)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_f7ulr")
+animation = &"Kick"
+frame_progress = 0.206348
+
+[node name="Player 3" type="AnimatedSprite2D" parent="Sprite"]
+visible = false
+position = Vector2(1, -18)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6v5x1")
+animation = &"Idle"
+
+[node name="Player 2" type="AnimatedSprite2D" parent="Sprite"]
+visible = false
+position = Vector2(2, -18)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_61kys")
+animation = &"Idle"
+
+[node name="Player 4" type="AnimatedSprite2D" parent="Sprite"]
+visible = false
+position = Vector2(0, -18)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qqjw0")
+animation = &"Hurt"
 
 [node name="Facing" type="Node2D" parent="."]
-visible = false
 
 [node name="FireOriginPoint" type="Marker2D" parent="Facing"]
 position = Vector2(20, -14)
-
-[node name="Eyes" type="Polygon2D" parent="Facing"]
-color = Color(0, 0.203922, 0, 1)
-polygon = PackedVector2Array(7, -26, 4, -23, 7, -20, 9, -23)
-
-[node name="Cannon" type="Polygon2D" parent="Facing"]
-position = Vector2(4, 9)
-color = Color(0, 0.203922, 0, 1)
-polygon = PackedVector2Array(7, -24, 4, -23, 7, -22, 9, -23)
 
 [node name="FistForward" type="Area2D" parent="Facing"]
 visible = false
@@ -699,37 +715,6 @@ texture = ExtResource("3_1ry51")
 visible = false
 position = Vector2(-10, -4)
 texture = ExtResource("3_1ry51")
-
-[node name="Sprite" type="Node2D" parent="."]
-
-[node name="Player 1" type="AnimatedSprite2D" parent="Sprite"]
-visible = false
-position = Vector2(1, -17)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_f7ulr")
-animation = &"Kick"
-frame_progress = 0.206348
-
-[node name="Player 3" type="AnimatedSprite2D" parent="Sprite"]
-visible = false
-position = Vector2(1, -18)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_6v5x1")
-animation = &"Idle"
-
-[node name="Player 2" type="AnimatedSprite2D" parent="Sprite"]
-visible = false
-position = Vector2(2, -18)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_61kys")
-animation = &"Idle"
-
-[node name="Player 4" type="AnimatedSprite2D" parent="Sprite"]
-visible = false
-position = Vector2(0, -18)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qqjw0")
-animation = &"Hurt"
 
 [connection signal="body_entered" from="Facing/FistForward" to="." method="_on_fist_body_entered"]
 [connection signal="body_entered" from="Facing/FistUp" to="." method="_on_fist_body_entered"]
