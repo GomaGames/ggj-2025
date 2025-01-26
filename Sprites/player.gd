@@ -27,9 +27,9 @@ signal respawned
 @export var team_id:int # must be 1 or 2
 @export var physics_enabled:bool = true
 
-@export var DASH_DURATION:float = 200 # ms for how long the dash locks movement
-@export var DASH_COOLDOWN:float = 1000 # ms for how long after a dash completes that you can go again
-@export var DASH_SPEED:float = 600;
+@export var DASH_DURATION:float = 100 # ms for how long the dash locks movement
+@export var DASH_COOLDOWN:float = 700 # ms for how long after a dash completes that you can go again
+@export var DASH_SPEED:float = 1000;
 
 
 @export var color:Color:
@@ -189,6 +189,7 @@ func handle_movement(delta:float):
 			walk = facing.scale.x
 		velocity.x = DASH_SPEED * walk * 1000
 		velocity.x = clamp(velocity.x, -DASH_SPEED, DASH_SPEED)
+		velocity.y = 0 # no vertical makes it more noticable during falls
 		dash_lifetime_ms = DASH_DURATION
 		move_and_slide()
 		return
