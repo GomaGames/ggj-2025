@@ -32,10 +32,6 @@ signal respawned
 @export var DASH_SPEED:float = 1000;
 
 
-@export var color:Color:
-	set(value):
-		(get_node("Polygon2D") as Polygon2D).color = value
-
 @export var bubbles_container:Node
 @export var map_oneshot_anims_container:Node
 @export var player_spawn_points_container:Node
