@@ -284,12 +284,14 @@ func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
 
+	# visual stuff ## START
 	if fist_visible_lifetime_ms > 0:
 		fist_visible_lifetime_ms -= delta * 1000
 
 	if fist_visible_lifetime_ms <= 0:
 		fist_visible_lifetime_ms = 0
 		fist.hide()
+	# visual stuff ## END  @TODO can be removed when real animations are added
 
 	if Input.is_action_just_released(&"p%s_bash" % player_num):
 		fist.show()
@@ -299,7 +301,7 @@ func handle_bash(delta:float):
 		# and the _on_fist_area_entered signal won't trigger
 		for p in other_players:
 			if fist.overlaps_area(p.in_bubble_area):
-				p.bashed(fist, PUNCH_FORCE, team_id)
+				p.bashed(fist, PUNCH_FORCE, team_id, Vector2(facing.scale.x,0))
 
 func play_oneshot_animation_in_map(node:Node2D):
 	assert(map_oneshot_anims_container != null)
@@ -311,8 +313,7 @@ func play_oneshot_animation_in_map(node:Node2D):
 	if clone is GPUParticles2D:
 		clone.restart()
 
-func bashed(f:Area2D, force:float, basherTeamId:int):
-	var direction = (global_position - f.global_position).normalized()
+func bashed(f:Area2D, force:float, basherTeamId:int, direction:Vector2):
 	var bounce_force = direction * force
 	if trapped_in_bubble:
 		if basherTeamId == team_id:
