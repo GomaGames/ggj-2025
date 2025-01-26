@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0lqm45h8177a"]
+[gd_scene load_steps=13 format=3 uid="uid://b0lqm45h8177a"]
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
 [ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 [ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="9_tcwpg"]
+[ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsn2s"]
 resource_local_to_scene = true
@@ -641,3 +642,7 @@ rotation = -4.71238
 [node name="Spike7" parent="Hazards" instance=ExtResource("2_2hbjn")]
 position = Vector2(1092, 388)
 rotation = -3.14159
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_estjw")
+autoplay = true
