@@ -9,6 +9,7 @@ signal kod(team_id:int)
 signal respawned
 
 @onready var Bubble = load("res://Sprites/bubble.gd")
+@onready var Player = load("res://Sprites/Player-temp.tscn")
 
 @export var GRAVITY:float = 2400.0
 @export var WALK_SPEED:float = 20000
@@ -56,7 +57,6 @@ enum BashDirection {
 @onready var fist_down:Area2D = $"Facing/FistDown"
 @onready var fist:Area2D = fist_forward # active fist
 
-
 var _stuck_bubble_count:int = 0
 var stuck_bubble_count:int:
 	set(value):
@@ -80,7 +80,7 @@ var stuck_bubble_count:int:
 		_stuck_bubble_count = value
 	get():
 		return _stuck_bubble_count
-
+			
 var map:Map
 
 var dash_lifetime_ms:int = 0
@@ -115,7 +115,7 @@ func become_trapped_in_bubble():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
-
+	
 	# reminder: this can be null
 	if get_parent().name == "Players" && get_parent().get_parent() is Map:
 		map = get_parent().get_parent()
@@ -130,6 +130,16 @@ func _ready() -> void:
 		spawn_point.global_position = global_position
 		spawn_point.name = &"SpawnPointPlayer%s" % player_num
 		player_spawn_points_container.add_child(spawn_point)
+		
+		match player_num:
+			1:
+				$"Sprite/Player 1".show()
+			2:
+				$"Sprite/Player 2".show()
+			3:
+				$"Sprite/Player 3".show()
+			4:
+				$"Sprite/Player 3".show()
 
 	# set collision layers based on teams
 	# you don't collide with your own teammates
