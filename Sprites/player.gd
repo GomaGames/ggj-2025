@@ -106,11 +106,14 @@ const TTL_MS_SMALL:int = 2200
 const TTL_MS_MEDIUM:int = 3100
 
 func bubble_hit(b:Bubble):
-	stuck_bubble_count += b.size
-	if stuck_bubble_count >= 4:
-		become_trapped_in_bubble()
+	if !trapped_in_bubble:
+		stuck_bubble_count += b.size
+		if stuck_bubble_count >= 4:
+			become_trapped_in_bubble()
+		else:
+			stuck_bubble_lifetime_ms = stuck_bubble_count * STUCK_BUBBLE_TTL
 	else:
-		stuck_bubble_lifetime_ms = stuck_bubble_count * STUCK_BUBBLE_TTL
+		trapped_in_bubble_lifetime_ms = clamp(trapped_in_bubble_lifetime_ms+b.get_merge_into_trapped_bubble_ttl(),0,TRAPPED_BUBBLE_TTL)
 
 func become_trapped_in_bubble():
 	trapped_in_bubble = true

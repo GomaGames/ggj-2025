@@ -26,6 +26,13 @@ const TTL_MS_SMALL:int = 3500
 const TTL_MS_MEDIUM:int = 4200
 const TTL_MS_LARGE:int = 5000
 
+const merge_into_trapped_bubble_ttl:Array[int] = [
+	0,		# nothing
+	1000,	# small
+	2000,	# medium
+	3000,	# large
+]
+
 var velocity = Vector2(-200, 0)
 
 # constructor
@@ -94,6 +101,9 @@ func reset_ttl():
 func pop():
 	self.queue_free()
 
+func get_merge_into_trapped_bubble_ttl()->int:
+	return merge_into_trapped_bubble_ttl[size]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -131,7 +141,7 @@ func _on_body_entered(body: Node) -> void:
 		if self.size < body.size || (self.size == body.size && self.lifetime_ms > body.lifetime_ms):
 			merge_into_bubble(body)
 	
-	if body is Player && !(body as Player).trapped_in_bubble:
+	if body is Player:
 		body.bubble_hit(self)
 		queue_free()
 
