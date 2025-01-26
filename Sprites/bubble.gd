@@ -131,10 +131,16 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide(velocity * delta)
-	if collision_info && collision_info.get_collider() is StaticBody2D && (collision_info.get_collider() as StaticBody2D).is_in_group("hazard"):
-		pop()
-	elif collision_info && collision_info.get_collider() is StaticBody2D && (collision_info.get_collider() as StaticBody2D).is_in_group("platforms"):
-		velocity = velocity.bounce(collision_info.get_normal())
+	if collision_info:
+		if collision_info.get_collider() is StaticBody2D && (collision_info.get_collider() as StaticBody2D).is_in_group("hazard"):
+			pop()
+		if collision_info.get_collider() is StaticBody2D && (collision_info.get_collider() as StaticBody2D).is_in_group("platforms"):
+			velocity = velocity.bounce(collision_info.get_normal())
+		if collision_info.get_collider() is Bubble && (collision_info.get_collider() as Bubble).size == Bubble.Size.Large:
+			velocity = velocity.bounce(collision_info.get_normal())
+		if collision_info.get_collider() is PlayerInBubble:
+			(collision_info.get_collider() as PlayerInBubble).bubble_hit(self)
+			pop()
 
 func _on_body_entered(body: Node) -> void:
 	if body is Bubble:
@@ -151,13 +157,15 @@ func _on_body_entered(body: Node) -> void:
 		# 							 v-----------------------------------------------|
 		if self.size < body.size || (self.size == body.size && self.lifetime_ms > body.lifetime_ms):
 			merge_into_bubble(body)
-			
-	if body is PlayerInBubble:
-		body.bubble_hit(self)
+	
+	# handled in _physics_process, though it might be more optimized in this handler
+	#if body is PlayerInBubble:
+		#body.bubble_hit(self)
+		#pop()
 	
 	if body is Player:
 		body.bubble_hit(self)
-		queue_free()
+		pop()
 
 func handle_screen_wrap():
 	if position.x > screen_size.x:
