@@ -70,6 +70,8 @@ var stuck_bubble_count:int:
 	get():
 		return _stuck_bubble_count
 
+var map:Map
+
 var dash_lifetime_ms:int = 0
 var dash_reset_ms:int = 0
 
@@ -97,12 +99,15 @@ func become_trapped_in_bubble():
 	stuck_bubble_count = 0
 	var new_pib = PlayerInBubble.new_pib(self)
 	bubbles_container.call_deferred("add_child",new_pib)
-	get_parent().remove_child(self)
+	get_parent().call_deferred(&"remove_child", self) # @TODO this is causing a an error
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
 
+	# reminder: this can be null
+	map = get_parent().get_parent()
+	
 	for p in get_parent().get_children():
 		if p is Player && p != self:
 			other_players.append(p)
@@ -287,20 +292,22 @@ func bashed(bash_velocity:Vector2):
 	shove_velocity = bash_velocity
 
 func knocked_out():
-	hide()
-	dead = true
-	stuck_bubble_count = 0
-	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
-	respawn_timer = RESPAWN_TIME
-	kod.emit(team_id)
+	if !dead:
+		hide()
+		dead = true
+		stuck_bubble_count = 0
+		play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
+		respawn_timer = RESPAWN_TIME
+		kod.emit(team_id)
 
 func respawn():
-	var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
-	assert(spawn_point is Marker2D)
-	global_position = Vector2(spawn_point.global_position)
-	show()
-	dead = false
-	respawned.emit()
+	if map is Map && map[(&"team_life_%s" % team_id)] as int > 0:
+		var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
+		assert(spawn_point is Marker2D)
+		global_position = Vector2(spawn_point.global_position)
+		show()
+		dead = false
+		respawned.emit()
 
 func handle_screen_wrap():
 	position.x = wrapf(position.x, 0, screen_size.x)
