@@ -12,12 +12,12 @@ signal respawned
 
 @export var GRAVITY:float = 2400.0
 @export var WALK_SPEED:float = 20000
-@export var JUMP_SPEED:float = 600
+@export var JUMP_SPEED:float = 700
 @export var FIRE_FORCE:float = 500
 @export var STUCK_BUBBLE_TTL:float = 750 # ms per bubble, new bubbles reset ttl
 @export var STUCK_BUBBLE_MASS:float = 0.1 # kg, default is 1kg
 @export var STUCK_BUBBLE_GRAVITY:float = -10
-@export var TRAPPED_BUBBLE_TTL:float = 4000 # ms
+@export var TRAPPED_BUBBLE_TTL:float = 3500 # ms
 @export var FIST_VISIBLE_DURATION:int = 200 # ms
 @export var PUNCH_FORCE:float = 450.0
 @export var RESPAWN_TIME:float = 1500.0 # ms
