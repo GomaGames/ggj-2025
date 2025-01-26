@@ -220,7 +220,9 @@ func handle_movement(delta:float):
 			walk = 1
 			
 	# Check if dash is being pressed, move to dash logic if so
-	if dash_reset_ms == 0 && Input.is_action_just_pressed(&"p%s_dash" % player_num) && walk != 0:
+	if dash_reset_ms == 0 && Input.is_action_just_pressed(&"p%s_dash" % player_num):
+		if walk == 0: # dash in the direction the player is facing
+			walk = facing.scale.x
 		velocity.x = DASH_SPEED * walk * 1000
 		velocity.x = clamp(velocity.x, -DASH_SPEED, DASH_SPEED)
 		dash_lifetime_ms = DASH_DURATION
