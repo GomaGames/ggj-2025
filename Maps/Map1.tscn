@@ -133,16 +133,16 @@ scale = Vector2(10.5888, 1.34372)
 shape = SubResource("RectangleShape2D_gsn2s")
 
 [node name="TextureRect" type="TextureRect" parent="Platforms/Platform1"]
-offset_left = -88.0
+offset_left = -86.0
 offset_top = -15.0
-offset_right = 112.0
+offset_right = 114.0
 offset_bottom = 13.0
 texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Platform3" type="StaticBody2D" parent="Platforms"]
-position = Vector2(279, 636)
+position = Vector2(288, 636)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3"]
 position = Vector2(12.5, -1)

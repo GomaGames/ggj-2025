@@ -66,10 +66,10 @@ func _on_player_kod(team_id:int):
 		team_life_2 -= 1
 	
 	if team_life_1 == 0:
-		$"UI/Team1Victory".show()
+		$"UI/Team2Victory".show()
 		match_resolved.emit()
 	elif team_life_2 == 0:
-		$"UI/Team2Victory".show()
+		$"UI/Team1Victory".show()
 		match_resolved.emit()
 
 func _on_match_resolved():

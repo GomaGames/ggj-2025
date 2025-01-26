@@ -24,9 +24,9 @@ color = Color(0, 0.203922, 0, 1)
 polygon = PackedVector2Array(7, -26, 4, -23, 7, -20, 9, -23)
 
 [node name="Bubble" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2.28306, 2.28306)
 texture = ExtResource("2_de3ra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3.68633, 3.68633)
+scale = Vector2(2.81286, 2.81286)
 shape = SubResource("CircleShape2D_61phm")
