@@ -96,7 +96,7 @@ func become_trapped_in_bubble():
 	stuck_bubble_lifetime_ms = 0
 	stuck_bubble_count = 0
 	var new_pib = PlayerInBubble.new_pib(self)
-	bubbles_container.add_child(new_pib)
+	bubbles_container.call_deferred("add_child",new_pib)
 	get_parent().remove_child(self)
 
 # Called when the node enters the scene tree for the first time.

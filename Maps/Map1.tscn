@@ -205,6 +205,10 @@ polygon = PackedVector2Array(-29.5541, 485.027, 482.447, 485.557, 483.468, 508.5
 
 [node name="Hazards" type="Node" parent="."]
 
+[node name="Spike2" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(881, 387)
+rotation = -1.60407
+
 [node name="Spike" parent="Hazards" instance=ExtResource("2_2hbjn")]
-position = Vector2(927, 391)
-rotation = -1.5708
+position = Vector2(257, 396)
+rotation = 1.43921

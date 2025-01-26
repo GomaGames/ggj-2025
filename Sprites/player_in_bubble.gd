@@ -62,11 +62,5 @@ func _physics_process(delta: float) -> void:
 func pop():
 	player.velocity = linear_velocity
 	player.global_position = global_position
-	players_container.add_child(player)
+	players_container.call_deferred("add_child",player)
 	queue_free()
-
-# @TODO THIS ISN'T WORKING
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group(&"hazard"):
-		pop()
-		player.knocked_out()
