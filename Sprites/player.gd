@@ -51,10 +51,10 @@ enum BashDirection {
 	DOWN,
 }
 
-var fist:Area2D # active fist
 @onready var fist_forward:Area2D = $"Facing/FistForward"
 @onready var fist_up:Area2D = $"Facing/FistUp"
 @onready var fist_down:Area2D = $"Facing/FistDown"
+@onready var fist:Area2D = fist_forward # active fist
 
 
 var _stuck_bubble_count:int = 0
@@ -117,7 +117,8 @@ func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
 
 	# reminder: this can be null
-	map = get_parent().get_parent()
+	if get_parent().name == "Players" && get_parent().get_parent() is Map:
+		map = get_parent().get_parent()
 	
 	for p in get_parent().get_children():
 		if p is Player && p != self:
