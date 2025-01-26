@@ -17,9 +17,9 @@ signal respawned
 @export var STUCK_BUBBLE_TTL:float = 750 # ms per bubble, new bubbles reset ttl
 @export var STUCK_BUBBLE_MASS:float = 0.1 # kg, default is 1kg
 @export var STUCK_BUBBLE_GRAVITY:float = -10
-@export var TRAPPED_BUBBLE_TTL:float = 3500 # ms
 @export var FIST_VISIBLE_DURATION:int = 200 # ms
-@export var PUNCH_FORCE:float = 450.0
+@export var PUNCH_BUBBLE_FORCE:float = 450.0
+@export var PUNCH_PLAYER_FORCE:float = 2600.0
 @export var RESPAWN_TIME:float = 1500.0 # ms
 @export var MIN_AIR_MOVEMENT_SPEED:float = 250.0
 
@@ -43,7 +43,6 @@ signal respawned
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
 @onready var fist:Area2D = $"Facing/Fist"
-@onready var in_bubble_area:PlayerInBubble = $"InBubble"
 
 @onready var screen_size = get_viewport_rect().size
 
@@ -71,28 +70,12 @@ var stuck_bubble_count:int:
 	get():
 		return _stuck_bubble_count
 
-var _trapped_in_bubble:bool = false
-var trapped_in_bubble:bool:
-	set(value):
-		_trapped_in_bubble = value
-
-		if value:
-			$"InBubble".show()
-			$"Polygon2D".hide()
-			$"Facing".hide()
-		else:
-			$"InBubble".hide()
-			$"Polygon2D".show()
-			$"Facing".show()
-	get():
-		return _trapped_in_bubble
-
 var dash_lifetime_ms:int = 0
 var dash_reset_ms:int = 0
 
+var shove_velocity:Vector2
 var horizontal_air_momentum:float = 0
 var stuck_bubble_lifetime_ms:int = 0
-var trapped_in_bubble_lifetime_ms:int = 0
 var fist_visible_lifetime_ms:int = 0
 var respawn_timer:float = 0
 
@@ -103,19 +86,18 @@ var dead: bool = false
 var jump_count = 0
 
 func bubble_hit(b:Bubble):
-	if !trapped_in_bubble:
-		stuck_bubble_count += b.size
-		if stuck_bubble_count >= 4:
-			become_trapped_in_bubble()
-		else:
-			stuck_bubble_lifetime_ms = stuck_bubble_count * STUCK_BUBBLE_TTL
+	stuck_bubble_count += b.size
+	if stuck_bubble_count >= 4:
+		become_trapped_in_bubble()
 	else:
-		trapped_in_bubble_lifetime_ms = clamp(trapped_in_bubble_lifetime_ms+b.get_merge_into_trapped_bubble_ttl(),0,TRAPPED_BUBBLE_TTL)
+		stuck_bubble_lifetime_ms = stuck_bubble_count * STUCK_BUBBLE_TTL
 
 func become_trapped_in_bubble():
-	trapped_in_bubble = true
-	trapped_in_bubble_lifetime_ms = TRAPPED_BUBBLE_TTL
 	stuck_bubble_lifetime_ms = 0
+	stuck_bubble_count = 0
+	var new_pib = PlayerInBubble.new_pib(self)
+	bubbles_container.add_child(new_pib)
+	get_parent().remove_child(self)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -131,11 +113,11 @@ func _ready() -> void:
 		spawn_point.global_position = global_position
 		spawn_point.name = &"SpawnPointPlayer%s" % player_num
 		player_spawn_points_container.add_child(spawn_point)
-	
+
 	# set collision layers based on teams
 	# you don't collide with your own teammates
 	# Collision bits
-	# 
+	#
 	#   |--- team 2
 	#   ||-- team 1
 	#   vvv- bubbles, environment, every player looks at this
@@ -160,7 +142,7 @@ func _process(delta: float) -> void:
 			respawn_timer = 0
 			respawn()
 
-	if !dead && !trapped_in_bubble && stuck_bubble_lifetime_ms > 0:
+	if !dead && stuck_bubble_lifetime_ms > 0:
 		stuck_bubble_lifetime_ms -= delta * 1000
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
 
@@ -173,16 +155,6 @@ func _physics_process(delta: float):
 	if dead:
 		return
 
-	if trapped_in_bubble:
-		trapped_in_bubble_lifetime_ms -= delta * 1000
-		if trapped_in_bubble_lifetime_ms <= 0:
-			stuck_bubble_count = 0
-			trapped_in_bubble = false
-			trapped_in_bubble_lifetime_ms = 0
-		else:
-			handle_floating(delta)
-			return
-	
 	if dash_lifetime_ms > 0: # Lock out movement during dash
 		dash_lifetime_ms -= delta * 1000
 		if dash_lifetime_ms <= 0:
@@ -195,18 +167,10 @@ func _physics_process(delta: float):
 		dash_reset_ms -= delta * 1000
 		if dash_reset_ms <= 0:
 			dash_reset_ms = 0
-		
+
 	handle_movement(delta)
 	handle_fire()
 	handle_bash(delta)
-
-func handle_floating(delta:float):
-	velocity.y += delta * STUCK_BUBBLE_GRAVITY
-	move_and_slide()
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info && collision_info.get_collider().name == 'StaticBody2D':
-		velocity = velocity.bounce(collision_info.get_normal())
-	handle_ttl_color()
 
 func handle_movement(delta:float):
 	# keyboard input
@@ -218,7 +182,7 @@ func handle_movement(delta:float):
 			walk = -1
 		elif Input.get_joy_axis(player_num-1,JOY_AXIS_LEFT_X) > 0.2:
 			walk = 1
-			
+
 	# Check if dash is being pressed, move to dash logic if so
 	if dash_reset_ms == 0 && Input.is_action_just_pressed(&"p%s_dash" % player_num):
 		if walk == 0: # dash in the direction the player is facing
@@ -228,7 +192,7 @@ func handle_movement(delta:float):
 		dash_lifetime_ms = DASH_DURATION
 		move_and_slide()
 		return
-		
+
 	var horiz_speed:float
 	if self.is_on_floor():
 		horiz_speed = WALK_SPEED
@@ -249,6 +213,11 @@ func handle_movement(delta:float):
 	# apply gravity
 	velocity.y += delta * GRAVITY
 
+	# apply any shove forces
+	shove_velocity /= 2
+	if shove_velocity.abs() < Vector2(0.1,0.1):
+		shove_velocity = Vector2.ZERO
+	velocity += shove_velocity
 	move_and_slide()
 
 	# Check for jumping. is_on_floor() must be called after movement code.
@@ -296,9 +265,18 @@ func handle_bash(delta:float):
 
 		# extra check for collision since fist may overlap with another body or area
 		# and the _on_fist_area_entered signal won't trigger
+		var bash_direction = Vector2(facing.scale.x, 0)
 		for p in other_players:
-			if fist.overlaps_area(p.in_bubble_area):
-				p.bashed(fist, PUNCH_FORCE, team_id, Vector2(facing.scale.x,0))
+			if p.team_id != team_id && fist.overlaps_body(p):
+				p.bashed(bash_direction * PUNCH_PLAYER_FORCE)
+
+		for b in bubbles_container.get_children():
+			if fist.overlaps_body(b):
+				if b is PlayerInBubble:
+					b.bashed(team_id, bash_direction * PUNCH_BUBBLE_FORCE)
+				elif b is Bubble:
+					b.velocity = bash_direction * PUNCH_PLAYER_FORCE
+
 
 func play_oneshot_animation_in_map(node:Node2D):
 	assert(map_oneshot_anims_container != null)
@@ -310,20 +288,13 @@ func play_oneshot_animation_in_map(node:Node2D):
 	if clone is GPUParticles2D:
 		clone.restart()
 
-func bashed(f:Area2D, force:float, basherTeamId:int, direction:Vector2):
-	var bounce_force = direction * force
-	if trapped_in_bubble:
-		if basherTeamId == team_id:
-			trapped_in_bubble_lifetime_ms -= 500 # 500ms for ally
-		else:
-			trapped_in_bubble_lifetime_ms -= 300 # 300 for enemy
-	velocity = bounce_force
+func bashed(bash_velocity:Vector2):
+	shove_velocity = bash_velocity
 
 func knocked_out():
 	hide()
 	dead = true
 	stuck_bubble_count = 0
-	trapped_in_bubble = false
 	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
 	respawn_timer = RESPAWN_TIME
 	kod.emit(team_id)
@@ -346,26 +317,12 @@ func _on_fist_body_entered(body: Node2D) -> void:
 
 	if body is Bubble:
 		var direction = (body.global_position - fist.global_position).normalized()
-		var bounce_force = direction * PUNCH_FORCE
+		var bounce_force = direction * PUNCH_BUBBLE_FORCE
 		body.apply_impulse(bounce_force)
 
 # check if we touch any hazards
 # @TODO may want to handle this in other cases too, such as when not trapped
 func _on_in_bubble_body_entered(body: Node2D) -> void:
-	if !trapped_in_bubble:
-		return
 
 	if body.is_in_group(&"hazard"):
 		knocked_out()
-
-func handle_ttl_color():
-	var time_percentage_left = (trapped_in_bubble_lifetime_ms / TRAPPED_BUBBLE_TTL) * 100
-	
-	if time_percentage_left >= 75:
-		$"InBubble".modulate = Bubble.TTL_COLOR_DEFAULT
-	elif time_percentage_left >= 50:
-		$"InBubble".modulate = Bubble.TTL_COLOR_YELLOW
-	elif time_percentage_left >= 25:
-		$"InBubble".modulate = Bubble.TTL_COLOR_ORANGE
-	else:
-		$"InBubble".modulate = Bubble.TTL_COLOR_RED

@@ -152,6 +152,9 @@ func _on_body_entered(body: Node) -> void:
 		# 							 v-----------------------------------------------|
 		if self.size < body.size || (self.size == body.size && self.lifetime_ms > body.lifetime_ms):
 			merge_into_bubble(body)
+			
+	if body is PlayerInBubble:
+		body.bubble_hit(self)
 	
 	if body is Player:
 		body.bubble_hit(self)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgurf5yo1f4cp"]
+
+[ext_resource type="Script" path="res://Sprites/player_in_bubble.gd" id="1_supdv"]
+[ext_resource type="Texture2D" uid="uid://rwyi1hglac7l" path="res://Assets/Sprites/bubble.png" id="2_de3ra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_61phm"]
+
+[node name="InBubble" type="RigidBody2D"]
+mass = 2.0
+gravity_scale = -0.07
+script = ExtResource("1_supdv")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(2, 10)
+rotation = -0.161273
+scale = Vector2(0.72728, 0.72728)
+color = Color(0.70885, 0.000269725, 0.677756, 1)
+polygon = PackedVector2Array(-10, -30, 10, -30, 10, 0, -10, 0)
+
+[node name="Eyes" type="Polygon2D" parent="."]
+position = Vector2(9, 16)
+rotation = -0.438817
+color = Color(0, 0.203922, 0, 1)
+polygon = PackedVector2Array(7, -26, 4, -23, 7, -20, 9, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.68633, 3.68633)
+shape = SubResource("CircleShape2D_61phm")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_de3ra")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
