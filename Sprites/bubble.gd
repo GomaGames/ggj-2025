@@ -22,9 +22,9 @@ var lifetime_ms:float
 # validate that this has not been instantiated without the constructor
 var used_constructor:bool = false
 
-const TTL_MS_SMALL:int = 2200
-const TTL_MS_MEDIUM:int = 3100
-const TTL_MS_LARGE:int = 4000
+const TTL_MS_SMALL:int = 3500
+const TTL_MS_MEDIUM:int = 4200
+const TTL_MS_LARGE:int = 5000
 
 var velocity = Vector2(-200, 0)
 
