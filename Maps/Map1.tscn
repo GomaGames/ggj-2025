@@ -122,9 +122,9 @@ player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
 [node name="Bubbles" type="Node" parent="."]
 
-[node name="Platforms" type="Node2D" parent="." groups=["Platforms"]]
+[node name="Platforms" type="Node2D" parent="."]
 
-[node name="Platform1" type="StaticBody2D" parent="Platforms"]
+[node name="Platform1" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(86, 636)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1"]
@@ -141,7 +141,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform3" type="StaticBody2D" parent="Platforms"]
+[node name="Platform3" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(288, 636)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3"]
@@ -158,7 +158,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform4" type="StaticBody2D" parent="Platforms"]
+[node name="Platform4" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(644, 514)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4"]
@@ -175,7 +175,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform23" type="StaticBody2D" parent="Platforms"]
+[node name="Platform23" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(481, 514)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform23"]
@@ -192,7 +192,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform5" type="StaticBody2D" parent="Platforms"]
+[node name="Platform5" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(844, 634)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform5"]
@@ -209,7 +209,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform6" type="StaticBody2D" parent="Platforms"]
+[node name="Platform6" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(1042, 635)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform6"]
@@ -226,7 +226,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform2" type="StaticBody2D" parent="Platforms"]
+[node name="Platform2" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(86, 375)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2"]
@@ -243,7 +243,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform9" type="StaticBody2D" parent="Platforms"]
+[node name="Platform9" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(179, 375)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform9"]
@@ -260,7 +260,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform17" type="StaticBody2D" parent="Platforms"]
+[node name="Platform17" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(99, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform17"]
@@ -277,7 +277,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform18" type="StaticBody2D" parent="Platforms"]
+[node name="Platform18" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(299, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform18"]
@@ -294,7 +294,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform19" type="StaticBody2D" parent="Platforms"]
+[node name="Platform19" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(1042, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform19"]
@@ -311,7 +311,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform20" type="StaticBody2D" parent="Platforms"]
+[node name="Platform20" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(844, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform20"]
@@ -328,7 +328,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform21" type="StaticBody2D" parent="Platforms"]
+[node name="Platform21" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(844, 219)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform21"]
@@ -345,7 +345,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform22" type="StaticBody2D" parent="Platforms"]
+[node name="Platform22" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(279, 219)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform22"]
@@ -362,7 +362,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform10" type="StaticBody2D" parent="Platforms"]
+[node name="Platform10" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(569, 126)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform10"]
@@ -379,7 +379,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform24" type="StaticBody2D" parent="Platforms"]
+[node name="Platform24" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(569, 326)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform24"]
@@ -396,7 +396,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform11" type="StaticBody2D" parent="Platforms"]
+[node name="Platform11" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(-3, 407)
 rotation = 1.57079
 
@@ -414,7 +414,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform12" type="StaticBody2D" parent="Platforms"]
+[node name="Platform12" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(1154, 407)
 rotation = 1.57079
 
@@ -432,7 +432,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform13" type="StaticBody2D" parent="Platforms"]
+[node name="Platform13" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(1154, 207)
 rotation = 1.57079
 
@@ -450,7 +450,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform14" type="StaticBody2D" parent="Platforms"]
+[node name="Platform14" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(1154, 18)
 rotation = 1.57079
 
@@ -468,7 +468,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform15" type="StaticBody2D" parent="Platforms"]
+[node name="Platform15" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(-3, 209)
 rotation = 1.57079
 
@@ -486,7 +486,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform16" type="StaticBody2D" parent="Platforms"]
+[node name="Platform16" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(-3, 17)
 rotation = 1.57079
 
@@ -504,7 +504,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform25" type="StaticBody2D" parent="Platforms"]
+[node name="Platform25" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(393, 243)
 rotation = 1.57079
 scale = Vector2(0.440546, 0.546291)
@@ -523,7 +523,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform26" type="StaticBody2D" parent="Platforms"]
+[node name="Platform26" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(756, 243)
 rotation = 1.57079
 scale = Vector2(0.440546, 0.546291)
@@ -542,7 +542,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform7" type="StaticBody2D" parent="Platforms"]
+[node name="Platform7" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(1042, 375)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7"]
@@ -559,7 +559,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Platform8" type="StaticBody2D" parent="Platforms"]
+[node name="Platform8" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(954, 375)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform8"]

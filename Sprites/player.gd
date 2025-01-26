@@ -9,6 +9,7 @@ signal kod(team_id:int)
 signal respawned
 
 @onready var Bubble = load("res://Sprites/bubble.gd")
+@onready var Player = load("res://Sprites/Player-temp.tscn")
 
 @export var GRAVITY:float = 2400.0
 @export var WALK_SPEED:float = 20000
@@ -42,9 +43,19 @@ signal respawned
 
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
-@onready var fist:Area2D = $"Facing/Fist"
 
 @onready var screen_size = get_viewport_rect().size
+
+enum BashDirection {
+	FORWARD,
+	UP,
+	DOWN,
+}
+
+@onready var fist_forward:Area2D = $"Facing/FistForward"
+@onready var fist_up:Area2D = $"Facing/FistUp"
+@onready var fist_down:Area2D = $"Facing/FistDown"
+@onready var fist:Area2D = fist_forward # active fist
 
 var _stuck_bubble_count:int = 0
 var stuck_bubble_count:int:
@@ -69,6 +80,8 @@ var stuck_bubble_count:int:
 		_stuck_bubble_count = value
 	get():
 		return _stuck_bubble_count
+			
+var map:Map
 
 var dash_lifetime_ms:int = 0
 var dash_reset_ms:int = 0
@@ -97,12 +110,16 @@ func become_trapped_in_bubble():
 	stuck_bubble_count = 0
 	var new_pib = PlayerInBubble.new_pib(self)
 	bubbles_container.call_deferred("add_child",new_pib)
-	get_parent().remove_child(self)
+	get_parent().call_deferred(&"remove_child", self) # @TODO this is causing a an error
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
-
+	
+	# reminder: this can be null
+	if get_parent().name == "Players" && get_parent().get_parent() is Map:
+		map = get_parent().get_parent()
+	
 	for p in get_parent().get_children():
 		if p is Player && p != self:
 			other_players.append(p)
@@ -113,6 +130,16 @@ func _ready() -> void:
 		spawn_point.global_position = global_position
 		spawn_point.name = &"SpawnPointPlayer%s" % player_num
 		player_spawn_points_container.add_child(spawn_point)
+		
+		match player_num:
+			1:
+				$"Sprite/Player 1".show()
+			2:
+				$"Sprite/Player 2".show()
+			3:
+				$"Sprite/Player 3".show()
+			4:
+				$"Sprite/Player 3".show()
 
 	# set collision layers based on teams
 	# you don't collide with your own teammates
@@ -239,12 +266,26 @@ func handle_fire():
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
 
-		# hide fist if in case it's still visible
+		# hide fist in case it's still visible
 		fist.hide()
 
 func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
+
+	# handle directional bash
+	var direction:BashDirection = BashDirection.FORWARD
+	fist = fist_forward
+	var bash_input_amt = Input.get_axis(&"p%s_up" % player_num, &"p%s_down" % player_num)
+	if abs(bash_input_amt) > 0.2:
+		if bash_input_amt < 0:
+			direction = BashDirection.UP
+			fist = fist_up
+		else:
+			direction = BashDirection.DOWN
+			fist = fist_down
+	
+	var walk := Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num)
 
 	# visual stuff ## START
 	if fist_visible_lifetime_ms > 0:
@@ -261,17 +302,25 @@ func handle_bash(delta:float):
 
 		# extra check for collision since fist may overlap with another body or area
 		# and the _on_fist_area_entered signal won't trigger
-		var bash_direction = Vector2(facing.scale.x, 0)
+		var bash_trajectory
+		match direction:
+			BashDirection.FORWARD:
+				bash_trajectory = Vector2(facing.scale.x, 0)
+			BashDirection.UP:
+				bash_trajectory = Vector2(0,-1)
+			BashDirection.DOWN:
+				bash_trajectory = Vector2(0,1)
+				
 		for p in other_players:
 			if p.team_id != team_id && fist.overlaps_body(p):
-				p.bashed(bash_direction * PUNCH_PLAYER_FORCE)
+				p.bashed(bash_trajectory * PUNCH_PLAYER_FORCE)
 
 		for b in bubbles_container.get_children():
 			if fist.overlaps_body(b):
 				if b is PlayerInBubble:
-					b.bashed(team_id, bash_direction * PUNCH_BUBBLE_FORCE)
+					b.bashed(team_id, bash_trajectory * PUNCH_BUBBLE_FORCE)
 				elif b is Bubble:
-					b.velocity = bash_direction * PUNCH_PLAYER_FORCE
+					b.velocity = bash_trajectory * PUNCH_PLAYER_FORCE
 
 
 func play_oneshot_animation_in_map(node:Node2D):
@@ -288,20 +337,22 @@ func bashed(bash_velocity:Vector2):
 	shove_velocity = bash_velocity
 
 func knocked_out():
-	hide()
-	dead = true
-	stuck_bubble_count = 0
-	play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
-	respawn_timer = RESPAWN_TIME
-	kod.emit(team_id)
+	if !dead:
+		hide()
+		dead = true
+		stuck_bubble_count = 0
+		play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
+		respawn_timer = RESPAWN_TIME
+		kod.emit(team_id)
 
 func respawn():
-	var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
-	assert(spawn_point is Marker2D)
-	global_position = Vector2(spawn_point.global_position)
-	show()
-	dead = false
-	respawned.emit()
+	if map is Map && map[(&"team_life_%s" % team_id)] as int > 0:
+		var spawn_point = player_spawn_points_container.get_node(&"SpawnPointPlayer%s" % player_num)
+		assert(spawn_point is Marker2D)
+		global_position = Vector2(spawn_point.global_position)
+		show()
+		dead = false
+		respawned.emit()
 
 func handle_screen_wrap():
 	position.x = wrapf(position.x, 0, screen_size.x)

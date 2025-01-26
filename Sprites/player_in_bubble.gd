@@ -62,5 +62,6 @@ func _physics_process(delta: float) -> void:
 func pop():
 	player.velocity = linear_velocity
 	player.global_position = global_position
-	players_container.call_deferred("add_child",player)
+	if player.get_parent() == null:
+		players_container.call_deferred("add_child",player)
 	queue_free()
