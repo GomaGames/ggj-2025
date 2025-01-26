@@ -301,7 +301,6 @@ func handle_bash(delta:float):
 	# visual stuff ## START
 	if fist_visible_lifetime_ms > 0:
 		fist_visible_lifetime_ms -= delta * 1000
-		animatedSprite.play('Kick')
 
 	if fist_visible_lifetime_ms <= 0:
 		fist_visible_lifetime_ms = 0
@@ -310,6 +309,7 @@ func handle_bash(delta:float):
 	# visual stuff ## END  @TODO can be removed when real animations are added
 
 	if Input.is_action_just_released(&"p%s_bash" % player_num):
+		animatedSprite.play('Kick')
 		fist.show()
 		fist_visible_lifetime_ms = FIST_VISIBLE_DURATION
 

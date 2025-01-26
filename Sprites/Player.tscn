@@ -707,8 +707,8 @@ visible = false
 position = Vector2(1, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_f7ulr")
-animation = &"Walk"
-frame_progress = 0.68331
+animation = &"Kick"
+frame_progress = 0.206348
 
 [node name="Player 3" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
