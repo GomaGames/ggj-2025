@@ -32,7 +32,7 @@ var team_life_1:int:
 			_:
 				assert(false, "OOB error. number of lives set is not supported")
 
-var _team_life_2:int = 1 # must match the number of $"LifeN" in TeamLifeSupply
+var _team_life_2:int = 3 # must match the number of $"LifeN" in TeamLifeSupply
 var team_life_2:int:
 	get():
 		return _team_life_2
