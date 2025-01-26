@@ -31,7 +31,6 @@ signal respawned
 @export var DASH_COOLDOWN:float = 700 # ms for how long after a dash completes that you can go again
 @export var DASH_SPEED:float = 1000;
 
-
 @export var bubbles_container:Node
 @export var map_oneshot_anims_container:Node
 @export var player_spawn_points_container:Node
@@ -77,7 +76,7 @@ var stuck_bubble_count:int:
 		_stuck_bubble_count = value
 	get():
 		return _stuck_bubble_count
-			
+
 var map:Map
 
 var dash_lifetime_ms:int = 0
@@ -112,11 +111,11 @@ func become_trapped_in_bubble():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(player_num > 0 && player_num < 5, "player_num must be set to: 1, 2, 3 or 4")
-	
+
 	# reminder: this can be null
 	if get_parent().name == "Players" && get_parent().get_parent() is Map:
 		map = get_parent().get_parent()
-	
+
 	for p in get_parent().get_children():
 		if p is Player && p != self:
 			other_players.append(p)
@@ -127,7 +126,7 @@ func _ready() -> void:
 		spawn_point.global_position = global_position
 		spawn_point.name = &"SpawnPointPlayer%s" % player_num
 		player_spawn_points_container.add_child(spawn_point)
-		
+
 		match player_num:
 			1:
 				$"Sprite/Player 1".show()
@@ -175,7 +174,7 @@ func _process(delta: float) -> void:
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
 
 	handle_screen_wrap()
-		
+
 func _physics_process(delta: float):
 	if !physics_enabled:
 		return
@@ -242,7 +241,7 @@ func handle_movement(delta:float):
 	elif velocity.x > 0:
 		animatedSprite.flip_h = false
 		facing.scale = Vector2(1, 1)
-		
+
 	# apply gravity
 	velocity.y += delta * GRAVITY
 
@@ -265,14 +264,14 @@ func handle_movement(delta:float):
 func handle_fire():
 	if bubbles_container == null:
 		return
-	
+
 	if Input.is_action_just_released(&"p%s_fire" % player_num):
 		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
-		
+
 		animatedSprite.play('Kick')
-		
+
 		retract_fist()
 
 func retract_fist():
@@ -285,7 +284,7 @@ func retract_fist():
 func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
-	
+
 	# handle directional bash
 	var direction:BashDirection = BashDirection.FORWARD
 	fist = fist_forward
@@ -297,7 +296,7 @@ func handle_bash(delta:float):
 		else:
 			direction = BashDirection.DOWN
 			fist = fist_down
-	
+
 	var walk := Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num)
 
 	# visual stuff ## START
@@ -326,7 +325,7 @@ func handle_bash(delta:float):
 				bash_trajectory = Vector2(0,-1)
 			BashDirection.DOWN:
 				bash_trajectory = Vector2(0,1)
-				
+
 		for p in other_players:
 			if p.team_id != team_id && fist.overlaps_body(p):
 				p.bashed(bash_trajectory * PUNCH_PLAYER_FORCE)
