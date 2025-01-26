@@ -131,13 +131,13 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide(velocity * delta)
-	if collision_info && collision_info.get_collider().name == 'StaticBody2D':
+	if collision_info and collision_info.get_collider().name == 'Spike':
+		pop()
+	elif collision_info && collision_info.get_collider().name == 'StaticBody2D':
 		velocity = velocity.bounce(collision_info.get_normal())
 		
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group(&"hazard"):
-		pop()
 	if body is Bubble:
 		# if we're both Large, do nothing
 		if size == Size.Large && body.size == Size.Large:
