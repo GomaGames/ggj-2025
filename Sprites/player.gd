@@ -131,6 +131,23 @@ func _ready() -> void:
 		spawn_point.global_position = global_position
 		spawn_point.name = &"SpawnPointPlayer%s" % player_num
 		player_spawn_points_container.add_child(spawn_point)
+	
+	# set collision layers based on teams
+	# you don't collide with your own teammates
+	# Collision bits
+	# 
+	#   |--- team 2
+	#   ||-- team 1
+	#   vvv- bubbles, environment, every player looks at this
+	#   111
+	collision_layer = 0b000
+	collision_mask = 0b001
+	if team_id == 1:
+		collision_layer |= 0b010
+		collision_mask |= 0b100
+	else:
+		collision_layer |= 0b100
+		collision_mask |= 0b010
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

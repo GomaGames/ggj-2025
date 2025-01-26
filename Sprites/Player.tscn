@@ -27,6 +27,7 @@ gravity = Vector3(0, -0.07, 0)
 size = Vector2(3, 3)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_8b4kp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
