@@ -645,12 +645,13 @@ visible = false
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/FistForward"]
-position = Vector2(19, -15)
+position = Vector2(25, -15)
+scale = Vector2(1.55385, 1.55385)
 shape = SubResource("CircleShape2D_tgcfs")
 
 [node name="BashSwipe" type="Sprite2D" parent="Facing/FistForward"]
-position = Vector2(17, -15)
-scale = Vector2(0.117192, 0.117192)
+position = Vector2(23, -15)
+scale = Vector2(0.176324, 0.176324)
 texture = ExtResource("2_135b2")
 
 [node name="FistUp" type="Area2D" parent="Facing"]
@@ -658,14 +659,14 @@ visible = false
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/FistUp"]
-position = Vector2(6, -31)
+position = Vector2(2, -39)
 scale = Vector2(1.67552, 1.67552)
 shape = SubResource("CircleShape2D_tgcfs")
 
 [node name="BashSwipe" type="Sprite2D" parent="Facing/FistUp"]
-position = Vector2(6, -36)
+position = Vector2(5, -38)
 rotation = -1.47325
-scale = Vector2(0.117192, 0.117192)
+scale = Vector2(0.171772, 0.171772)
 texture = ExtResource("2_135b2")
 
 [node name="FistDown" type="Area2D" parent="Facing"]
@@ -673,14 +674,14 @@ visible = false
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/FistDown"]
-position = Vector2(6, 0)
+position = Vector2(5, 9)
 scale = Vector2(1.54682, 1.54682)
 shape = SubResource("CircleShape2D_tgcfs")
 
 [node name="BashSwipe" type="Sprite2D" parent="Facing/FistDown"]
-position = Vector2(6, 3.99999)
+position = Vector2(5, 9)
 rotation = 1.3256
-scale = Vector2(0.117192, 0.117192)
+scale = Vector2(0.155215, 0.155215)
 texture = ExtResource("2_135b2")
 
 [node name="OneShotAnimations" type="Node2D" parent="."]
