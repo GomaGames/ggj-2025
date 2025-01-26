@@ -87,7 +87,7 @@ shape = SubResource("CircleShape2D_61phm")
 
 [node name="Bubble" type="Sprite2D" parent="InBubble"]
 position = Vector2(0, -15)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 texture = ExtResource("3_1ry51")
 
 [node name="OneShotAnimations" type="Node2D" parent="."]

@@ -77,10 +77,12 @@ func merge(b:Bubble):
 			$"CollisionShape2D".scale = Vector2(2,2)
 			$"Sprite2D".scale = Vector2(2,2)
 			size = Size.Medium
+			ttl_ms = TTL_MS_MEDIUM
 		Size.Medium: # become Large
 			$"CollisionShape2D".scale = Vector2(3,3)
 			$"Sprite2D".scale = Vector2(3,3)
 			size = Size.Large
+			ttl_ms = TTL_MS_LARGE
 		Size.Large:
 			pass
 	
@@ -99,6 +101,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	lifetime_ms -= delta * 1000
+	
+	handle_ttl_color()
 	
 	if lifetime_ms <= 0:
 		pop()
@@ -140,3 +144,11 @@ func handle_screen_wrap():
 		position.y = 0
 	if position.y < 0:
 		position.y = screen_size.y
+
+func handle_ttl_color():
+	if lifetime_ms >= TTL_MS_MEDIUM:
+		$"Sprite2D".modulate = Color.HOT_PINK
+	elif lifetime_ms >= TTL_MS_SMALL:
+		$"Sprite2D".modulate = Color.AQUA
+	else:
+		$"Sprite2D".modulate = Color.WHITE

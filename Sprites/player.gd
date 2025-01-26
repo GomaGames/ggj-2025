@@ -17,7 +17,7 @@ signal respawned
 @export var STUCK_BUBBLE_TTL:float = 750 # ms per bubble, new bubbles reset ttl
 @export var STUCK_BUBBLE_MASS:float = 0.1 # kg, default is 1kg
 @export var STUCK_BUBBLE_GRAVITY:float = -10
-@export var TRAPPED_BUBBLE_TTL:float = 3000 # ms
+@export var TRAPPED_BUBBLE_TTL:float = 4000 # ms
 @export var FIST_VISIBLE_DURATION:int = 200 # ms
 @export var PUNCH_FORCE:float = 450.0
 @export var RESPAWN_TIME:float = 1500.0 # ms
@@ -102,6 +102,9 @@ var dead: bool = false
 
 var jump_count = 0
 
+const TTL_MS_SMALL:int = 2200
+const TTL_MS_MEDIUM:int = 3100
+
 func bubble_hit(b:Bubble):
 	stuck_bubble_count += b.size
 	if stuck_bubble_count >= 4:
@@ -143,6 +146,7 @@ func _process(delta: float) -> void:
 	if !dead && !trapped_in_bubble && stuck_bubble_lifetime_ms > 0:
 		stuck_bubble_lifetime_ms -= delta * 1000
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
+
 	handle_screen_wrap()
 
 func _physics_process(delta: float):
@@ -185,6 +189,7 @@ func handle_floating(delta:float):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info && collision_info.get_collider().name == 'StaticBody2D':
 		velocity = velocity.bounce(collision_info.get_normal())
+	handle_ttl_color()
 
 func handle_movement(delta:float):
 	# keyboard input
@@ -332,3 +337,11 @@ func _on_in_bubble_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group(&"hazard"):
 		knocked_out()
+
+func handle_ttl_color():
+	if trapped_in_bubble_lifetime_ms >= TTL_MS_MEDIUM:
+		$"InBubble".modulate = Color.HOT_PINK
+	elif trapped_in_bubble_lifetime_ms >= TTL_MS_SMALL:
+		$"InBubble".modulate = Color.AQUA
+	else:
+		$"InBubble".modulate = Color.WHITE
