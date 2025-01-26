@@ -87,3 +87,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_match_resolved && Input.is_action_just_pressed(&"any_start"):
 		get_tree().reload_current_scene()
+		
+	if Input.is_action_just_released(&"p1_select"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

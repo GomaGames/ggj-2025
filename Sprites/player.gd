@@ -179,7 +179,7 @@ func _process(delta: float) -> void:
 		stuck_bubble_count = ceil(stuck_bubble_lifetime_ms / STUCK_BUBBLE_TTL)
 
 	handle_screen_wrap()
-
+		
 func _physics_process(delta: float):
 	if !physics_enabled:
 		return

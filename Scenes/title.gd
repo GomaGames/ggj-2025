@@ -34,6 +34,12 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_released(&"any_start"):
 		get_tree().change_scene_to_file("res://Scenes/character_select.tscn")
+	
+	if event.is_action_released(&"p1_select"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_title_timer_timeout() -> void:
 	var tween = get_tree().create_tween()

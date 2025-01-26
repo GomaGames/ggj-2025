@@ -50,3 +50,9 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_released(&"p4_start"):
 		player_ready(4)
+	
+	if event.is_action_released(&"p1_select"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
