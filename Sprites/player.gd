@@ -9,7 +9,6 @@ signal kod(team_id:int)
 signal respawned
 
 @onready var Bubble = load("res://Sprites/bubble.gd")
-@onready var Player = load("res://Sprites/Player-temp.tscn")
 
 @export var GRAVITY:float = 2400.0
 @export var WALK_SPEED:float = 20000
@@ -56,6 +55,8 @@ enum BashDirection {
 @onready var fist_up:Area2D = $"Facing/FistUp"
 @onready var fist_down:Area2D = $"Facing/FistDown"
 @onready var fist:Area2D = fist_forward # active fist
+
+var animatedSprite:AnimatedSprite2D
 
 var _stuck_bubble_count:int = 0
 var stuck_bubble_count:int:
@@ -134,12 +135,16 @@ func _ready() -> void:
 		match player_num:
 			1:
 				$"Sprite/Player 1".show()
+				animatedSprite = $"Sprite/Player 1"
 			2:
 				$"Sprite/Player 2".show()
+				animatedSprite = $"Sprite/Player 1"
 			3:
 				$"Sprite/Player 3".show()
+				animatedSprite = $"Sprite/Player 1"
 			4:
-				$"Sprite/Player 3".show()
+				$"Sprite/Player 4".show()
+				animatedSprite = $"Sprite/Player 1"
 
 	# set collision layers based on teams
 	# you don't collide with your own teammates
@@ -229,8 +234,10 @@ func handle_movement(delta:float):
 
 	if walk != 0:
 		velocity.x = walk * horiz_speed * delta
+		animatedSprite.play('Walk')
 	else:
 		velocity.x = 0
+		animatedSprite.play('Idle')
 
 	# flip facing direction
 	if velocity.x < 0:
