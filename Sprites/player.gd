@@ -242,8 +242,10 @@ func handle_movement(delta:float):
 	# flip facing direction
 	if velocity.x < 0:
 		animatedSprite.flip_h = true
+		facing.scale = Vector2(-1, 1)
 	elif velocity.x > 0:
 		animatedSprite.flip_h = false
+		facing.scale = Vector2(1, 1)
 		
 	# apply gravity
 	velocity.y += delta * GRAVITY
