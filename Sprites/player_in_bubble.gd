@@ -47,6 +47,16 @@ func _ready() -> void:
 	global_position = player.global_position
 	linear_velocity = player.velocity
 	trapped_in_bubble_lifetime_ms = TRAPPED_BUBBLE_TTL
+	
+	match player.player_num:
+		1:
+			$"Sprite/Player 1".show()
+		2:
+			$"Sprite/Player 2".show()
+		3:
+			$"Sprite/Player 3".show()
+		4:
+			$"Sprite/Player 4".show()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
