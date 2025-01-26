@@ -42,9 +42,20 @@ signal respawned
 
 @onready var facing:Node2D = $"Facing"
 @onready var fireOriginPoint:Marker2D = $"Facing/FireOriginPoint"
-@onready var fist:Area2D = $"Facing/Fist"
 
 @onready var screen_size = get_viewport_rect().size
+
+enum BashDirection {
+	FORWARD,
+	UP,
+	DOWN,
+}
+
+var fist:Area2D # active fist
+@onready var fist_forward:Area2D = $"Facing/FistForward"
+@onready var fist_up:Area2D = $"Facing/FistUp"
+@onready var fist_down:Area2D = $"Facing/FistDown"
+
 
 var _stuck_bubble_count:int = 0
 var stuck_bubble_count:int:
@@ -250,6 +261,20 @@ func handle_bash(delta:float):
 	if bubbles_container == null:
 		return
 
+	# handle directional bash
+	var direction:BashDirection = BashDirection.FORWARD
+	fist = fist_forward
+	var bash_input_amt = Input.get_axis(&"p%s_up" % player_num, &"p%s_down" % player_num)
+	if abs(bash_input_amt) > 0.2:
+		if bash_input_amt < 0:
+			direction = BashDirection.UP
+			fist = fist_up
+		else:
+			direction = BashDirection.DOWN
+			fist = fist_down
+	
+	var walk := Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num)
+
 	# visual stuff ## START
 	if fist_visible_lifetime_ms > 0:
 		fist_visible_lifetime_ms -= delta * 1000
@@ -265,17 +290,25 @@ func handle_bash(delta:float):
 
 		# extra check for collision since fist may overlap with another body or area
 		# and the _on_fist_area_entered signal won't trigger
-		var bash_direction = Vector2(facing.scale.x, 0)
+		var bash_trajectory
+		match direction:
+			BashDirection.FORWARD:
+				bash_trajectory = Vector2(facing.scale.x, 0)
+			BashDirection.UP:
+				bash_trajectory = Vector2(0,-1)
+			BashDirection.DOWN:
+				bash_trajectory = Vector2(0,1)
+				
 		for p in other_players:
 			if p.team_id != team_id && fist.overlaps_body(p):
-				p.bashed(bash_direction * PUNCH_PLAYER_FORCE)
+				p.bashed(bash_trajectory * PUNCH_PLAYER_FORCE)
 
 		for b in bubbles_container.get_children():
 			if fist.overlaps_body(b):
 				if b is PlayerInBubble:
-					b.bashed(team_id, bash_direction * PUNCH_BUBBLE_FORCE)
+					b.bashed(team_id, bash_trajectory * PUNCH_BUBBLE_FORCE)
 				elif b is Bubble:
-					b.velocity = bash_direction * PUNCH_PLAYER_FORCE
+					b.velocity = bash_trajectory * PUNCH_PLAYER_FORCE
 
 
 func play_oneshot_animation_in_map(node:Node2D):

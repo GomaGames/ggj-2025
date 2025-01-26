@@ -49,16 +49,47 @@ position = Vector2(4, 9)
 color = Color(0, 0.203922, 0, 1)
 polygon = PackedVector2Array(7, -24, 4, -23, 7, -22, 9, -23)
 
-[node name="Fist" type="Area2D" parent="Facing"]
+[node name="FistForward" type="Area2D" parent="Facing"]
 visible = false
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/Fist"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/FistForward"]
 position = Vector2(19, -15)
 shape = SubResource("CircleShape2D_tgcfs")
 
-[node name="Polygon2D" type="Polygon2D" parent="Facing/Fist"]
+[node name="Polygon2D" type="Polygon2D" parent="Facing/FistForward"]
 position = Vector2(20, -14)
+color = Color(0.688299, 1.18402e-05, 0.476449, 1)
+polygon = PackedVector2Array(-3, -4, -1, -6, 2, -6, 4, -4, 4, 2, 2, 4, -1, 4, -3, 1, -9, 1, -9, -2, -2, -4)
+
+[node name="FistUp" type="Area2D" parent="Facing"]
+visible = false
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/FistUp"]
+visible = false
+position = Vector2(6, -31)
+scale = Vector2(1.67552, 1.67552)
+shape = SubResource("CircleShape2D_tgcfs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Facing/FistUp"]
+position = Vector2(7, -43)
+rotation = -1.54244
+color = Color(0.688299, 1.18402e-05, 0.476449, 1)
+polygon = PackedVector2Array(-3, -4, -1, -6, 2, -6, 4, -4, 4, 2, 2, 4, -1, 4, -3, 1, -9, 1, -9, -2, -2, -4)
+
+[node name="FistDown" type="Area2D" parent="Facing"]
+visible = false
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/FistDown"]
+position = Vector2(6, 0)
+scale = Vector2(1.54682, 1.54682)
+shape = SubResource("CircleShape2D_tgcfs")
+
+[node name="Polygon2D" type="Polygon2D" parent="Facing/FistDown"]
+position = Vector2(6, 11)
+rotation = 1.58163
 color = Color(0.688299, 1.18402e-05, 0.476449, 1)
 polygon = PackedVector2Array(-3, -4, -1, -6, 2, -6, 4, -4, 4, 2, 2, 4, -1, 4, -3, 1, -9, 1, -9, -2, -2, -4)
 
@@ -95,4 +126,6 @@ visible = false
 position = Vector2(-10, -4)
 texture = ExtResource("3_1ry51")
 
-[connection signal="body_entered" from="Facing/Fist" to="." method="_on_fist_body_entered"]
+[connection signal="body_entered" from="Facing/FistForward" to="." method="_on_fist_body_entered"]
+[connection signal="body_entered" from="Facing/FistUp" to="." method="_on_fist_body_entered"]
+[connection signal="body_entered" from="Facing/FistDown" to="." method="_on_fist_body_entered"]
