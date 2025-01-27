@@ -219,6 +219,7 @@ func handle_movement(delta:float):
 		velocity.y = 0 # no vertical makes it more noticable during falls
 		dash_lifetime_ms = DASH_DURATION
 		move_and_slide()
+		$"Dash".play()
 		return
 
 	var horiz_speed:float
@@ -255,6 +256,7 @@ func handle_movement(delta:float):
 	if jump_count < 2 and Input.is_action_just_pressed(&"p%s_jump" % player_num):
 		velocity.y = -JUMP_SPEED
 		jump_count += 1
+		$"Jump".play()
 
 	if !Input.is_action_just_pressed(&"p%s_jump" % player_num) and is_on_floor():
 		jump_count = 0

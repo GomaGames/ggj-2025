@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://d1opgus8oy0s2"]
+[gd_scene load_steps=87 format=3 uid="uid://d1opgus8oy0s2"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_8b4kp"]
 [ext_resource type="Texture2D" uid="uid://bm4xr22grotai" path="res://Assets/Sprites/bash_swipe.png" id="2_135b2"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bpu35jeb3ksg0" path="res://Assets/Sprites/DinoSprites - vita.png" id="5_bhv6p"]
 [ext_resource type="Texture2D" uid="uid://bhowpsyn6gi4f" path="res://Assets/Sprites/DinoSprites - mort.png" id="6_fixbm"]
 [ext_resource type="AudioStream" uid="uid://cw2w5mljxkt5y" path="res://Assets/Audio/BubblePop.wav" id="8_ulumf"]
+[ext_resource type="AudioStream" uid="uid://dpijca8m6s7fi" path="res://Assets/Audio/Dash.wav" id="9_c1biv"]
+[ext_resource type="AudioStream" uid="uid://bdbegvatmjuwu" path="res://Assets/Audio/Jump.wav" id="10_utfal"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgne3"]
 
@@ -720,6 +722,12 @@ texture = ExtResource("3_1ry51")
 
 [node name="BubblePop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ulumf")
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_c1biv")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_utfal")
 
 [connection signal="body_entered" from="Facing/FistForward" to="." method="_on_fist_body_entered"]
 [connection signal="body_entered" from="Facing/FistUp" to="." method="_on_fist_body_entered"]
