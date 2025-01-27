@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bo82v4s57ehtt" path="res://Assets/Backgrounds/background6.png" id="2_wxvw1"]
 [ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
 [ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
-[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="PackedScene" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
 [ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
-[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
+[ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 [ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="9_tcwpg"]
 [ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
 
