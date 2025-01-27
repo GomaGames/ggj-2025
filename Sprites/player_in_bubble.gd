@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func pop():
+	$"BubblePop".play()
 	player.velocity = linear_velocity
 	player.global_position = global_position
 	if player.get_parent() == null:

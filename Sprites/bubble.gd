@@ -111,6 +111,7 @@ func reset_ttl():
 	lifetime_ms = ttl_ms
 	
 func pop():
+	$"BubblePop".play()
 	self.queue_free()
 
 func get_merge_into_trapped_bubble_ttl()->int:
@@ -138,8 +139,10 @@ func _physics_process(delta: float) -> void:
 			pop()
 		if collision_info.get_collider() is StaticBody2D && (collision_info.get_collider() as StaticBody2D).is_in_group("platforms"):
 			velocity = velocity.bounce(collision_info.get_normal())
+			$"BubbleBounce".play()
 		if collision_info.get_collider() is Bubble && (collision_info.get_collider() as Bubble).size == Bubble.Size.Large:
 			velocity = velocity.bounce(collision_info.get_normal())
+			$"BubbleBounce".play()
 		if collision_info.get_collider() is PlayerInBubble:
 			(collision_info.get_collider() as PlayerInBubble).bubble_hit(self)
 			pop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://d1opgus8oy0s2"]
+[gd_scene load_steps=85 format=3 uid="uid://d1opgus8oy0s2"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_8b4kp"]
 [ext_resource type="Texture2D" uid="uid://bm4xr22grotai" path="res://Assets/Sprites/bash_swipe.png" id="2_135b2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bphue0fn5n81f" path="res://Assets/Sprites/DinoSprites - tard.png" id="4_ypxot"]
 [ext_resource type="Texture2D" uid="uid://bpu35jeb3ksg0" path="res://Assets/Sprites/DinoSprites - vita.png" id="5_bhv6p"]
 [ext_resource type="Texture2D" uid="uid://bhowpsyn6gi4f" path="res://Assets/Sprites/DinoSprites - mort.png" id="6_fixbm"]
+[ext_resource type="AudioStream" uid="uid://cw2w5mljxkt5y" path="res://Assets/Audio/BubblePop.wav" id="8_ulumf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgne3"]
 
@@ -716,6 +717,9 @@ texture = ExtResource("3_1ry51")
 visible = false
 position = Vector2(-10, -4)
 texture = ExtResource("3_1ry51")
+
+[node name="BubblePop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ulumf")
 
 [connection signal="body_entered" from="Facing/FistForward" to="." method="_on_fist_body_entered"]
 [connection signal="body_entered" from="Facing/FistUp" to="." method="_on_fist_body_entered"]

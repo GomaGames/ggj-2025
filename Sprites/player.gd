@@ -269,6 +269,8 @@ func handle_fire():
 		var sm_bubble:Bubble = Bubble.new_bubble(Bubble.Size.Small, bubbles_container)
 		sm_bubble.global_position = fireOriginPoint.global_position
 		sm_bubble.velocity = Vector2(facing.scale.x * FIRE_FORCE, 0)
+		
+		$"BubblePop".play()
 
 		animatedSprite.play('Kick')
 
