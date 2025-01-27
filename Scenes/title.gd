@@ -40,6 +40,10 @@ func _input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
+	if event.is_action_released(&"quit_game"):
+		get_tree().quit()
+
 
 func _on_title_timer_timeout() -> void:
 	var tween = get_tree().create_tween()
