@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GGJ 2025"
+config/name="Puggle Struggle"
+config/version="v1"
 run/main_scene="res://Scenes/title.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://Assets/Icons/icon.svg"
 
 [display]
