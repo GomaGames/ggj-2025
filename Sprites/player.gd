@@ -27,9 +27,9 @@ signal respawned
 @export var team_id:int # must be 1 or 2
 @export var physics_enabled:bool = true
 
-@export var DASH_DURATION:float = 100 # ms for how long the dash locks movement
-@export var DASH_COOLDOWN:float = 700 # ms for how long after a dash completes that you can go again
-@export var DASH_SPEED:float = 1000;
+@export var DASH_DURATION:float = 75 # ms for how long the dash locks movement
+@export var DASH_COOLDOWN:float = 500 # ms for how long after a dash completes that you can go again
+@export var DASH_SPEED:float = 1200;
 
 @export var bubbles_container:Node
 @export var map_oneshot_anims_container:Node
