@@ -642,11 +642,11 @@ scale = Vector2(2, 2)
 player_num = 1
 physics_enabled = false
 
-[node name="Player 1" type="AnimatedSprite2D" parent="Player 1"]
+[node name="Player 1 Sprite" type="AnimatedSprite2D" parent="Player 1"]
 position = Vector2(1, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i7yvv")
-animation = &"Kick"
+animation = &"Idle"
 
 [node name="Player 2" parent="." instance=ExtResource("2_77kn1")]
 visible = false
@@ -655,7 +655,7 @@ scale = Vector2(2, 2)
 player_num = 2
 physics_enabled = false
 
-[node name="Player 2" type="AnimatedSprite2D" parent="Player 2"]
+[node name="Player 2 Sprite" type="AnimatedSprite2D" parent="Player 2"]
 position = Vector2(2, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5btr7")
@@ -668,7 +668,7 @@ scale = Vector2(2, 2)
 player_num = 3
 physics_enabled = false
 
-[node name="Player 3" type="AnimatedSprite2D" parent="Player 3"]
+[node name="Player 3 Sprite" type="AnimatedSprite2D" parent="Player 3"]
 position = Vector2(1, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kdcd3")
@@ -681,7 +681,7 @@ scale = Vector2(2, 2)
 player_num = 4
 physics_enabled = false
 
-[node name="Player 4" type="AnimatedSprite2D" parent="Player 4"]
+[node name="Player 4 Sprite" type="AnimatedSprite2D" parent="Player 4"]
 position = Vector2(0, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qh1r0")

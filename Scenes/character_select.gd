@@ -30,6 +30,7 @@ func player_ready(player_num:int) -> void:
 	players_ready[player_num] = true
 	(get_node("Player Text %s" % player_num) as Label).hide()
 	(get_node("Player %s" % player_num) as CharacterBody2D).show()
+	(((get_node("Player %s" % player_num)).find_child("Player %s Sprite" % player_num)) as AnimatedSprite2D).play()
 	
 	if all_players_ready:
 		(get_node("Start Game") as Label).show()
