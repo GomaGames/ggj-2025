@@ -52,6 +52,7 @@ enum BashDirection {
 @onready var fist:Area2D = fist_forward # active fist
 
 var animatedSprite:AnimatedSprite2D
+var playing_animation:bool = false # prevent overwriting animations in loops
 
 var _stuck_bubble_count:int = 0
 var stuck_bubble_count:int:
@@ -127,20 +128,8 @@ func _ready() -> void:
 		spawn_point.name = &"SpawnPointPlayer%s" % player_num
 		player_spawn_points_container.add_child(spawn_point)
 
-		match player_num:
-			1:
-				$"Sprite/Player 1".show()
-				animatedSprite = $"Sprite/Player 1"
-			2:
-				$"Sprite/Player 2".show()
-				animatedSprite = $"Sprite/Player 2"
-			3:
-				$"Sprite/Player 3".show()
-				animatedSprite = $"Sprite/Player 3"
-			4:
-				$"Sprite/Player 4".show()
-				animatedSprite = $"Sprite/Player 4"
-
+	animatedSprite = get_node(&"Sprite/Player %s" % player_num)
+		
 	# set collision layers based on teams
 	# you don't collide with your own teammates
 	# Collision bits
@@ -230,10 +219,12 @@ func handle_movement(delta:float):
 
 	if walk != 0:
 		velocity.x = walk * horiz_speed * delta
-		animatedSprite.play('Walk')
+		if !playing_animation:
+			animatedSprite.play(&"Walk")
 	else:
 		velocity.x = 0
-		animatedSprite.play('Idle')
+		if !playing_animation:
+			animatedSprite.play(&"Idle")
 
 	# flip facing direction
 	if velocity.x < 0:
@@ -246,22 +237,26 @@ func handle_movement(delta:float):
 	# apply gravity
 	velocity.y += delta * GRAVITY
 
+	# double jump
+	if Input.is_action_just_pressed(&"p%s_jump" % player_num):
+		if is_on_floor():
+			velocity.y = -JUMP_SPEED
+			jump_count = 0
+			horizontal_air_momentum = max(abs(velocity.x), MIN_AIR_MOVEMENT_SPEED)
+			$"Jump".play()
+		elif jump_count < 2:
+			velocity.y = -JUMP_SPEED
+			jump_count += 1
+			playing_animation = true
+			animatedSprite.play(&"Hurt")
+			$"Jump".play()
+			
 	# apply any shove forces
 	shove_velocity /= 2
 	if shove_velocity.abs() < Vector2(0.1,0.1):
 		shove_velocity = Vector2.ZERO
 	velocity += shove_velocity
 	move_and_slide()
-
-	if jump_count < 2 and Input.is_action_just_pressed(&"p%s_jump" % player_num):
-		velocity.y = -JUMP_SPEED
-		jump_count += 1
-		$"Jump".play()
-
-	if !Input.is_action_just_pressed(&"p%s_jump" % player_num) and is_on_floor():
-		jump_count = 0
-
-		horizontal_air_momentum = max(abs(velocity.x), MIN_AIR_MOVEMENT_SPEED)
 
 func handle_fire():
 	if bubbles_container == null:
@@ -274,7 +269,8 @@ func handle_fire():
 		
 		$"BubblePop".play()
 
-		animatedSprite.play('Kick')
+		playing_animation = true
+		animatedSprite.play(&"Kick")
 
 		retract_fist()
 
@@ -315,8 +311,9 @@ func handle_bash(delta:float):
 
 	if Input.is_action_just_released(&"p%s_bash" % player_num):
 		retract_fist()
-		animatedSprite.play('Kick')
 		fist.show()
+		playing_animation = true
+		animatedSprite.play(&"Hurt")
 		fist_visible_lifetime_ms = FIST_VISIBLE_DURATION
 
 		# extra check for collision since fist may overlap with another body or area
@@ -392,3 +389,6 @@ func _on_in_bubble_body_entered(body: Node2D) -> void:
 
 	if body.is_in_group(&"hazard"):
 		knocked_out()
+
+func _on_animation_finished() -> void:
+	playing_animation = false

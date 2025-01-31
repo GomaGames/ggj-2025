@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bo82v4s57ehtt" path="res://Assets/Backgrounds/background6.png" id="2_wxvw1"]
 [ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
 [ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
-[ext_resource type="PackedScene" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
 [ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
-[ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
+[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 [ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="9_tcwpg"]
 [ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
 
@@ -87,35 +87,110 @@ editor_description = "Layer for adding animations, particles, effects etc"
 
 [node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(277, 205)
+GRAVITY = 2400.0
+WALK_SPEED = 20000.0
+JUMP_SPEED = 700.0
+FIRE_FORCE = 500.0
+STUCK_BUBBLE_TTL = 750.0
+STUCK_BUBBLE_MASS = 0.1
+STUCK_BUBBLE_GRAVITY = -10.0
+FIST_VISIBLE_DURATION = 200
+PUNCH_BUBBLE_FORCE = 450.0
+PUNCH_PLAYER_FORCE = 2600.0
+RESPAWN_TIME = 1500.0
+MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 1
 team_id = 1
+physics_enabled = true
+DASH_DURATION = 75.0
+DASH_COOLDOWN = 500.0
+DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
 [node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(150, 359)
+GRAVITY = 2400.0
+WALK_SPEED = 20000.0
+JUMP_SPEED = 700.0
+FIRE_FORCE = 500.0
+STUCK_BUBBLE_TTL = 750.0
+STUCK_BUBBLE_MASS = 0.1
+STUCK_BUBBLE_GRAVITY = -10.0
+FIST_VISIBLE_DURATION = 200
+PUNCH_BUBBLE_FORCE = 450.0
+PUNCH_PLAYER_FORCE = 2600.0
+RESPAWN_TIME = 1500.0
+MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 2
 team_id = 1
+physics_enabled = true
+DASH_DURATION = 75.0
+DASH_COOLDOWN = 500.0
+DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 2" parent="Players/Player 2/Sprite" index="2"]
+visible = true
 
 [node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(849, 201)
+scale = Vector2(-1, 1)
+GRAVITY = 2400.0
+WALK_SPEED = 20000.0
+JUMP_SPEED = 700.0
+FIRE_FORCE = 500.0
+STUCK_BUBBLE_TTL = 750.0
+STUCK_BUBBLE_MASS = 0.1
+STUCK_BUBBLE_GRAVITY = -10.0
+FIST_VISIBLE_DURATION = 200
+PUNCH_BUBBLE_FORCE = 450.0
+PUNCH_PLAYER_FORCE = 2600.0
+RESPAWN_TIME = 1500.0
+MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 3
 team_id = 2
+physics_enabled = true
+DASH_DURATION = 75.0
+DASH_COOLDOWN = 500.0
+DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
+[node name="Player 3" parent="Players/Player 3/Sprite" index="1"]
+visible = true
+
 [node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(991, 355)
+scale = Vector2(-1, 1)
+GRAVITY = 2400.0
+WALK_SPEED = 20000.0
+JUMP_SPEED = 700.0
+FIRE_FORCE = 500.0
+STUCK_BUBBLE_TTL = 750.0
+STUCK_BUBBLE_MASS = 0.1
+STUCK_BUBBLE_GRAVITY = -10.0
+FIST_VISIBLE_DURATION = 200
+PUNCH_BUBBLE_FORCE = 450.0
+PUNCH_PLAYER_FORCE = 2600.0
+RESPAWN_TIME = 1500.0
+MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 4
 team_id = 2
+physics_enabled = true
+DASH_DURATION = 75.0
+DASH_COOLDOWN = 500.0
+DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 4" parent="Players/Player 4/Sprite" index="3"]
+visible = true
 
 [node name="Bubbles" type="Node" parent="."]
 
@@ -635,6 +710,10 @@ rotation = -3.14159
 position = Vector2(386, 248)
 rotation = -1.57079
 
+[node name="Spike18" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(404, 174)
+rotation = -1.57079
+
 [node name="Spike11" parent="Hazards" instance=ExtResource("2_2hbjn")]
 position = Vector2(765, 246)
 rotation = -4.71238
@@ -647,3 +726,8 @@ rotation = -3.14159
 stream = ExtResource("11_estjw")
 autoplay = true
 parameters/looping = true
+
+[editable path="Players/Player 1"]
+[editable path="Players/Player 2"]
+[editable path="Players/Player 3"]
+[editable path="Players/Player 4"]
