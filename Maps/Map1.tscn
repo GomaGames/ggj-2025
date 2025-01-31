@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0lqm45h8177a"]
+[gd_scene load_steps=21 format=3 uid="uid://b0lqm45h8177a"]
 
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
@@ -11,6 +11,146 @@
 [ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
 [ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="9_tcwpg"]
 [ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k51rd"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l80s"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xb0y2"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vol7d"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ljy8"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftkmh"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rf8sk"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yy7ke"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsn2s"]
 resource_local_to_scene = true
@@ -87,48 +227,22 @@ editor_description = "Layer for adding animations, particles, effects etc"
 
 [node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(277, 205)
-GRAVITY = 2400.0
-WALK_SPEED = 20000.0
-JUMP_SPEED = 700.0
-FIRE_FORCE = 500.0
-STUCK_BUBBLE_TTL = 750.0
-STUCK_BUBBLE_MASS = 0.1
-STUCK_BUBBLE_GRAVITY = -10.0
-FIST_VISIBLE_DURATION = 200
-PUNCH_BUBBLE_FORCE = 450.0
-PUNCH_PLAYER_FORCE = 2600.0
-RESPAWN_TIME = 1500.0
-MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 1
 team_id = 1
-physics_enabled = true
-DASH_DURATION = 75.0
-DASH_COOLDOWN = 500.0
-DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
+[node name="KOParticles" parent="Players/Player 1/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_k51rd")
+
+[node name="SpawnParticles" parent="Players/Player 1/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_3l80s")
+
 [node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(150, 359)
-GRAVITY = 2400.0
-WALK_SPEED = 20000.0
-JUMP_SPEED = 700.0
-FIRE_FORCE = 500.0
-STUCK_BUBBLE_TTL = 750.0
-STUCK_BUBBLE_MASS = 0.1
-STUCK_BUBBLE_GRAVITY = -10.0
-FIST_VISIBLE_DURATION = 200
-PUNCH_BUBBLE_FORCE = 450.0
-PUNCH_PLAYER_FORCE = 2600.0
-RESPAWN_TIME = 1500.0
-MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 2
 team_id = 1
-physics_enabled = true
-DASH_DURATION = 75.0
-DASH_COOLDOWN = 500.0
-DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
@@ -136,27 +250,17 @@ player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 [node name="Player 2" parent="Players/Player 2/Sprite" index="2"]
 visible = true
 
+[node name="KOParticles" parent="Players/Player 2/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_xb0y2")
+
+[node name="SpawnParticles" parent="Players/Player 2/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_vol7d")
+
 [node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(849, 201)
 scale = Vector2(-1, 1)
-GRAVITY = 2400.0
-WALK_SPEED = 20000.0
-JUMP_SPEED = 700.0
-FIRE_FORCE = 500.0
-STUCK_BUBBLE_TTL = 750.0
-STUCK_BUBBLE_MASS = 0.1
-STUCK_BUBBLE_GRAVITY = -10.0
-FIST_VISIBLE_DURATION = 200
-PUNCH_BUBBLE_FORCE = 450.0
-PUNCH_PLAYER_FORCE = 2600.0
-RESPAWN_TIME = 1500.0
-MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 3
 team_id = 2
-physics_enabled = true
-DASH_DURATION = 75.0
-DASH_COOLDOWN = 500.0
-DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
@@ -164,33 +268,29 @@ player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 [node name="Player 3" parent="Players/Player 3/Sprite" index="1"]
 visible = true
 
+[node name="KOParticles" parent="Players/Player 3/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_7ljy8")
+
+[node name="SpawnParticles" parent="Players/Player 3/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_ftkmh")
+
 [node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(991, 355)
 scale = Vector2(-1, 1)
-GRAVITY = 2400.0
-WALK_SPEED = 20000.0
-JUMP_SPEED = 700.0
-FIRE_FORCE = 500.0
-STUCK_BUBBLE_TTL = 750.0
-STUCK_BUBBLE_MASS = 0.1
-STUCK_BUBBLE_GRAVITY = -10.0
-FIST_VISIBLE_DURATION = 200
-PUNCH_BUBBLE_FORCE = 450.0
-PUNCH_PLAYER_FORCE = 2600.0
-RESPAWN_TIME = 1500.0
-MIN_AIR_MOVEMENT_SPEED = 250.0
 player_num = 4
 team_id = 2
-physics_enabled = true
-DASH_DURATION = 75.0
-DASH_COOLDOWN = 500.0
-DASH_SPEED = 1200.0
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
 [node name="Player 4" parent="Players/Player 4/Sprite" index="3"]
 visible = true
+
+[node name="KOParticles" parent="Players/Player 4/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_rf8sk")
+
+[node name="SpawnParticles" parent="Players/Player 4/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_yy7ke")
 
 [node name="Bubbles" type="Node" parent="."]
 

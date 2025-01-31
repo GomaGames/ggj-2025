@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://d1opgus8oy0s2"]
+[gd_scene load_steps=88 format=3 uid="uid://d1opgus8oy0s2"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_8b4kp"]
 [ext_resource type="Texture2D" uid="uid://bm4xr22grotai" path="res://Assets/Sprites/bash_swipe.png" id="2_135b2"]
@@ -583,21 +583,45 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgcfs"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ltwy0"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j7lgv"]
+resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
 emission_shape = 1
-emission_sphere_radius = 5.0
+emission_sphere_radius = 1.0
 direction = Vector3(0, 0, 0)
 spread = 180.0
-initial_velocity_min = 15.57
-initial_velocity_max = 93.97
-radial_velocity_min = -10.0
-radial_velocity_max = 9.99998
-gravity = Vector3(0, -0.07, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nyd0i"]
-size = Vector2(3, 3)
+size = Vector2(4, 4)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u3ob6"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+scale_min = 2.0
+scale_max = 2.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
@@ -688,15 +712,27 @@ texture = ExtResource("2_135b2")
 [node name="OneShotAnimations" type="Node2D" parent="."]
 editor_description = "these should never be visible from this scene.
 These will be cloned as new instances into the MapScene OneShotAnimations layer"
-visible = false
 
-[node name="PopGPUParticles2D" type="GPUParticles2D" parent="OneShotAnimations"]
+[node name="KOParticles" type="GPUParticles2D" parent="OneShotAnimations"]
 position = Vector2(0, -15)
 emitting = false
-amount = 40
-process_material = SubResource("ParticleProcessMaterial_ltwy0")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_j7lgv")
 texture = SubResource("PlaceholderTexture2D_nyd0i")
 lifetime = 1.5
+one_shot = true
+preprocess = 0.1
+explosiveness = 1.0
+randomness = 0.15
+fixed_fps = 60
+
+[node name="SpawnParticles" type="GPUParticles2D" parent="OneShotAnimations"]
+position = Vector2(0, -15)
+emitting = false
+amount = 125
+process_material = SubResource("ParticleProcessMaterial_u3ob6")
+texture = SubResource("PlaceholderTexture2D_nyd0i")
+lifetime = 20.0
 one_shot = true
 preprocess = 0.1
 explosiveness = 1.0

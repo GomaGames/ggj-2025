@@ -357,7 +357,7 @@ func knocked_out():
 		hide()
 		dead = true
 		stuck_bubble_count = 0
-		play_oneshot_animation_in_map($"OneShotAnimations/PopGPUParticles2D")
+		play_oneshot_animation_in_map($"OneShotAnimations/KOParticles")
 		respawn_timer = RESPAWN_TIME
 		kod.emit(team_id)
 
@@ -369,6 +369,8 @@ func respawn():
 		show()
 		dead = false
 		respawned.emit()
+		play_oneshot_animation_in_map($"OneShotAnimations/SpawnParticles")
+		
 
 func handle_screen_wrap():
 	position.x = wrapf(position.x, 0, screen_size.x)
