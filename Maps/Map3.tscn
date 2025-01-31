@@ -1,16 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0lqm45h8177a"]
+[gd_scene load_steps=25 format=4 uid="uid://wk0nwf738u20"]
 
-[ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
-[ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
-[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
-[ext_resource type="Texture2D" uid="uid://bo82v4s57ehtt" path="res://Assets/Backgrounds/background6.png" id="2_wxvw1"]
-[ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
-[ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
-[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
-[ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
-[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
-[ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="9_tcwpg"]
-[ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
+[ext_resource type="Script" path="res://Scenes/Map.gd" id="1_5nr8p"]
+[ext_resource type="Texture2D" uid="uid://bo82v4s57ehtt" path="res://Assets/Backgrounds/background6.png" id="2_nxvbw"]
+[ext_resource type="Texture2D" uid="uid://ca7vh2avkrgi6" path="res://Assets/Backgrounds/background1.png" id="3_ugujl"]
+[ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="4_y0rw0"]
+[ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="5_3av6q"]
+[ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="6_sxh51"]
+[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="7_w73wq"]
+[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="8_p0dlx"]
+[ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="9_n4uyg"]
+[ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="10_fy7ht"]
+[ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="11_jaqje"]
+[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="12_qf5bh"]
+[ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="13_e8frd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k51rd"]
 resource_local_to_scene = true
@@ -156,15 +158,113 @@ hue_variation_max = 0.2
 resource_local_to_scene = true
 size = Vector2(18.7935, 19.3493)
 
-[node name="Map2" type="Node2D"]
-script = ExtResource("1_x7tma")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7etdv"]
+resource_name = "kenny-abstract-platforms"
+texture = ExtResource("11_jaqje")
+texture_region_size = Vector2i(64, 64)
+8:0/0 = 0
+8:0/0/terrain_set = 0
+8:0/0/terrain = 0
+7:0/0 = 0
+7:0/0/terrain_set = 0
+7:0/0/terrain = 0
+7:0/0/terrains_peering_bit/left_side = 0
+6:0/0 = 0
+6:0/0/terrain_set = 0
+6:0/0/terrain = 0
+6:0/0/terrains_peering_bit/right_side = 0
+6:0/0/terrains_peering_bit/left_side = 0
+5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrain = 0
+5:0/0/terrains_peering_bit/right_side = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrain = 0
+4:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/left_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/bottom_side = 0
+0:2/0/terrains_peering_bit/left_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+8:1/0 = 0
+8:1/0/terrain_set = 0
+8:1/0/terrain = 0
+8:1/0/terrains_peering_bit/left_side = 0
+7:1/0 = 0
+7:1/0/terrain_set = 0
+7:1/0/terrain = 0
+7:1/0/terrains_peering_bit/right_side = 0
+6:1/0 = 0
+6:1/0/terrain_set = 0
+6:1/0/terrain = 1
+6:1/0/terrains_peering_bit/right_side = 0
+6:1/0/terrains_peering_bit/bottom_side = 0
+6:1/0/terrains_peering_bit/top_side = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrain = 1
+5:1/0/terrains_peering_bit/bottom_side = 0
+5:1/0/terrains_peering_bit/left_side = 0
+5:1/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_ns3ei"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "red back"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "red front"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+sources/1 = SubResource("TileSetAtlasSource_7etdv")
+
+[node name="Map1" type="Node2D"]
+script = ExtResource("1_5nr8p")
 
 [node name="BG" type="TextureRect" parent="."]
+visible = false
 offset_left = -1.0
 offset_top = -12.0
 offset_right = 1155.0
 offset_bottom = 647.0
-texture = ExtResource("2_wxvw1")
+texture = ExtResource("2_nxvbw")
+metadata/_edit_lock_ = true
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(576.333, 373.5)
+scale = Vector2(1.1237, 1.1237)
+texture = ExtResource("3_ugujl")
 metadata/_edit_lock_ = true
 
 [node name="UI" type="Node" parent="."]
@@ -173,45 +273,45 @@ metadata/_edit_lock_ = true
 modulate = Color(1, 1, 1, 0.513726)
 position = Vector2(54, 626)
 
-[node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
+[node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("4_y0rw0")]
 position = Vector2(-25, 7)
 scale = Vector2(2, 2)
-texture = ExtResource("4_0jpcu")
+texture = ExtResource("5_3av6q")
 
-[node name="Life2" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
+[node name="Life2" parent="UI/TeamLifeSupply1" instance=ExtResource("4_y0rw0")]
 position = Vector2(0, -5)
 scale = Vector2(2, 2)
-texture = ExtResource("4_0jpcu")
+texture = ExtResource("5_3av6q")
 
-[node name="Life3" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
+[node name="Life3" parent="UI/TeamLifeSupply1" instance=ExtResource("4_y0rw0")]
 position = Vector2(25, 7)
 scale = Vector2(2, 2)
-texture = ExtResource("4_0jpcu")
+texture = ExtResource("5_3av6q")
 
 [node name="TeamLifeSupply2" type="Node2D" parent="UI"]
 modulate = Color(1, 1, 1, 0.513726)
 position = Vector2(1099, 626)
 
-[node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
+[node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("4_y0rw0")]
 position = Vector2(-25, 7)
 scale = Vector2(2, 2)
-texture = ExtResource("5_hxww0")
+texture = ExtResource("6_sxh51")
 
-[node name="Life2" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
+[node name="Life2" parent="UI/TeamLifeSupply2" instance=ExtResource("4_y0rw0")]
 position = Vector2(0, -5)
 scale = Vector2(2, 2)
-texture = ExtResource("5_hxww0")
+texture = ExtResource("6_sxh51")
 
-[node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
+[node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("4_y0rw0")]
 position = Vector2(25, 7)
 scale = Vector2(2, 2)
-texture = ExtResource("5_hxww0")
+texture = ExtResource("6_sxh51")
 
-[node name="Team1Victory" parent="UI" instance=ExtResource("4_drhtd")]
+[node name="Team1Victory" parent="UI" instance=ExtResource("7_w73wq")]
 visible = false
 position = Vector2(599, 276)
 
-[node name="Team2Victory" parent="UI" instance=ExtResource("5_p4m3y")]
+[node name="Team2Victory" parent="UI" instance=ExtResource("8_p0dlx")]
 visible = false
 position = Vector2(598, 275)
 
@@ -225,7 +325,7 @@ editor_description = "Layer for adding animations, particles, effects etc"
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+[node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_n4uyg")]
 position = Vector2(277, 205)
 player_num = 1
 team_id = 1
@@ -239,7 +339,7 @@ process_material = SubResource("ParticleProcessMaterial_k51rd")
 [node name="SpawnParticles" parent="Players/Player 1/OneShotAnimations" index="1"]
 process_material = SubResource("ParticleProcessMaterial_3l80s")
 
-[node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+[node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_n4uyg")]
 position = Vector2(150, 359)
 player_num = 2
 team_id = 1
@@ -256,7 +356,7 @@ process_material = SubResource("ParticleProcessMaterial_xb0y2")
 [node name="SpawnParticles" parent="Players/Player 2/OneShotAnimations" index="1"]
 process_material = SubResource("ParticleProcessMaterial_vol7d")
 
-[node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+[node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_n4uyg")]
 position = Vector2(849, 201)
 scale = Vector2(-1, 1)
 player_num = 3
@@ -274,7 +374,7 @@ process_material = SubResource("ParticleProcessMaterial_7ljy8")
 [node name="SpawnParticles" parent="Players/Player 3/OneShotAnimations" index="1"]
 process_material = SubResource("ParticleProcessMaterial_ftkmh")
 
-[node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+[node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_n4uyg")]
 position = Vector2(991, 355)
 scale = Vector2(-1, 1)
 player_num = 4
@@ -295,6 +395,7 @@ process_material = SubResource("ParticleProcessMaterial_yy7ke")
 [node name="Bubbles" type="Node" parent="."]
 
 [node name="Platforms" type="Node2D" parent="."]
+visible = false
 
 [node name="Platform1" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
 position = Vector2(86, 636)
@@ -309,7 +410,7 @@ offset_left = -86.0
 offset_top = -15.0
 offset_right = 114.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -326,7 +427,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -343,7 +444,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -360,7 +461,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -377,7 +478,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -394,7 +495,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -411,7 +512,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -428,7 +529,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -445,7 +546,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -462,7 +563,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -479,7 +580,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -496,7 +597,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -513,7 +614,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -530,7 +631,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -547,7 +648,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -564,7 +665,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -582,7 +683,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -600,7 +701,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -618,7 +719,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -636,7 +737,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -654,7 +755,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -672,7 +773,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -691,7 +792,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -710,7 +811,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -727,7 +828,7 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -744,82 +845,91 @@ offset_left = -88.0
 offset_top = -15.0
 offset_right = 112.0
 offset_bottom = 13.0
-texture = ExtResource("9_tcwpg")
+texture = ExtResource("10_fy7ht")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAMAAAAAQAAAAEAAAALAAAAAQAAAAAAAAAKAAAAAQAAAAEAAAAJAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAHAAAAAQAAAAIAAAAGAAAAAQAAAAIAAAAFAAAAAQAAAAEAAAAEAAAAAQAAAAIAAAADAAAAAQAAAAIAAAACAAAAAQAAAAIAAAABAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAAAAAEAAQAAAAIAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAEAAAAAAAgAAQAAAAEAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAEAAAAAAAsAAQAAAAAAAAABAAsAAQAGAAAAAAACAAsAAQAGAAAAAAADAAsAAQAGAAAAAAAEAAsAAQAGAAAAAAAFAAsAAQAGAAAAAAAGAAsAAQAGAAAAAAAHAAsAAQAGAAAAAAAIAAsAAQAHAAAAAAAGAAYAAQAFAAAAAAAHAAYAAQAGAAAAAAAIAAYAAQAGAAAAAAAJAAYAAQAGAAAAAAAKAAYAAQAGAAAAAAALAAYAAQAGAAAAAAAMAAYAAQADAAAAAAAMAAcAAQAAAAEAAAAMAAgAAQAAAAAAAAAUAAMAAQAHAAAAAAAPAAMAAQAFAAAAAAAQAAMAAQAGAAAAAAARAAMAAQAGAAAAAAASAAMAAQAGAAAAAAATAAMAAQAGAAAAAAAQAAoAAQAGAAAAAAARAAoAAQAGAAAAAAASAAoAAQAGAAAAAAATAAoAAQAGAAAAAAAUAAoAAQAGAAAAAAAPAAoAAQAFAAAAAAAMAA8AAQAFAAAAAAANAA8AAQAGAAAAAAAOAA8AAQAGAAAAAAAPAA8AAQAGAAAAAAAQAA8AAQAGAAAAAAARAA8AAQAGAAAAAAASAA8AAQAGAAAAAAATAA8AAQAGAAAAAAAUAA8AAQAGAAAAAAAVAA8AAQAGAAAAAAAWAA8AAQAGAAAAAAAXAA8AAQAHAAAAAAAdAAYAAQAHAAAAAAAbAAsAAQAFAAAAAAAcAAsAAQAGAAAAAAAdAAsAAQAGAAAAAAAeAAsAAQAGAAAAAAAfAAsAAQAGAAAAAAAgAAsAAQAGAAAAAAAhAAsAAQAGAAAAAAAiAAsAAQAGAAAAAAAjAAsAAQAAAAEAAAAjAAAAAQAAAAAAAAAiAAAAAQAAAAEAAAAhAAAAAQAAAAIAAAAgAAAAAQAAAAEAAAAfAAAAAQAAAAIAAAAeAAAAAQAAAAEAAAAdAAAAAQAAAAAAAAAcAAAAAQAAAAEAAAAbAAAAAQAAAAEAAAAaAAAAAQAAAAAAAAAZAAAAAQAAAAIAAAAYAAAAAQAAAAAAAAAAAAwAAQAAAAIAAAAAAA0AAQAAAAIAAAAAAA4AAQAAAAEAAAAAAA8AAQAAAAEAAAAXAAcAAQAAAAAAAAAXAAgAAQAAAAIAAAAXAAYAAQABAAAAAAAcAAYAAQAGAAAAAAAbAAYAAQAGAAAAAAAaAAYAAQAGAAAAAAAZAAYAAQAGAAAAAAAYAAYAAQAGAAAAAAAkABMAAQADAAAAAAAjABMAAQACAAAAAAAiABMAAQACAAAAAAAXABMAAQABAAAAAAAYABMAAQACAAAAAAAZABMAAQACAAAAAAAaABMAAQACAAAAAAAbABMAAQACAAAAAAAcABMAAQACAAAAAAAdABMAAQACAAAAAAAeABMAAQACAAAAAAAfABMAAQACAAAAAAAgABMAAQACAAAAAAAhABMAAQACAAAAAAAMABMAAQADAAAAAAALABMAAQACAAAAAAAKABMAAQACAAAAAAAJABMAAQACAAAAAAAIABMAAQACAAAAAAAHABMAAQACAAAAAAAGABMAAQACAAAAAAAFABMAAQACAAAAAAAEABMAAQACAAAAAAADABMAAQACAAAAAAACABMAAQACAAAAAAABABMAAQACAAAAAAAAABMAAQACAAAAAAD//xMAAQABAAAAAAAMABQAAQAAAAEAAAALABQAAQAAAAIAAAAKABQAAQAAAAEAAAAJABQAAQAAAAEAAAAIABQAAQAAAAIAAAAHABQAAQAAAAAAAAAGABQAAQAAAAIAAAAFABQAAQAAAAAAAAAEABQAAQAAAAIAAAADABQAAQAAAAEAAAACABQAAQAAAAAAAAABABQAAQAAAAIAAAAAABQAAQAAAAEAAAD//xQAAQAAAAIAAAAXABQAAQAAAAIAAAAYABQAAQAAAAAAAAAZABQAAQAAAAAAAAAaABQAAQAAAAIAAAAbABQAAQAAAAAAAAAcABQAAQAAAAIAAAAdABQAAQAAAAEAAAAeABQAAQAAAAIAAAAfABQAAQAAAAAAAAAgABQAAQAAAAEAAAAhABQAAQAAAAIAAAAiABQAAQAAAAIAAAAjABQAAQAAAAEAAAAkABQAAQAAAAEAAAAjAAEAAQAAAAIAAAAjAAIAAQAAAAEAAAAjAAMAAQAAAAAAAAAjAAQAAQAAAAEAAAAjAAUAAQAAAAAAAAAjAAYAAQAAAAEAAAAjAAcAAQAAAAIAAAAjAAgAAQAAAAAAAAAjAAkAAQAAAAEAAAAjAAoAAQAAAAIAAAAjAA4AAQAAAAAAAAAjAA8AAQAAAAIAAAAjAA0AAQAAAAEAAAAjAAwAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_ns3ei")
+
 [node name="Hazards" type="Node" parent="."]
 
-[node name="Spike" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(569, 527)
 rotation = -3.14159
 
-[node name="Spike2" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike2" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(601, 527)
 rotation = -3.14159
 
-[node name="Spike3" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike3" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(538, 527)
 rotation = -3.14159
 
-[node name="Spike4" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike4" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(29, 388)
 rotation = -3.14159
 
-[node name="Spike5" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike5" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(61, 388)
 rotation = -3.14159
 
-[node name="Spike6" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike6" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(1124, 388)
 rotation = -3.14159
 
-[node name="Spike8" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike8" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(1125, 26)
 rotation = -3.14159
 
-[node name="Spike12" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike12" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(1092, 26)
 rotation = -3.14159
 
-[node name="Spike13" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike13" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(1059, 26)
 rotation = -3.14159
 
-[node name="Spike14" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike14" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(1026, 26)
 rotation = -3.14159
 
-[node name="Spike9" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike9" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(29, 26)
 rotation = -3.14159
 
-[node name="Spike15" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike15" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(61, 26)
 rotation = -3.14159
 
-[node name="Spike16" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike16" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(91, 26)
 rotation = -3.14159
 
-[node name="Spike17" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike17" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(123, 26)
 rotation = -3.14159
 
-[node name="Spike10" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike10" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(386, 248)
 rotation = -1.57079
 
-[node name="Spike11" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike18" parent="Hazards" instance=ExtResource("12_qf5bh")]
+position = Vector2(404, 174)
+rotation = -1.57079
+
+[node name="Spike11" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(765, 246)
 rotation = -4.71238
 
-[node name="Spike7" parent="Hazards" instance=ExtResource("2_2hbjn")]
+[node name="Spike7" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(1092, 388)
 rotation = -3.14159
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_estjw")
+stream = ExtResource("13_e8frd")
 autoplay = true
 parameters/looping = true
 
