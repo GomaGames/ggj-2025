@@ -458,42 +458,42 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="TeamLifeSupply1" type="Node2D" parent="UI"]
-modulate = Color(1, 1, 1, 0.513726)
+modulate = Color(1, 1, 1, 0.827451)
 position = Vector2(457, 582)
 scale = Vector2(1.5, 1.5)
 
-[node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("4_3qjx1")]
+[node name="Life2" parent="UI/TeamLifeSupply1" instance=ExtResource("4_3qjx1")]
 position = Vector2(-25, 7)
 scale = Vector2(2, 2)
 texture = ExtResource("5_k4cbt")
 
-[node name="Life2" parent="UI/TeamLifeSupply1" instance=ExtResource("4_3qjx1")]
+[node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("4_3qjx1")]
 position = Vector2(0, -5)
 scale = Vector2(2, 2)
 texture = ExtResource("5_k4cbt")
 
 [node name="Life3" parent="UI/TeamLifeSupply1" instance=ExtResource("4_3qjx1")]
-position = Vector2(25, 7)
+position = Vector2(24.3333, 7)
 scale = Vector2(2, 2)
 texture = ExtResource("5_k4cbt")
 
 [node name="TeamLifeSupply2" type="Node2D" parent="UI"]
-modulate = Color(1, 1, 1, 0.513726)
+modulate = Color(1, 1, 1, 0.827451)
 position = Vector2(695, 582)
 scale = Vector2(1.5, 1.5)
 
-[node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
-position = Vector2(-25, 7)
+[node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
+position = Vector2(-24.3333, 7)
 scale = Vector2(2, 2)
 texture = ExtResource("6_ar2sg")
 
-[node name="Life2" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
+[node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
 position = Vector2(0, -5)
 scale = Vector2(2, 2)
 texture = ExtResource("6_ar2sg")
 
-[node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
-position = Vector2(25, 7)
+[node name="Life2" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
+position = Vector2(24.3333, 7)
 scale = Vector2(2, 2)
 texture = ExtResource("6_ar2sg")
 
