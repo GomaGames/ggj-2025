@@ -19,6 +19,8 @@ var selected_map:int:
 				maps[m].show()
 			else:
 				maps[m].hide()
+		change_timer.start()
+		change_map_delay_done = false
 	get():
 		return _selected_map
 
@@ -28,7 +30,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# gamepad input
+	if change_map_delay_done:
+		if Input.get_joy_axis(0,JOY_AXIS_LEFT_X) < -0.2:
+			selected_map = (maps.size() + selected_map + 1) % maps.size()
+		elif Input.get_joy_axis(0,JOY_AXIS_LEFT_X) > 0.2:
+			selected_map = (maps.size() + selected_map - 1) % maps.size()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_released(&"any_start"):
@@ -45,12 +52,8 @@ func _input(event: InputEvent) -> void:
 		var direction := Input.get_axis(&"p1_left", &"p1_right")
 		if direction > .2:
 			selected_map = (maps.size() + selected_map + 1) % maps.size()
-			change_timer.start()
-			change_map_delay_done = false
 		elif direction < -.1:
 			selected_map = (maps.size() + selected_map - 1) % maps.size()
-			change_timer.start()
-			change_map_delay_done = false
 		
 	if event.is_action_released(&"quit_game"):
 		get_tree().quit()
