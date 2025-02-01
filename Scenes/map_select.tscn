@@ -1,10 +1,12 @@
-[gd_scene load_steps=73 format=4 uid="uid://krin33njcqc2"]
+[gd_scene load_steps=106 format=4 uid="uid://krin33njcqc2"]
 
 [ext_resource type="Script" path="res://Scenes/map_select.gd" id="1_al5cp"]
 [ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="2_8rpu3"]
 [ext_resource type="PackedScene" uid="uid://b0lqm45h8177a" path="res://Maps/Map1.tscn" id="3_dtk64"]
 [ext_resource type="PackedScene" uid="uid://cdhng28kwjguj" path="res://Maps/Map2.tscn" id="4_wowhj"]
 [ext_resource type="PackedScene" uid="uid://svgcrq5wpqbv" path="res://Maps/Map4.tscn" id="5_5cn5e"]
+[ext_resource type="PackedScene" uid="uid://cjwhxmxd5w5hn" path="res://Maps/Map3.tscn" id="5_d05cy"]
+[ext_resource type="PackedScene" uid="uid://b0lqm45h8177a" path="res://Maps/Map5.tscn" id="7_bntl6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crt14"]
 resource_name = "kenny-abstract-platforms"
@@ -784,6 +786,258 @@ size = Vector2(12.0882, 119.072)
 resource_local_to_scene = true
 size = Vector2(21.1544, 47.6289)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iq2pe"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ovful"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s5kk3"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wfdd0"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_maf4d"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4lgfy"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nj6da"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ooqjv"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_orvmy"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_87ys5"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j3037"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_77e0l"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjdam"]
+resource_local_to_scene = true
+size = Vector2(118.492, 19.3493)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jntt5"]
+resource_local_to_scene = true
+size = Vector2(24.1907, 23.8145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l71vy"]
+resource_local_to_scene = true
+size = Vector2(15.1245, 23.8145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4nor"]
+resource_local_to_scene = true
+size = Vector2(18.1465, 23.8145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd3tp"]
+resource_local_to_scene = true
+size = Vector2(3.02914, 71.4435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeh7f"]
+resource_local_to_scene = true
+size = Vector2(9.07327, 23.8145)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_33aii"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
@@ -1072,6 +1326,238 @@ size = Vector2(6.04411, 47.6289)
 resource_local_to_scene = true
 size = Vector2(6.04411, 166.701)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13ako"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u2lpk"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ha7tm"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ckspw"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kkji8"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_70aj0"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ypj3w"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jrwpn"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6eor3"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mri48"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rbq5l"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(50, 0, 0)
+spread = 15.0
+initial_velocity_min = 150.0
+initial_velocity_max = 750.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fc3es"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4doji"]
+resource_local_to_scene = true
+size = Vector2(18.7935, 19.3493)
+
 [node name="MapSelect" type="Node2D"]
 script = ExtResource("1_al5cp")
 
@@ -1207,6 +1693,14 @@ shape = SubResource("RectangleShape2D_658ko")
 [node name="BGM" parent="Maps/Map1/MapPreview1" index="9"]
 autoplay = false
 
+[node name="Label3" type="Label" parent="Maps/Map1"]
+offset_left = 49.0
+offset_top = 6.0
+offset_right = 148.0
+offset_bottom = 29.0
+scale = Vector2(1.37271, 1.37271)
+text = "1"
+
 [node name="Map2" type="Polygon2D" parent="Maps"]
 visible = false
 clip_children = 1
@@ -1335,133 +1829,129 @@ shape = SubResource("RectangleShape2D_lkccq")
 [node name="CollisionShape2D" parent="Maps/Map2/MapPreview2/Platforms/Platform7" index="0"]
 shape = SubResource("RectangleShape2D_a7r04")
 
+[node name="Label4" type="Label" parent="Maps/Map2"]
+offset_left = 65.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 29.0
+scale = Vector2(1.37271, 1.37271)
+text = "2
+"
+
 [node name="Map3" type="Polygon2D" parent="Maps"]
 visible = false
 clip_children = 1
 position = Vector2(191, 128)
 polygon = PackedVector2Array(62, 0, 61, 384, 727, 385, 727, 0)
 
-[node name="MapPreview2" parent="Maps/Map3" instance=ExtResource("4_wowhj")]
-position = Vector2(60, -2)
-scale = Vector2(0.578942, 0.578942)
+[node name="MapPreview3" parent="Maps/Map3" instance=ExtResource("5_d05cy")]
+position = Vector2(64, 0)
+scale = Vector2(0.574594, 0.574594)
 script = null
 
-[node name="Player 1" parent="Maps/Map3/MapPreview2/Players" index="0"]
+[node name="Player 1" parent="Maps/Map3/MapPreview3/Players" index="0"]
 script = null
 
-[node name="KOParticles" parent="Maps/Map3/MapPreview2/Players/Player 1/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_4dhls")
+[node name="KOParticles" parent="Maps/Map3/MapPreview3/Players/Player 1/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_iq2pe")
 
-[node name="DashParticles" parent="Maps/Map3/MapPreview2/Players/Player 1/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_pa7ti")
+[node name="DashParticles" parent="Maps/Map3/MapPreview3/Players/Player 1/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_ovful")
 
-[node name="SpawnParticles" parent="Maps/Map3/MapPreview2/Players/Player 1/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_onjxh")
+[node name="SpawnParticles" parent="Maps/Map3/MapPreview3/Players/Player 1/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_s5kk3")
 
-[node name="Player 2" parent="Maps/Map3/MapPreview2/Players" index="1"]
+[node name="Player 2" parent="Maps/Map3/MapPreview3/Players" index="1"]
 script = null
 
-[node name="KOParticles" parent="Maps/Map3/MapPreview2/Players/Player 2/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_utjb3")
+[node name="KOParticles" parent="Maps/Map3/MapPreview3/Players/Player 2/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_wfdd0")
 
-[node name="DashParticles" parent="Maps/Map3/MapPreview2/Players/Player 2/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_67j0w")
+[node name="DashParticles" parent="Maps/Map3/MapPreview3/Players/Player 2/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_maf4d")
 
-[node name="SpawnParticles" parent="Maps/Map3/MapPreview2/Players/Player 2/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_8t65p")
+[node name="SpawnParticles" parent="Maps/Map3/MapPreview3/Players/Player 2/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_4lgfy")
 
-[node name="Player 3" parent="Maps/Map3/MapPreview2/Players" index="2"]
+[node name="Player 3" parent="Maps/Map3/MapPreview3/Players" index="2"]
 script = null
 
-[node name="KOParticles" parent="Maps/Map3/MapPreview2/Players/Player 3/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_wyyuo")
+[node name="KOParticles" parent="Maps/Map3/MapPreview3/Players/Player 3/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_nj6da")
 
-[node name="DashParticles" parent="Maps/Map3/MapPreview2/Players/Player 3/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_8b86g")
+[node name="DashParticles" parent="Maps/Map3/MapPreview3/Players/Player 3/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_ooqjv")
 
-[node name="SpawnParticles" parent="Maps/Map3/MapPreview2/Players/Player 3/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_3pehh")
+[node name="SpawnParticles" parent="Maps/Map3/MapPreview3/Players/Player 3/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_orvmy")
 
-[node name="Player 4" parent="Maps/Map3/MapPreview2/Players" index="3"]
+[node name="Player 4" parent="Maps/Map3/MapPreview3/Players" index="3"]
 script = null
 
-[node name="KOParticles" parent="Maps/Map3/MapPreview2/Players/Player 4/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_ocjft")
+[node name="KOParticles" parent="Maps/Map3/MapPreview3/Players/Player 4/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_87ys5")
 
-[node name="DashParticles" parent="Maps/Map3/MapPreview2/Players/Player 4/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_c5ty4")
+[node name="DashParticles" parent="Maps/Map3/MapPreview3/Players/Player 4/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_j3037")
 
-[node name="SpawnParticles" parent="Maps/Map3/MapPreview2/Players/Player 4/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_u0icc")
+[node name="SpawnParticles" parent="Maps/Map3/MapPreview3/Players/Player 4/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_77e0l")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform1" index="0"]
-shape = SubResource("RectangleShape2D_pagvo")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform1" index="0"]
+shape = SubResource("RectangleShape2D_gjdam")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform12" index="0"]
-shape = SubResource("RectangleShape2D_yqj0d")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform7" index="0"]
+shape = SubResource("RectangleShape2D_gjdam")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform18" index="0"]
-shape = SubResource("RectangleShape2D_6jkju")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_jntt5")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform20" index="0"]
-shape = SubResource("RectangleShape2D_lagp8")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform5" index="0"]
+shape = SubResource("RectangleShape2D_l71vy")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform21" index="0"]
-shape = SubResource("RectangleShape2D_lagp8")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform6" index="0"]
+shape = SubResource("RectangleShape2D_l71vy")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform22" index="0"]
-shape = SubResource("RectangleShape2D_ylypi")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform8" index="0"]
+shape = SubResource("RectangleShape2D_a4nor")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform23" index="0"]
-shape = SubResource("RectangleShape2D_ylypi")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform9" index="0"]
+shape = SubResource("RectangleShape2D_a4nor")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform19" index="0"]
-shape = SubResource("RectangleShape2D_6jkju")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform10" index="0"]
+shape = SubResource("RectangleShape2D_dd3tp")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform16" index="0"]
-shape = SubResource("RectangleShape2D_yqj0d")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform11" index="0"]
+shape = SubResource("RectangleShape2D_dd3tp")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform13" index="0"]
-shape = SubResource("RectangleShape2D_h6s37")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform12" index="0"]
+shape = SubResource("RectangleShape2D_dd3tp")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform15" index="0"]
-shape = SubResource("RectangleShape2D_h6s37")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform13" index="0"]
+shape = SubResource("RectangleShape2D_dd3tp")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform14" index="0"]
-shape = SubResource("RectangleShape2D_4ihwr")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform14" index="0"]
+shape = SubResource("RectangleShape2D_dd3tp")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform17" index="0"]
-shape = SubResource("RectangleShape2D_4ihwr")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform15" index="0"]
+shape = SubResource("RectangleShape2D_dd3tp")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform2" index="0"]
-shape = SubResource("RectangleShape2D_xeq3u")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform3" index="0"]
+shape = SubResource("RectangleShape2D_qeh7f")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform3" index="0"]
-shape = SubResource("RectangleShape2D_xeq3u")
+[node name="CollisionShape2D" parent="Maps/Map3/MapPreview3/Platforms/Platform4" index="0"]
+shape = SubResource("RectangleShape2D_qeh7f")
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform4" index="0"]
-shape = SubResource("RectangleShape2D_xos7l")
+[node name="BGM" parent="Maps/Map3/MapPreview3" index="9"]
+autoplay = false
 
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform10" index="0"]
-shape = SubResource("RectangleShape2D_mo3ip")
-
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform11" index="0"]
-shape = SubResource("RectangleShape2D_mo3ip")
-
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform5" index="0"]
-shape = SubResource("RectangleShape2D_5m5sn")
-
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform6" index="0"]
-shape = SubResource("RectangleShape2D_a7r04")
-
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform8" index="0"]
-shape = SubResource("RectangleShape2D_lkccq")
-
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform9" index="0"]
-shape = SubResource("RectangleShape2D_lkccq")
-
-[node name="CollisionShape2D" parent="Maps/Map3/MapPreview2/Platforms/Platform7" index="0"]
-shape = SubResource("RectangleShape2D_a7r04")
+[node name="Label5" type="Label" parent="Maps/Map3"]
+offset_left = 65.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 29.0
+scale = Vector2(1.37271, 1.37271)
+text = "3"
 
 [node name="Map4" type="Polygon2D" parent="Maps"]
 visible = false
@@ -1618,6 +2108,162 @@ shape = SubResource("RectangleShape2D_ttbbg")
 [node name="BGM" parent="Maps/Map4/MapPreview4" index="9"]
 autoplay = false
 
+[node name="Label6" type="Label" parent="Maps/Map4"]
+offset_left = 65.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 29.0
+scale = Vector2(1.37271, 1.37271)
+text = "4"
+
+[node name="Map5" type="Polygon2D" parent="Maps"]
+visible = false
+clip_children = 1
+position = Vector2(191, 128)
+polygon = PackedVector2Array(62, 0, 61, 357, 709, 361, 708, 0)
+
+[node name="MapPreview5" parent="Maps/Map5" instance=ExtResource("7_bntl6")]
+position = Vector2(62, 0)
+scale = Vector2(0.55911, 0.55911)
+script = null
+
+[node name="Player 1" parent="Maps/Map5/MapPreview5/Players" index="0"]
+script = null
+
+[node name="KOParticles" parent="Maps/Map5/MapPreview5/Players/Player 1/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_13ako")
+
+[node name="DashParticles" parent="Maps/Map5/MapPreview5/Players/Player 1/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_u2lpk")
+
+[node name="SpawnParticles" parent="Maps/Map5/MapPreview5/Players/Player 1/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_ha7tm")
+
+[node name="Player 2" parent="Maps/Map5/MapPreview5/Players" index="1"]
+script = null
+
+[node name="KOParticles" parent="Maps/Map5/MapPreview5/Players/Player 2/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_ckspw")
+
+[node name="DashParticles" parent="Maps/Map5/MapPreview5/Players/Player 2/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_kkji8")
+
+[node name="SpawnParticles" parent="Maps/Map5/MapPreview5/Players/Player 2/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_70aj0")
+
+[node name="Player 3" parent="Maps/Map5/MapPreview5/Players" index="2"]
+script = null
+
+[node name="KOParticles" parent="Maps/Map5/MapPreview5/Players/Player 3/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_ypj3w")
+
+[node name="DashParticles" parent="Maps/Map5/MapPreview5/Players/Player 3/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_jrwpn")
+
+[node name="SpawnParticles" parent="Maps/Map5/MapPreview5/Players/Player 3/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_6eor3")
+
+[node name="Player 4" parent="Maps/Map5/MapPreview5/Players" index="3"]
+script = null
+
+[node name="KOParticles" parent="Maps/Map5/MapPreview5/Players/Player 4/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_mri48")
+
+[node name="DashParticles" parent="Maps/Map5/MapPreview5/Players/Player 4/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_rbq5l")
+
+[node name="SpawnParticles" parent="Maps/Map5/MapPreview5/Players/Player 4/OneShotAnimations" index="2"]
+process_material = SubResource("ParticleProcessMaterial_fc3es")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform1" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform3" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform4" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform23" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform5" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform6" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform9" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform17" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform18" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform19" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform20" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform21" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform22" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform10" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform24" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform11" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform12" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform13" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform14" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform15" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform16" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform25" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform26" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform7" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="CollisionShape2D" parent="Maps/Map5/MapPreview5/Platforms/Platform8" index="0"]
+shape = SubResource("RectangleShape2D_4doji")
+
+[node name="BGM" parent="Maps/Map5/MapPreview5" index="8"]
+autoplay = false
+
+[node name="Label6" type="Label" parent="Maps/Map5"]
+offset_left = 74.0
+offset_top = 314.0
+offset_right = 173.0
+offset_bottom = 337.0
+scale = Vector2(1.37271, 1.37271)
+text = "1 (OG)"
+
 [node name="ChangeTimer" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -1633,13 +2279,18 @@ wait_time = 0.5
 [editable path="Maps/Map2/MapPreview2/Players/Player 2"]
 [editable path="Maps/Map2/MapPreview2/Players/Player 3"]
 [editable path="Maps/Map2/MapPreview2/Players/Player 4"]
-[editable path="Maps/Map3/MapPreview2"]
-[editable path="Maps/Map3/MapPreview2/Players/Player 1"]
-[editable path="Maps/Map3/MapPreview2/Players/Player 2"]
-[editable path="Maps/Map3/MapPreview2/Players/Player 3"]
-[editable path="Maps/Map3/MapPreview2/Players/Player 4"]
+[editable path="Maps/Map3/MapPreview3"]
+[editable path="Maps/Map3/MapPreview3/Players/Player 1"]
+[editable path="Maps/Map3/MapPreview3/Players/Player 2"]
+[editable path="Maps/Map3/MapPreview3/Players/Player 3"]
+[editable path="Maps/Map3/MapPreview3/Players/Player 4"]
 [editable path="Maps/Map4/MapPreview4"]
 [editable path="Maps/Map4/MapPreview4/Players/Player 1"]
 [editable path="Maps/Map4/MapPreview4/Players/Player 2"]
 [editable path="Maps/Map4/MapPreview4/Players/Player 3"]
 [editable path="Maps/Map4/MapPreview4/Players/Player 4"]
+[editable path="Maps/Map5/MapPreview5"]
+[editable path="Maps/Map5/MapPreview5/Players/Player 1"]
+[editable path="Maps/Map5/MapPreview5/Players/Player 2"]
+[editable path="Maps/Map5/MapPreview5/Players/Player 3"]
+[editable path="Maps/Map5/MapPreview5/Players/Player 4"]

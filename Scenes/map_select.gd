@@ -5,6 +5,7 @@ extends Node2D
 	$"Maps/Map2",
 	$"Maps/Map3",
 	$"Maps/Map4",
+	$"Maps/Map5", # original Map1
 ]
 
 @onready var change_timer:Timer = $"ChangeTimer"
@@ -33,9 +34,9 @@ func _process(delta: float) -> void:
 	# gamepad input
 	if change_map_delay_done:
 		if Input.get_joy_axis(0,JOY_AXIS_LEFT_X) < -0.2:
-			selected_map = (maps.size() + selected_map + 1) % maps.size()
-		elif Input.get_joy_axis(0,JOY_AXIS_LEFT_X) > 0.2:
 			selected_map = (maps.size() + selected_map - 1) % maps.size()
+		elif Input.get_joy_axis(0,JOY_AXIS_LEFT_X) > 0.2:
+			selected_map = (maps.size() + selected_map + 1) % maps.size()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_released(&"any_start"):
