@@ -3,6 +3,8 @@ extends Node2D
 @onready var maps:Array[Node2D] = [
 	$"Maps/Map1",
 	$"Maps/Map2",
+	$"Maps/Map3",
+	$"Maps/Map4",
 ]
 
 @onready var change_timer:Timer = $"ChangeTimer"
