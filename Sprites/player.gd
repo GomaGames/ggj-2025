@@ -209,6 +209,7 @@ func handle_movement(delta:float):
 		dash_lifetime_ms = DASH_DURATION
 		move_and_slide()
 		$"Dash".play()
+		play_oneshot_animation_in_map($"OneShotAnimations/DashParticles", Vector2(70*(facing.scale.x),-15))
 		return
 
 	var horiz_speed:float
@@ -339,14 +340,15 @@ func handle_bash(delta:float):
 					b.velocity = bash_trajectory * PUNCH_PLAYER_FORCE
 
 
-func play_oneshot_animation_in_map(node:Node2D):
+func play_oneshot_animation_in_map(node:Node2D, offset:Vector2 = Vector2.ZERO):
 	assert(map_oneshot_anims_container != null)
 
 	var clone = node.duplicate()
 	map_oneshot_anims_container.add_child(clone)
-	clone.global_position = Vector2(global_position)
-
+	clone.global_position = Vector2(global_position) + offset
+	
 	if clone is GPUParticles2D:
+		clone.scale.x = facing.scale.x
 		clone.restart()
 
 func bashed(bash_velocity:Vector2):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cdhng28kwjguj"]
+[gd_scene load_steps=39 format=4 uid="uid://cdhng28kwjguj"]
 
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_eavy2"]
 [ext_resource type="Texture2D" uid="uid://dkmliubjrhrj7" path="res://Assets/Backgrounds/background7.png" id="2_1yvfj"]
@@ -265,6 +265,28 @@ radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t0ubg"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(-50, 0, 0)
+spread = 15.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l80s"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
@@ -299,6 +321,28 @@ radial_accel_min = -10.0
 radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ww8x5"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(-50, 0, 0)
+spread = 15.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vol7d"]
 resource_local_to_scene = true
@@ -335,6 +379,28 @@ radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ofi7g"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(-50, 0, 0)
+spread = 15.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftkmh"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
@@ -369,6 +435,28 @@ radial_accel_min = -10.0
 radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3e7so"]
+resource_local_to_scene = true
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(-50, 0, 0)
+spread = 15.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_min = 0.2
+scale_max = 2.0
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yy7ke"]
 resource_local_to_scene = true
@@ -526,7 +614,10 @@ player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 [node name="KOParticles" parent="Players/Player 1/OneShotAnimations" index="0"]
 process_material = SubResource("ParticleProcessMaterial_k51rd")
 
-[node name="SpawnParticles" parent="Players/Player 1/OneShotAnimations" index="1"]
+[node name="DashParticles" parent="Players/Player 1/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_t0ubg")
+
+[node name="SpawnParticles" parent="Players/Player 1/OneShotAnimations" index="2"]
 process_material = SubResource("ParticleProcessMaterial_3l80s")
 
 [node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_w8ql3")]
@@ -543,7 +634,10 @@ visible = true
 [node name="KOParticles" parent="Players/Player 2/OneShotAnimations" index="0"]
 process_material = SubResource("ParticleProcessMaterial_xb0y2")
 
-[node name="SpawnParticles" parent="Players/Player 2/OneShotAnimations" index="1"]
+[node name="DashParticles" parent="Players/Player 2/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_ww8x5")
+
+[node name="SpawnParticles" parent="Players/Player 2/OneShotAnimations" index="2"]
 process_material = SubResource("ParticleProcessMaterial_vol7d")
 
 [node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_w8ql3")]
@@ -562,7 +656,10 @@ visible = true
 [node name="KOParticles" parent="Players/Player 3/OneShotAnimations" index="0"]
 process_material = SubResource("ParticleProcessMaterial_7ljy8")
 
-[node name="SpawnParticles" parent="Players/Player 3/OneShotAnimations" index="1"]
+[node name="DashParticles" parent="Players/Player 3/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_ofi7g")
+
+[node name="SpawnParticles" parent="Players/Player 3/OneShotAnimations" index="2"]
 process_material = SubResource("ParticleProcessMaterial_ftkmh")
 
 [node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_w8ql3")]
@@ -581,7 +678,10 @@ visible = true
 [node name="KOParticles" parent="Players/Player 4/OneShotAnimations" index="0"]
 process_material = SubResource("ParticleProcessMaterial_rf8sk")
 
-[node name="SpawnParticles" parent="Players/Player 4/OneShotAnimations" index="1"]
+[node name="DashParticles" parent="Players/Player 4/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_3e7so")
+
+[node name="SpawnParticles" parent="Players/Player 4/OneShotAnimations" index="2"]
 process_material = SubResource("ParticleProcessMaterial_yy7ke")
 
 [node name="Bubbles" type="Node" parent="."]
