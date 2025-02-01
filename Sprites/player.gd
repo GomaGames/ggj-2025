@@ -355,7 +355,7 @@ func bashed(bash_velocity:Vector2):
 	shove_velocity = bash_velocity
 
 func knocked_out():
-	if !dead:
+	if !dead && !map.is_match_resolved:
 		hide()
 		dead = true
 		stuck_bubble_count = 0
