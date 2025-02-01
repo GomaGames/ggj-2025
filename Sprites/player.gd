@@ -49,6 +49,7 @@ enum BashDirection {
 @onready var fist_forward:Area2D = $"Facing/FistForward"
 @onready var fist_up:Area2D = $"Facing/FistUp"
 @onready var fist_down:Area2D = $"Facing/FistDown"
+@onready var bubble_shield:Area2D = $"Facing/BubbleShield"
 @onready var fist:Area2D = fist_forward # active fist
 
 var animatedSprite:AnimatedSprite2D
@@ -281,6 +282,7 @@ func retract_fist():
 	fist_down.hide()
 	fist_forward.hide()
 	fist_up.hide()
+	bubble_shield.hide()
 
 func handle_bash(delta:float):
 	if bubbles_container == null:
@@ -288,15 +290,16 @@ func handle_bash(delta:float):
 
 	# handle directional bash
 	var direction:BashDirection = BashDirection.FORWARD
-	fist = fist_forward
-	var bash_input_amt = Input.get_axis(&"p%s_up" % player_num, &"p%s_down" % player_num)
-	if abs(bash_input_amt) > 0.2:
-		if bash_input_amt < 0:
-			direction = BashDirection.UP
-			fist = fist_up
-		else:
-			direction = BashDirection.DOWN
-			fist = fist_down
+	#fist = fist_forward
+	#var bash_input_amt = Input.get_axis(&"p%s_up" % player_num, &"p%s_down" % player_num)
+	#if abs(bash_input_amt) > 0.2:
+		#if bash_input_amt < 0:
+			#direction = BashDirection.UP
+			#fist = fist_up
+		#else:
+			#direction = BashDirection.DOWN
+			#fist = fist_down
+	fist = bubble_shield
 
 	var walk := Input.get_axis(&"p%s_left" % player_num, &"p%s_right" % player_num)
 
