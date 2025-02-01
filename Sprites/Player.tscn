@@ -741,6 +741,7 @@ scale = Vector2(0.155215, 0.155215)
 texture = ExtResource("2_135b2")
 
 [node name="BubbleShield" type="Area2D" parent="Facing"]
+visible = false
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/BubbleShield"]

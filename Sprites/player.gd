@@ -337,6 +337,7 @@ func handle_bash(delta:float):
 
 		for b in bubbles_container.get_children():
 			if fist.overlaps_body(b):
+				bash_trajectory = (b.position - position).normalized()
 				if b is PlayerInBubble:
 					b.bashed(team_id, bash_trajectory * PUNCH_BUBBLE_FORCE)
 				elif b is Bubble:
