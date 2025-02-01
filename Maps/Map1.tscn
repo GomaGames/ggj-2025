@@ -167,7 +167,7 @@ offset_bottom = 647.0
 texture = ExtResource("2_wxvw1")
 metadata/_edit_lock_ = true
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Node2D" parent="."]
 
 [node name="TeamLifeSupply1" type="Node2D" parent="UI"]
 modulate = Color(1, 1, 1, 0.513726)
@@ -223,7 +223,7 @@ If we ever choose to have different spawn points, we can add Marker2Ds to this l
 [node name="OneShotAnimations" type="Node" parent="."]
 editor_description = "Layer for adding animations, particles, effects etc"
 
-[node name="Players" type="Node" parent="."]
+[node name="Players" type="Node2D" parent="."]
 
 [node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(277, 205)
@@ -258,7 +258,8 @@ process_material = SubResource("ParticleProcessMaterial_vol7d")
 
 [node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(849, 201)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 player_num = 3
 team_id = 2
 bubbles_container = NodePath("../../Bubbles")
@@ -276,7 +277,8 @@ process_material = SubResource("ParticleProcessMaterial_ftkmh")
 
 [node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
 position = Vector2(991, 355)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 player_num = 4
 team_id = 2
 bubbles_container = NodePath("../../Bubbles")
@@ -748,7 +750,7 @@ texture = ExtResource("9_tcwpg")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Hazards" type="Node" parent="."]
+[node name="Hazards" type="Node2D" parent="."]
 
 [node name="Spike" parent="Hazards" instance=ExtResource("2_2hbjn")]
 position = Vector2(569, 527)
@@ -812,7 +814,7 @@ rotation = -1.57079
 
 [node name="Spike11" parent="Hazards" instance=ExtResource("2_2hbjn")]
 position = Vector2(765, 246)
-rotation = -4.71238
+rotation = 1.57081
 
 [node name="Spike7" parent="Hazards" instance=ExtResource("2_2hbjn")]
 position = Vector2(1092, 388)

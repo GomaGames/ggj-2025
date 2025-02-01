@@ -1,7 +1,6 @@
-[gd_scene load_steps=79 format=3 uid="uid://b2m7gfo3x5hwu"]
+[gd_scene load_steps=78 format=3 uid="uid://b2m7gfo3x5hwu"]
 
 [ext_resource type="Script" path="res://Scenes/character_select.gd" id="1_waoq6"]
-[ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="2_77kn1"]
 [ext_resource type="Texture2D" uid="uid://cw7h0lpwn120i" path="res://Assets/Sprites/DinoSprites - doux.png" id="3_r4010"]
 [ext_resource type="Texture2D" uid="uid://bpu35jeb3ksg0" path="res://Assets/Sprites/DinoSprites - vita.png" id="4_npym0"]
 [ext_resource type="Texture2D" uid="uid://bphue0fn5n81f" path="res://Assets/Sprites/DinoSprites - tard.png" id="5_in2ne"]
@@ -635,54 +634,30 @@ offset_bottom = 586.0
 scale = Vector2(3.34991, 3.34231)
 text = "Player 1: Press Start to Begin"
 
-[node name="Player 1" parent="." instance=ExtResource("2_77kn1")]
+[node name="Player 1" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(170, 246)
-scale = Vector2(2, 2)
-player_num = 1
-physics_enabled = false
-
-[node name="Player 1 Sprite" type="AnimatedSprite2D" parent="Player 1"]
-position = Vector2(1, -17)
-scale = Vector2(2, 2)
+position = Vector2(172, 212)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_i7yvv")
 animation = &"Idle"
 
-[node name="Player 2" parent="." instance=ExtResource("2_77kn1")]
+[node name="Player 2" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(172, 486)
-scale = Vector2(2, 2)
-player_num = 2
-physics_enabled = false
-
-[node name="Player 2 Sprite" type="AnimatedSprite2D" parent="Player 2"]
-position = Vector2(2, -18)
-scale = Vector2(2, 2)
+position = Vector2(176, 450)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_5btr7")
 animation = &"Idle"
 
-[node name="Player 3" parent="." instance=ExtResource("2_77kn1")]
+[node name="Player 3" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(797, 258)
-scale = Vector2(2, 2)
-player_num = 3
-physics_enabled = false
-
-[node name="Player 3 Sprite" type="AnimatedSprite2D" parent="Player 3"]
-position = Vector2(1, -18)
-scale = Vector2(2, 2)
+position = Vector2(799, 222)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_kdcd3")
 animation = &"Idle"
 
-[node name="Player 4" parent="." instance=ExtResource("2_77kn1")]
+[node name="Player 4" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(796, 495)
-scale = Vector2(2, 2)
-player_num = 4
-physics_enabled = false
-
-[node name="Player 4 Sprite" type="AnimatedSprite2D" parent="Player 4"]
-position = Vector2(0, -18)
-scale = Vector2(2, 2)
+position = Vector2(796, 459)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_qh1r0")
 animation = &"Hurt"

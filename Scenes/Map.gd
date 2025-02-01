@@ -86,7 +86,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_match_resolved && Input.is_action_just_pressed(&"any_start"):
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file(&"res://Scenes/map_select.tscn")
 		
 	if Input.is_action_just_released(&"p1_select"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:

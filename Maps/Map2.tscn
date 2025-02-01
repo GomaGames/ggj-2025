@@ -12,147 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="11_nm3wl"]
 [ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="13_qqq52"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k51rd"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-radial_velocity_min = 9.99998
-radial_velocity_max = 20.0
-radial_accel_min = -10.0
-radial_accel_max = 10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l80s"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 50.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-radial_velocity_min = -150.0
-radial_velocity_max = -10.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -100.0
-radial_accel_max = -10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xb0y2"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-radial_velocity_min = 9.99998
-radial_velocity_max = 20.0
-radial_accel_min = -10.0
-radial_accel_max = 10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vol7d"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 50.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-radial_velocity_min = -150.0
-radial_velocity_max = -10.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -100.0
-radial_accel_max = -10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ljy8"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-radial_velocity_min = 9.99998
-radial_velocity_max = 20.0
-radial_accel_min = -10.0
-radial_accel_max = 10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftkmh"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 50.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-radial_velocity_min = -150.0
-radial_velocity_max = -10.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -100.0
-radial_accel_max = -10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rf8sk"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-radial_velocity_min = 9.99998
-radial_velocity_max = 20.0
-radial_accel_min = -10.0
-radial_accel_max = 10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yy7ke"]
-resource_local_to_scene = true
-lifetime_randomness = 0.6
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(2, 2, 2)
-emission_shape = 1
-emission_sphere_radius = 50.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-radial_velocity_min = -150.0
-radial_velocity_max = -10.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -100.0
-radial_accel_max = -10.0
-hue_variation_min = -0.2
-hue_variation_max = 0.2
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7etdv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g35h"]
 resource_name = "kenny-abstract-platforms"
 texture = ExtResource("11_nm3wl")
 texture_region_size = Vector2i(64, 64)
@@ -385,7 +245,147 @@ terrain_set_1/terrain_0/name = "blue platforms"
 terrain_set_1/terrain_0/color = Color(0.0464439, 0, 0.598808, 1)
 terrain_set_1/terrain_1/name = "hazards"
 terrain_set_1/terrain_1/color = Color(0.76047, 5.69868e-05, 0.593363, 1)
-sources/1 = SubResource("TileSetAtlasSource_7etdv")
+sources/1 = SubResource("TileSetAtlasSource_0g35h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k51rd"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l80s"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xb0y2"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vol7d"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ljy8"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftkmh"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rf8sk"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yy7ke"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsn2s"]
 resource_local_to_scene = true
@@ -439,7 +439,7 @@ size = Vector2(12.0882, 119.072)
 resource_local_to_scene = true
 size = Vector2(21.1544, 47.6289)
 
-[node name="Map1" type="Node2D"]
+[node name="Map3" type="Node2D"]
 script = ExtResource("1_eavy2")
 
 [node name="Background7" type="Sprite2D" parent="."]
@@ -448,11 +448,19 @@ scale = Vector2(1.1237, 1.1237)
 texture = ExtResource("2_1yvfj")
 metadata/_edit_lock_ = true
 
-[node name="UI" type="Node" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAwAAQACAAYAAAAAAA0AAQAAAAcAAAAAAA4AAQAAAAcAAAAAAA8AAQAAAAgAAAAAABAAAQAAAAYAAAAAABEAAQAAAAgAAAAAABIAAQAAAAYAAAAAABMAAQAAAAYAAAAAABQAAQAAAAYAAAAjAA4AAQAAAAYAAAAjAA8AAQAAAAgAAAAjABAAAQAAAAYAAAAjABEAAQAAAAYAAAAjABIAAQAAAAYAAAAjABMAAQAAAAgAAAAjABQAAQAAAAcAAAAjAAwAAQACAAYAAAAjAA0AAQAAAAcAAAAeABMAAQADAAYAAAAdABMAAQACAAYAAAAcABMAAQACAAYAAAAbABMAAQACAAYAAAAaABMAAQACAAYAAAAZABMAAQACAAYAAAAYABMAAQACAAYAAAAXABMAAQAAAAgAAAAWABMAAQAAAAgAAAAVABMAAQAAAAcAAAAUABMAAQAAAAYAAAATABMAAQAAAAgAAAASABMAAQAAAAgAAAARABMAAQAAAAgAAAAQABMAAQAAAAcAAAAPABMAAQAAAAcAAAAOABMAAQAAAAYAAAANABMAAQAAAAcAAAAMABMAAQAAAAYAAAALABMAAQACAAYAAAAKABMAAQACAAYAAAAJABMAAQACAAYAAAAIABMAAQACAAYAAAAHABMAAQACAAYAAAAGABMAAQACAAYAAAAFABMAAQABAAYAAAAQAA4AAQABAAYAAAAQAA8AAQAAAAYAAAAQABAAAQAAAAYAAAAQABEAAQAAAAgAAAAQABIAAQAAAAYAAAARABIAAQAAAAYAAAARABEAAQAAAAgAAAARABAAAQAAAAgAAAARAA8AAQAAAAcAAAARAA4AAQACAAYAAAASAA4AAQACAAYAAAASAA8AAQAAAAcAAAASABAAAQAAAAYAAAASABEAAQAAAAYAAAASABIAAQAAAAcAAAATAA4AAQADAAYAAAATAA8AAQAAAAcAAAATABAAAQAAAAYAAAATABEAAQAAAAgAAAATABIAAQAAAAYAAAAMABAAAQABAAYAAAANABAAAQACAAYAAAAOABAAAQACAAYAAAAPABAAAQACAAYAAAAPABIAAQAAAAgAAAAOABIAAQAAAAgAAAANABEAAQAAAAcAAAAMABEAAQAAAAgAAAAPABEAAQAAAAYAAAAOABEAAQAAAAcAAAANABIAAQAAAAYAAAAMABIAAQAAAAgAAAAXABEAAQAAAAYAAAAWABEAAQAAAAYAAAAVABAAAQACAAYAAAAUABAAAQACAAYAAAAXABAAAQADAAYAAAAUABIAAQAAAAYAAAAVABIAAQAAAAgAAAAWABIAAQAAAAgAAAAXABIAAQAAAAYAAAAVABEAAQAAAAgAAAAUABEAAQAAAAcAAAAWABAAAQACAAYAAAATAAAAAQAAAAcAAAASAAAAAQAAAAYAAAARAAAAAQAAAAYAAAAQAAAAAQAAAAYAAAATAAkAAQAHAAYAAAASAAkAAQAGAAYAAAARAAkAAQAGAAYAAAAQAAkAAQAFAAYAAAAPAAAAAQAAAAgAAAAOAAAAAQAAAAYAAAANAAAAAQAAAAYAAAAMAAAAAQAAAAgAAAALAAAAAQAAAAcAAAAKAAAAAQAAAAYAAAAJAAAAAQAAAAgAAAAIAAAAAQAAAAYAAAAHAAAAAQAAAAgAAAAGAAAAAQAAAAgAAAAFAAAAAQAAAAcAAAAAAAAAAQAAAAcAAAAjAAAAAQAAAAYAAAAUAAAAAQAAAAcAAAAVAAAAAQAAAAcAAAAWAAAAAQAAAAYAAAAXAAAAAQAAAAYAAAAYAAAAAQAAAAYAAAAZAAAAAQAAAAgAAAAaAAAAAQAAAAcAAAAbAAAAAQAAAAYAAAAcAAAAAQAAAAcAAAAdAAAAAQAAAAgAAAAeAAAAAQAAAAYAAAAFAAQAAQAAAAgAAAAFAAMAAQAAAAYAAAAFAAIAAQAAAAYAAAAFAAEAAQAAAAYAAAADAAQAAQAHAAcAAAAEAAQAAQACAAYAAAAAAAcAAQAAAAYAAAAAAAYAAQAAAAcAAAAAAAUAAQAAAAYAAAAAAAQAAQAAAAcAAAAAAAMAAQAAAAcAAAAAAAIAAQAAAAcAAAAAAAEAAQAAAAcAAAACAAwAAQAIAAcAAAABAAwAAQACAAYAAAAhAAwAAQAHAAcAAAAiAAwAAQACAAYAAAAeAAQAAQAAAAcAAAAeAAMAAQAAAAcAAAAeAAIAAQAAAAgAAAAeAAEAAQAAAAgAAAAgAAQAAQAIAAcAAAAfAAQAAQACAAYAAAAjAAcAAQAAAAcAAAAjAAYAAQAAAAYAAAAjAAUAAQAAAAcAAAAjAAQAAQAAAAcAAAAjAAMAAQAAAAgAAAAjAAIAAQAAAAgAAAAjAAEAAQAAAAgAAAABAAcAAQAIAAcAAAAiAAcAAQAHAAcAAAAeABQAAQAAAAgAAAAdABQAAQAAAAcAAAAcABQAAQAAAAgAAAAbABQAAQAAAAcAAAAaABQAAQAAAAgAAAAZABQAAQAAAAcAAAAYABQAAQAAAAgAAAAXABQAAQAAAAYAAAAWABQAAQAAAAgAAAAVABQAAQAAAAcAAAAUABQAAQAAAAYAAAATABQAAQAAAAcAAAASABQAAQAAAAgAAAARABQAAQAAAAcAAAAQABQAAQAAAAYAAAAPABQAAQAAAAYAAAAOABQAAQAAAAcAAAANABQAAQAAAAYAAAAMABQAAQAAAAgAAAALABQAAQAAAAcAAAAKABQAAQAAAAgAAAAJABQAAQAAAAcAAAAIABQAAQAAAAgAAAAHABQAAQAAAAYAAAAGABQAAQAAAAYAAAAFABQAAQAAAAgAAAAKAAsAAQAHAAYAAAAJAAsAAQAGAAYAAAAIAAsAAQAGAAYAAAAHAAsAAQAFAAYAAAAZAAsAAQAFAAYAAAAaAAsAAQAGAAYAAAAbAAsAAQAGAAYAAAAcAAsAAQAHAAYAAAAOAAQAAQAHAAYAAAANAAQAAQAGAAYAAAAMAAQAAQAGAAYAAAALAAQAAQAGAAYAAAAKAAQAAQAFAAYAAAAVAAQAAQAFAAYAAAAWAAQAAQAGAAYAAAAXAAQAAQAGAAYAAAAYAAQAAQAGAAYAAAAZAAQAAQAHAAYAAAA=")
+tile_set = SubResource("TileSet_ns3ei")
+metadata/_edit_lock_ = true
+
+[node name="UI" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="TeamLifeSupply1" type="Node2D" parent="UI"]
 modulate = Color(1, 1, 1, 0.513726)
-position = Vector2(54, 626)
+position = Vector2(457, 582)
+scale = Vector2(1.5, 1.5)
 
 [node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("4_3qjx1")]
 position = Vector2(-25, 7)
@@ -471,7 +479,8 @@ texture = ExtResource("5_k4cbt")
 
 [node name="TeamLifeSupply2" type="Node2D" parent="UI"]
 modulate = Color(1, 1, 1, 0.513726)
-position = Vector2(1099, 626)
+position = Vector2(695, 582)
+scale = Vector2(1.5, 1.5)
 
 [node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("4_3qjx1")]
 position = Vector2(-25, 7)
@@ -504,7 +513,7 @@ If we ever choose to have different spawn points, we can add Marker2Ds to this l
 [node name="OneShotAnimations" type="Node" parent="."]
 editor_description = "Layer for adding animations, particles, effects etc"
 
-[node name="Players" type="Node" parent="."]
+[node name="Players" type="Node2D" parent="."]
 
 [node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_w8ql3")]
 position = Vector2(288, 348)
@@ -539,7 +548,8 @@ process_material = SubResource("ParticleProcessMaterial_vol7d")
 
 [node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_w8ql3")]
 position = Vector2(869, 347)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 player_num = 3
 team_id = 2
 bubbles_container = NodePath("../../Bubbles")
@@ -557,7 +567,8 @@ process_material = SubResource("ParticleProcessMaterial_ftkmh")
 
 [node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_w8ql3")]
 position = Vector2(877, 606)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 player_num = 4
 team_id = 2
 bubbles_container = NodePath("../../Bubbles")
@@ -574,11 +585,6 @@ process_material = SubResource("ParticleProcessMaterial_rf8sk")
 process_material = SubResource("ParticleProcessMaterial_yy7ke")
 
 [node name="Bubbles" type="Node" parent="."]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAAAAAwAAQACAAYAAAAAAA0AAQAAAAcAAAAAAA4AAQAAAAcAAAAAAA8AAQAAAAgAAAAAABAAAQAAAAYAAAAAABEAAQAAAAgAAAAAABIAAQAAAAYAAAAAABMAAQAAAAYAAAAAABQAAQAAAAYAAAAjAA4AAQAAAAYAAAAjAA8AAQAAAAgAAAAjABAAAQAAAAYAAAAjABEAAQAAAAYAAAAjABIAAQAAAAYAAAAjABMAAQAAAAgAAAAjABQAAQAAAAcAAAAjAAwAAQACAAYAAAAjAA0AAQAAAAcAAAAeABMAAQADAAYAAAAdABMAAQACAAYAAAAcABMAAQACAAYAAAAbABMAAQACAAYAAAAaABMAAQACAAYAAAAZABMAAQACAAYAAAAYABMAAQACAAYAAAAXABMAAQAAAAgAAAAWABMAAQAAAAgAAAAVABMAAQAAAAcAAAAUABMAAQAAAAYAAAATABMAAQAAAAgAAAASABMAAQAAAAgAAAARABMAAQAAAAgAAAAQABMAAQAAAAcAAAAPABMAAQAAAAcAAAAOABMAAQAAAAYAAAANABMAAQAAAAcAAAAMABMAAQAAAAYAAAALABMAAQACAAYAAAAKABMAAQACAAYAAAAJABMAAQACAAYAAAAIABMAAQACAAYAAAAHABMAAQACAAYAAAAGABMAAQACAAYAAAAFABMAAQABAAYAAAAQAA4AAQABAAYAAAAQAA8AAQAAAAYAAAAQABAAAQAAAAYAAAAQABEAAQAAAAgAAAAQABIAAQAAAAYAAAARABIAAQAAAAYAAAARABEAAQAAAAgAAAARABAAAQAAAAgAAAARAA8AAQAAAAcAAAARAA4AAQACAAYAAAASAA4AAQACAAYAAAASAA8AAQAAAAcAAAASABAAAQAAAAYAAAASABEAAQAAAAYAAAASABIAAQAAAAcAAAATAA4AAQADAAYAAAATAA8AAQAAAAcAAAATABAAAQAAAAYAAAATABEAAQAAAAgAAAATABIAAQAAAAYAAAAMABAAAQABAAYAAAANABAAAQACAAYAAAAOABAAAQACAAYAAAAPABAAAQACAAYAAAAPABIAAQAAAAgAAAAOABIAAQAAAAgAAAANABEAAQAAAAcAAAAMABEAAQAAAAgAAAAPABEAAQAAAAYAAAAOABEAAQAAAAcAAAANABIAAQAAAAYAAAAMABIAAQAAAAgAAAAXABEAAQAAAAYAAAAWABEAAQAAAAYAAAAVABAAAQACAAYAAAAUABAAAQACAAYAAAAXABAAAQADAAYAAAAUABIAAQAAAAYAAAAVABIAAQAAAAgAAAAWABIAAQAAAAgAAAAXABIAAQAAAAYAAAAVABEAAQAAAAgAAAAUABEAAQAAAAcAAAAWABAAAQACAAYAAAATAAAAAQAAAAcAAAASAAAAAQAAAAYAAAARAAAAAQAAAAYAAAAQAAAAAQAAAAYAAAATAAkAAQAHAAYAAAASAAkAAQAGAAYAAAARAAkAAQAGAAYAAAAQAAkAAQAFAAYAAAAPAAAAAQAAAAgAAAAOAAAAAQAAAAYAAAANAAAAAQAAAAYAAAAMAAAAAQAAAAgAAAALAAAAAQAAAAcAAAAKAAAAAQAAAAYAAAAJAAAAAQAAAAgAAAAIAAAAAQAAAAYAAAAHAAAAAQAAAAgAAAAGAAAAAQAAAAgAAAAFAAAAAQAAAAcAAAAAAAAAAQAAAAcAAAAjAAAAAQAAAAYAAAAUAAAAAQAAAAcAAAAVAAAAAQAAAAcAAAAWAAAAAQAAAAYAAAAXAAAAAQAAAAYAAAAYAAAAAQAAAAYAAAAZAAAAAQAAAAgAAAAaAAAAAQAAAAcAAAAbAAAAAQAAAAYAAAAcAAAAAQAAAAcAAAAdAAAAAQAAAAgAAAAeAAAAAQAAAAYAAAAFAAQAAQAAAAgAAAAFAAMAAQAAAAYAAAAFAAIAAQAAAAYAAAAFAAEAAQAAAAYAAAADAAQAAQAHAAcAAAAEAAQAAQACAAYAAAAAAAcAAQAAAAYAAAAAAAYAAQAAAAcAAAAAAAUAAQAAAAYAAAAAAAQAAQAAAAcAAAAAAAMAAQAAAAcAAAAAAAIAAQAAAAcAAAAAAAEAAQAAAAcAAAACAAwAAQAIAAcAAAABAAwAAQACAAYAAAAhAAwAAQAHAAcAAAAiAAwAAQACAAYAAAAeAAQAAQAAAAcAAAAeAAMAAQAAAAcAAAAeAAIAAQAAAAgAAAAeAAEAAQAAAAgAAAAgAAQAAQAIAAcAAAAfAAQAAQACAAYAAAAjAAcAAQAAAAcAAAAjAAYAAQAAAAYAAAAjAAUAAQAAAAcAAAAjAAQAAQAAAAcAAAAjAAMAAQAAAAgAAAAjAAIAAQAAAAgAAAAjAAEAAQAAAAgAAAABAAcAAQAIAAcAAAAiAAcAAQAHAAcAAAAeABQAAQAAAAgAAAAdABQAAQAAAAcAAAAcABQAAQAAAAgAAAAbABQAAQAAAAcAAAAaABQAAQAAAAgAAAAZABQAAQAAAAcAAAAYABQAAQAAAAgAAAAXABQAAQAAAAYAAAAWABQAAQAAAAgAAAAVABQAAQAAAAcAAAAUABQAAQAAAAYAAAATABQAAQAAAAcAAAASABQAAQAAAAgAAAARABQAAQAAAAcAAAAQABQAAQAAAAYAAAAPABQAAQAAAAYAAAAOABQAAQAAAAcAAAANABQAAQAAAAYAAAAMABQAAQAAAAgAAAALABQAAQAAAAcAAAAKABQAAQAAAAgAAAAJABQAAQAAAAcAAAAIABQAAQAAAAgAAAAHABQAAQAAAAYAAAAGABQAAQAAAAYAAAAFABQAAQAAAAgAAAAKAAsAAQAHAAYAAAAJAAsAAQAGAAYAAAAIAAsAAQAGAAYAAAAHAAsAAQAFAAYAAAAZAAsAAQAFAAYAAAAaAAsAAQAGAAYAAAAbAAsAAQAGAAYAAAAcAAsAAQAHAAYAAAAOAAQAAQAHAAYAAAANAAQAAQAGAAYAAAAMAAQAAQAGAAYAAAALAAQAAQAGAAYAAAAKAAQAAQAFAAYAAAAVAAQAAQAFAAYAAAAWAAQAAQAGAAYAAAAXAAQAAQAGAAYAAAAYAAQAAQAGAAYAAAAZAAQAAQAHAAYAAAA=")
-tile_set = SubResource("TileSet_ns3ei")
 
 [node name="Platforms" type="Node2D" parent="."]
 
