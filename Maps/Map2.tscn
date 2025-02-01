@@ -988,6 +988,7 @@ rotation = 2.4739
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_qqq52")
+autoplay = true
 parameters/looping = true
 
 [editable path="Players/Player 1"]
