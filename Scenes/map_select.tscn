@@ -1,7 +1,8 @@
-[gd_scene load_steps=106 format=4 uid="uid://krin33njcqc2"]
+[gd_scene load_steps=111 format=4 uid="uid://krin33njcqc2"]
 
 [ext_resource type="Script" path="res://Scenes/map_select.gd" id="1_al5cp"]
 [ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="2_8rpu3"]
+[ext_resource type="PackedScene" uid="uid://b0lqm45h8177a" path="res://Maps/Map1.tscn" id="3_dcvat"]
 [ext_resource type="PackedScene" uid="uid://cdhng28kwjguj" path="res://Maps/Map2.tscn" id="4_wowhj"]
 [ext_resource type="PackedScene" uid="uid://svgcrq5wpqbv" path="res://Maps/Map4.tscn" id="5_5cn5e"]
 [ext_resource type="PackedScene" uid="uid://cjwhxmxd5w5hn" path="res://Maps/Map3.tscn" id="5_d05cy"]
@@ -273,7 +274,7 @@ terrain_set_2/terrain_2/name = "Arrows"
 terrain_set_2/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_crt14")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f418h"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cahl3"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -291,7 +292,7 @@ radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_47hbi"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u5j2y"]
 resource_local_to_scene = true
 lifetime_randomness = 0.7
 particle_flag_disable_z = true
@@ -313,7 +314,7 @@ scale_max = 2.0
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wi53i"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qqbcw"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -330,7 +331,7 @@ radial_accel_max = -10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qk77v"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jrwar"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -348,7 +349,7 @@ radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g384a"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgp21"]
 resource_local_to_scene = true
 lifetime_randomness = 0.7
 particle_flag_disable_z = true
@@ -370,7 +371,7 @@ scale_max = 2.0
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sx2rs"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qtywr"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -387,7 +388,7 @@ radial_accel_max = -10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ro3us"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dfxd5"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -405,7 +406,7 @@ radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3mc41"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tovan"]
 resource_local_to_scene = true
 lifetime_randomness = 0.7
 particle_flag_disable_z = true
@@ -427,7 +428,7 @@ scale_max = 2.0
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wvsl7"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_duqxr"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -444,7 +445,7 @@ radial_accel_max = -10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sr5q4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_87p15"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -462,7 +463,7 @@ radial_accel_max = 10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4eqag"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3t1ky"]
 resource_local_to_scene = true
 lifetime_randomness = 0.7
 particle_flag_disable_z = true
@@ -484,7 +485,7 @@ scale_max = 2.0
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e3r6n"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ee8hy"]
 resource_local_to_scene = true
 lifetime_randomness = 0.6
 particle_flag_disable_z = true
@@ -501,13 +502,29 @@ radial_accel_max = -10.0
 hue_variation_min = -0.2
 hue_variation_max = 0.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_658ko"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1asdm"]
 resource_local_to_scene = true
-size = Vector2(18.7935, 19.3493)
+size = Vector2(39.4757, 29.7681)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sj16"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o42bs"]
 resource_local_to_scene = true
-size = Vector2(18.7935, 19.3493)
+size = Vector2(3.02206, 381.032)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyruy"]
+resource_local_to_scene = true
+size = Vector2(3.02206, 71.4435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqwjw"]
+resource_local_to_scene = true
+size = Vector2(36.2648, 17.1167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec6i7"]
+resource_local_to_scene = true
+size = Vector2(18.1324, 17.1167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34xlk"]
+resource_local_to_scene = true
+size = Vector2(24.1765, 17.1167)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4dhls"]
 resource_local_to_scene = true
@@ -1568,6 +1585,7 @@ script = ExtResource("1_al5cp")
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAAAAAwAAQAAAAYAAAAAAA0AAQAAAAcAAAAAAA4AAQAAAAgAAAAAAA8AAQAAAAYAAAAAABAAAQAAAAYAAAAAABEAAQAAAAgAAAAAABIAAQAAAAYAAAAAABMAAQAAAAYAAAAAABQAAQAAAAYAAAAjAA4AAQAAAAcAAAAjAA8AAQAAAAgAAAAjABAAAQAAAAcAAAAjABEAAQAAAAYAAAAjABIAAQAAAAYAAAAjABMAAQAAAAcAAAAjABQAAQAAAAcAAAAjAAwAAQAAAAYAAAAjAA0AAQAAAAYAAAAeABMAAQAAAAYAAAAdABMAAQAAAAYAAAAcABMAAQAAAAcAAAAbABMAAQAAAAgAAAAaABMAAQAAAAYAAAAZABMAAQAAAAcAAAAYABMAAQAAAAcAAAAXABMAAQAAAAcAAAAWABMAAQAAAAcAAAAVABMAAQAAAAYAAAAUABMAAQAAAAYAAAATABMAAQAAAAgAAAASABMAAQAAAAgAAAARABMAAQAAAAgAAAAQABMAAQAAAAYAAAAPABMAAQAAAAcAAAAOABMAAQAAAAgAAAANABMAAQAAAAcAAAAMABMAAQAAAAYAAAALABMAAQAAAAcAAAAKABMAAQAAAAYAAAAJABMAAQAAAAgAAAAIABMAAQAAAAcAAAAHABMAAQAAAAgAAAAGABMAAQAAAAgAAAAFABMAAQAAAAYAAAAQAA4AAQARAAkAAAAQAA8AAQARAAgAAAAQABAAAQARAAgAAAAQABEAAQAAAAgAAAAQABIAAQAAAAgAAAARABIAAQAAAAgAAAARABEAAQAAAAgAAAARABAAAQARAAgAAAARAA8AAQARAAkAAAARAA4AAQARAAgAAAASAA4AAQARAAgAAAASAA8AAQARAAgAAAASABAAAQARAAkAAAASABEAAQAAAAcAAAASABIAAQAAAAYAAAATAA4AAQARAAgAAAATAA8AAQARAAgAAAATABAAAQARAAkAAAATABEAAQAAAAcAAAATABIAAQAAAAgAAAAMABAAAQARAAgAAAANABAAAQARAAgAAAAOABAAAQARAAgAAAAPABAAAQARAAkAAAAPABIAAQAAAAcAAAAOABIAAQAAAAcAAAANABEAAQAAAAcAAAAMABEAAQAAAAcAAAAPABEAAQAAAAYAAAAOABEAAQAAAAYAAAANABIAAQAAAAYAAAAMABIAAQAAAAcAAAAXABEAAQAAAAgAAAAWABEAAQAAAAYAAAAVABAAAQARAAkAAAAUABAAAQARAAkAAAAXABAAAQARAAgAAAAUABIAAQAAAAYAAAAVABIAAQAAAAgAAAAWABIAAQAAAAcAAAAXABIAAQAAAAgAAAAVABEAAQAAAAYAAAAUABEAAQAAAAcAAAAWABAAAQARAAkAAAATAAAAAQAAAAYAAAASAAAAAQAAAAcAAAARAAAAAQAAAAgAAAAQAAAAAQAAAAYAAAATAAkAAQARAAkAAAASAAkAAQARAAgAAAARAAkAAQARAAkAAAAQAAkAAQARAAkAAAAPAAAAAQAAAAYAAAAOAAAAAQAAAAYAAAANAAAAAQAAAAgAAAAMAAAAAQAAAAcAAAALAAAAAQAAAAYAAAAKAAAAAQAAAAcAAAAJAAAAAQAAAAcAAAAIAAAAAQAAAAgAAAAHAAAAAQAAAAcAAAAGAAAAAQAAAAgAAAAFAAAAAQAAAAYAAAAAAAAAAQAAAAcAAAAjAAAAAQAAAAcAAAAUAAAAAQAAAAgAAAAVAAAAAQAAAAYAAAAWAAAAAQAAAAcAAAAXAAAAAQAAAAcAAAAYAAAAAQAAAAYAAAAZAAAAAQAAAAgAAAAaAAAAAQAAAAYAAAAbAAAAAQAAAAcAAAAcAAAAAQAAAAcAAAAdAAAAAQAAAAcAAAAeAAAAAQAAAAgAAAAFAAQAAQARAAgAAAAFAAMAAQARAAkAAAAFAAIAAQAAAAcAAAAFAAEAAQAAAAgAAAADAAQAAQAAAAcAAAAEAAQAAQAAAAgAAAAAAAcAAQAAAAcAAAAAAAYAAQAAAAYAAAAAAAUAAQAAAAcAAAAAAAQAAQAAAAcAAAAAAAMAAQAAAAcAAAAAAAIAAQAAAAcAAAAAAAEAAQAAAAcAAAACAAwAAQAAAAgAAAABAAwAAQAAAAYAAAAhAAwAAQAAAAYAAAAiAAwAAQAAAAcAAAAeAAQAAQARAAgAAAAeAAMAAQARAAkAAAAeAAIAAQAAAAYAAAAeAAEAAQAAAAgAAAAgAAQAAQAAAAYAAAAfAAQAAQAAAAgAAAAjAAcAAQAAAAcAAAAjAAYAAQAAAAgAAAAjAAUAAQAAAAgAAAAjAAQAAQAAAAYAAAAjAAMAAQAAAAgAAAAjAAIAAQAAAAYAAAAjAAEAAQAAAAYAAAABAAcAAQAAAAYAAAAiAAcAAQAAAAcAAAAeABQAAQAAAAYAAAAdABQAAQAAAAgAAAAcABQAAQAAAAYAAAAbABQAAQAAAAcAAAAaABQAAQAAAAYAAAAZABQAAQAAAAYAAAAYABQAAQAAAAgAAAAXABQAAQAAAAgAAAAWABQAAQAAAAYAAAAVABQAAQAAAAYAAAAUABQAAQAAAAgAAAATABQAAQAAAAYAAAASABQAAQAAAAcAAAARABQAAQAAAAYAAAAQABQAAQAAAAYAAAAPABQAAQAAAAgAAAAOABQAAQAAAAYAAAANABQAAQAAAAYAAAAMABQAAQAAAAcAAAALABQAAQAAAAYAAAAKABQAAQAAAAYAAAAJABQAAQAAAAcAAAAIABQAAQAAAAYAAAAHABQAAQAAAAcAAAAGABQAAQAAAAcAAAAFABQAAQAAAAcAAAAKAAsAAQARAAgAAAAJAAsAAQARAAkAAAAIAAsAAQARAAkAAAAHAAsAAQARAAkAAAAZAAsAAQARAAgAAAAaAAsAAQARAAkAAAAbAAsAAQARAAkAAAAcAAsAAQARAAkAAAAOAAQAAQARAAkAAAANAAQAAQARAAgAAAAMAAQAAQARAAkAAAALAAQAAQARAAgAAAAKAAQAAQARAAgAAAAVAAQAAQARAAgAAAAWAAQAAQARAAgAAAAXAAQAAQARAAgAAAAYAAQAAQARAAgAAAAZAAQAAQARAAgAAAAjAAsAAQAAAAgAAAAjAAoAAQAAAAYAAAAjAAkAAQAAAAYAAAAjAAgAAQAAAAYAAAAiABQAAQAAAAcAAAAiABMAAQAAAAcAAAAiABIAAQAAAAYAAAAiABEAAQAAAAYAAAAiABAAAQAAAAcAAAAiAA8AAQAAAAcAAAAiAA4AAQAAAAcAAAAiAA0AAQAAAAcAAAAiAAsAAQAAAAYAAAAiAAoAAQAAAAgAAAAiAAkAAQAAAAcAAAAiAAgAAQAAAAgAAAAiAAYAAQAAAAYAAAAiAAUAAQAAAAcAAAAiAAQAAQAAAAcAAAAiAAMAAQAAAAYAAAAiAAIAAQAAAAYAAAAiAAEAAQAAAAgAAAAiAAAAAQAAAAcAAAAhABQAAQAAAAcAAAAhABMAAQAAAAcAAAAhABIAAQAAAAYAAAAhABEAAQAAAAcAAAAhABAAAQAAAAgAAAAhAA8AAQAAAAYAAAAhAA4AAQAAAAYAAAAhAA0AAQAAAAYAAAAhAAsAAQAAAAcAAAAhAAoAAQAUAAsAAAAhAAkAAQAAAAYAAAAhAAgAAQAAAAgAAAAhAAcAAQAAAAYAAAAhAAYAAQAAAAcAAAAhAAUAAQAAAAYAAAAhAAQAAQAAAAgAAAAhAAMAAQAAAAcAAAAhAAIAAQAAAAcAAAAhAAEAAQAAAAYAAAAhAAAAAQAAAAYAAAAgABQAAQAAAAcAAAAgABMAAQAAAAYAAAAgABIAAQAAAAgAAAAgABEAAQAAAAgAAAAgABAAAQAAAAgAAAAgAA8AAQAAAAgAAAAgAA4AAQAAAAcAAAAgAA0AAQAAAAgAAAAgAAwAAQAAAAgAAAAgAAsAAQAAAAcAAAAgAAoAAQAAAAcAAAAgAAkAAQAAAAgAAAAgAAgAAQAAAAYAAAAgAAcAAQAAAAcAAAAgAAYAAQAAAAYAAAAgAAUAAQAAAAcAAAAgAAMAAQAAAAYAAAAgAAIAAQAAAAYAAAAgAAEAAQAAAAgAAAAgAAAAAQAAAAYAAAAfABQAAQAAAAYAAAAfABMAAQAAAAgAAAAfABIAAQAAAAYAAAAfABEAAQAAAAYAAAAfABAAAQAAAAcAAAAfAA8AAQAAAAgAAAAfAA4AAQAAAAcAAAAfAA0AAQAAAAgAAAAfAAwAAQAAAAcAAAAfAAsAAQAAAAcAAAAfAAoAAQAAAAcAAAAfAAkAAQAAAAYAAAAfAAgAAQAAAAYAAAAfAAcAAQAAAAYAAAAfAAYAAQAAAAcAAAAfAAUAAQAAAAYAAAAfAAMAAQAAAAgAAAAfAAIAAQAAAAgAAAAfAAEAAQAAAAcAAAAfAAAAAQAAAAcAAAAeABIAAQAAAAYAAAAeABEAAQAAAAcAAAAeABAAAQARAAkAAAAeAA8AAQARAAkAAAAeAA4AAQARAAkAAAAeAA0AAQARAAkAAAAeAAwAAQARAAkAAAAeAAsAAQARAAgAAAAeAAoAAQARAAgAAAAeAAkAAQARAAgAAAAeAAgAAQARAAgAAAAeAAcAAQARAAkAAAAeAAYAAQARAAkAAAAeAAUAAQARAAkAAAAdABIAAQAAAAYAAAAdABEAAQAAAAYAAAAdABAAAQARAAkAAAAdAA8AAQARAAgAAAAdAA4AAQARAAgAAAAdAA0AAQARAAkAAAAdAAwAAQARAAgAAAAdAAsAAQARAAkAAAAdAAoAAQARAAkAAAAdAAkAAQARAAgAAAAdAAgAAQARAAkAAAAdAAcAAQARAAkAAAAdAAYAAQARAAgAAAAdAAUAAQARAAgAAAAdAAQAAQARAAgAAAAdAAMAAQARAAkAAAAdAAIAAQAAAAcAAAAdAAEAAQAAAAgAAAAcABIAAQAAAAgAAAAcABEAAQAAAAYAAAAcABAAAQARAAkAAAAcAA8AAQARAAkAAAAcAA4AAQARAAkAAAAcAA0AAQARAAgAAAAcAAwAAQARAAkAAAAcAAoAAQARAAgAAAAcAAkAAQARAAgAAAAcAAgAAQARAAkAAAAcAAcAAQARAAkAAAAcAAYAAQARAAgAAAAcAAUAAQARAAgAAAAcAAQAAQARAAgAAAAcAAMAAQARAAgAAAAcAAIAAQAAAAgAAAAcAAEAAQAAAAgAAAAbABIAAQAAAAYAAAAbABEAAQAAAAYAAAAbABAAAQARAAkAAAAbAA8AAQARAAkAAAAbAA4AAQARAAkAAAAbAA0AAQARAAgAAAAbAAwAAQARAAkAAAAbAAoAAQARAAgAAAAbAAkAAQARAAkAAAAbAAgAAQARAAkAAAAbAAcAAQARAAkAAAAbAAYAAQARAAkAAAAbAAUAAQARAAkAAAAbAAQAAQARAAkAAAAbAAMAAQARAAgAAAAbAAIAAQAAAAcAAAAbAAEAAQAAAAgAAAAaABIAAQAAAAcAAAAaABEAAQAAAAgAAAAaABAAAQARAAkAAAAaAA8AAQARAAgAAAAaAA4AAQARAAkAAAAaAA0AAQARAAkAAAAaAAwAAQARAAgAAAAaAAoAAQARAAgAAAAaAAkAAQARAAgAAAAaAAgAAQARAAkAAAAaAAcAAQARAAgAAAAaAAYAAQARAAkAAAAaAAUAAQARAAkAAAAaAAQAAQARAAgAAAAaAAMAAQARAAgAAAAaAAIAAQAAAAgAAAAaAAEAAQAAAAYAAAAZABIAAQAAAAgAAAAZABEAAQAAAAgAAAAZABAAAQARAAgAAAAZAA8AAQARAAgAAAAZAA4AAQARAAkAAAAZAA0AAQARAAkAAAAZAAwAAQARAAgAAAAZAAoAAQARAAkAAAAZAAkAAQARAAkAAAAZAAgAAQARAAgAAAAZAAcAAQARAAkAAAAZAAYAAQARAAkAAAAZAAUAAQARAAgAAAAZAAMAAQARAAkAAAAZAAIAAQAAAAYAAAAZAAEAAQAAAAgAAAAYABIAAQAAAAgAAAAYABEAAQAAAAcAAAAYABAAAQARAAgAAAAYAA8AAQARAAgAAAAYAA4AAQARAAgAAAAYAA0AAQARAAkAAAAYAAwAAQARAAgAAAAYAAsAAQARAAkAAAAYAAoAAQARAAgAAAAYAAkAAQARAAgAAAAYAAgAAQARAAgAAAAYAAcAAQARAAgAAAAYAAYAAQARAAkAAAAYAAUAAQARAAkAAAAYAAMAAQARAAkAAAAYAAIAAQAAAAYAAAAYAAEAAQAAAAcAAAAXAA8AAQARAAkAAAAXAA4AAQARAAkAAAAXAA0AAQARAAkAAAAXAAwAAQARAAgAAAAXAAsAAQARAAgAAAAXAAoAAQARAAgAAAAXAAkAAQARAAkAAAAXAAgAAQARAAgAAAAXAAcAAQARAAgAAAAXAAYAAQARAAgAAAAXAAUAAQARAAgAAAAXAAMAAQARAAgAAAAXAAIAAQAAAAcAAAAXAAEAAQAAAAYAAAAWAA8AAQARAAkAAAAWAA4AAQARAAkAAAAWAA0AAQARAAkAAAAWAAwAAQARAAkAAAAWAAsAAQARAAkAAAAWAAoAAQARAAkAAAAWAAkAAQARAAkAAAAWAAgAAQARAAkAAAAWAAcAAQARAAkAAAAWAAYAAQARAAkAAAAWAAUAAQARAAkAAAAWAAMAAQARAAkAAAAWAAIAAQAAAAgAAAAWAAEAAQAAAAcAAAAVAA8AAQARAAgAAAAVAA4AAQARAAgAAAAVAA0AAQARAAkAAAAVAAwAAQARAAgAAAAVAAsAAQARAAgAAAAVAAoAAQARAAkAAAAVAAkAAQARAAgAAAAVAAgAAQARAAkAAAAVAAcAAQARAAgAAAAVAAYAAQARAAkAAAAVAAUAAQARAAgAAAAVAAMAAQARAAgAAAAVAAIAAQAAAAcAAAAVAAEAAQAAAAYAAAAUAA8AAQARAAkAAAAUAA4AAQARAAgAAAAUAA0AAQARAAkAAAAUAAwAAQARAAgAAAAUAAsAAQARAAgAAAAUAAoAAQARAAkAAAAUAAkAAQARAAkAAAAUAAgAAQARAAkAAAAUAAcAAQARAAkAAAAUAAYAAQARAAkAAAAUAAUAAQARAAgAAAAUAAQAAQARAAgAAAAUAAMAAQARAAkAAAAUAAIAAQAAAAYAAAAUAAEAAQAAAAYAAAATAA0AAQARAAkAAAATAAwAAQARAAgAAAATAAsAAQARAAkAAAATAAoAAQARAAkAAAATAAgAAQARAAkAAAATAAcAAQARAAgAAAATAAYAAQARAAkAAAATAAUAAQARAAkAAAATAAQAAQARAAgAAAATAAMAAQARAAgAAAATAAIAAQAAAAgAAAATAAEAAQAAAAYAAAASAA0AAQARAAgAAAASAAwAAQARAAkAAAASAAsAAQARAAgAAAASAAoAAQARAAgAAAASAAgAAQARAAgAAAASAAcAAQARAAgAAAASAAYAAQARAAgAAAASAAUAAQARAAgAAAASAAQAAQARAAkAAAASAAMAAQARAAkAAAASAAIAAQAAAAcAAAASAAEAAQAAAAcAAAARAA0AAQARAAgAAAARAAwAAQARAAkAAAARAAsAAQARAAgAAAARAAoAAQARAAkAAAARAAgAAQARAAgAAAARAAcAAQARAAkAAAARAAYAAQARAAgAAAARAAUAAQARAAgAAAARAAQAAQARAAkAAAARAAMAAQARAAgAAAARAAIAAQAAAAYAAAARAAEAAQAAAAgAAAAQAA0AAQARAAkAAAAQAAwAAQARAAkAAAAQAAsAAQARAAgAAAAQAAoAAQARAAkAAAAQAAgAAQARAAkAAAAQAAcAAQARAAkAAAAQAAYAAQARAAkAAAAQAAUAAQARAAgAAAAQAAQAAQARAAkAAAAQAAMAAQARAAkAAAAQAAIAAQAAAAYAAAAQAAEAAQAAAAcAAAAPAA8AAQARAAgAAAAPAA4AAQARAAkAAAAPAA0AAQARAAkAAAAPAAwAAQARAAgAAAAPAAsAAQARAAgAAAAPAAoAAQARAAgAAAAPAAkAAQARAAgAAAAPAAgAAQARAAkAAAAPAAcAAQARAAkAAAAPAAYAAQARAAgAAAAPAAUAAQARAAgAAAAPAAQAAQARAAgAAAAPAAMAAQARAAgAAAAPAAIAAQAAAAcAAAAPAAEAAQAAAAgAAAAOAA8AAQARAAgAAAAOAA4AAQARAAkAAAAOAA0AAQARAAkAAAAOAAwAAQARAAkAAAAOAAsAAQARAAgAAAAOAAoAAQARAAgAAAAOAAkAAQARAAkAAAAOAAgAAQARAAgAAAAOAAcAAQARAAkAAAAOAAYAAQARAAkAAAAOAAUAAQARAAkAAAAOAAMAAQARAAgAAAAOAAIAAQAAAAgAAAAOAAEAAQAAAAgAAAANAA8AAQARAAkAAAANAA4AAQARAAkAAAANAA0AAQARAAkAAAANAAwAAQARAAkAAAANAAsAAQARAAkAAAANAAoAAQARAAgAAAANAAkAAQARAAgAAAANAAgAAQARAAkAAAANAAcAAQARAAkAAAANAAYAAQARAAkAAAANAAUAAQARAAgAAAANAAMAAQARAAgAAAANAAIAAQAAAAcAAAANAAEAAQAAAAcAAAAMAA8AAQARAAgAAAAMAA4AAQARAAgAAAAMAA0AAQARAAkAAAAMAAwAAQARAAgAAAAMAAsAAQARAAgAAAAMAAoAAQARAAgAAAAMAAkAAQARAAgAAAAMAAgAAQARAAgAAAAMAAcAAQARAAgAAAAMAAYAAQARAAkAAAAMAAUAAQARAAgAAAAMAAMAAQARAAkAAAAMAAIAAQAAAAcAAAAMAAEAAQAAAAcAAAALABIAAQAAAAYAAAALABEAAQAAAAcAAAALABAAAQARAAkAAAALAA8AAQARAAgAAAALAA4AAQARAAgAAAALAA0AAQARAAgAAAALAAwAAQARAAkAAAALAAsAAQARAAgAAAALAAoAAQARAAgAAAALAAkAAQARAAkAAAALAAgAAQARAAkAAAALAAcAAQARAAkAAAALAAYAAQARAAkAAAALAAUAAQARAAgAAAALAAMAAQARAAgAAAALAAIAAQAAAAYAAAALAAEAAQAAAAYAAAAKABIAAQAAAAgAAAAKABEAAQAAAAYAAAAKABAAAQARAAkAAAAKAA8AAQARAAgAAAAKAA4AAQARAAgAAAAKAA0AAQARAAgAAAAKAAwAAQARAAkAAAAKAAoAAQARAAgAAAAKAAkAAQARAAgAAAAKAAgAAQARAAgAAAAKAAcAAQARAAgAAAAKAAYAAQARAAgAAAAKAAUAAQARAAgAAAAKAAMAAQARAAgAAAAKAAIAAQAAAAcAAAAKAAEAAQAAAAcAAAAJABIAAQAAAAYAAAAJABEAAQAAAAcAAAAJABAAAQARAAgAAAAJAA8AAQARAAkAAAAJAA4AAQARAAgAAAAJAA0AAQARAAgAAAAJAAwAAQARAAkAAAAJAAoAAQARAAkAAAAJAAkAAQARAAkAAAAJAAgAAQARAAgAAAAJAAcAAQARAAkAAAAJAAYAAQARAAgAAAAJAAUAAQARAAkAAAAJAAQAAQARAAgAAAAJAAMAAQARAAkAAAAJAAIAAQAAAAcAAAAJAAEAAQAAAAcAAAAIABIAAQAAAAgAAAAIABEAAQAAAAYAAAAIABAAAQARAAkAAAAIAA8AAQARAAgAAAAIAA4AAQARAAkAAAAIAA0AAQARAAgAAAAIAAwAAQARAAkAAAAIAAoAAQARAAkAAAAIAAkAAQARAAkAAAAIAAgAAQARAAgAAAAIAAcAAQARAAkAAAAIAAYAAQARAAkAAAAIAAUAAQARAAkAAAAIAAQAAQARAAgAAAAIAAMAAQARAAkAAAAIAAIAAQAAAAYAAAAIAAEAAQAAAAgAAAAHABIAAQAAAAcAAAAHABEAAQAAAAYAAAAHABAAAQARAAkAAAAHAA8AAQARAAkAAAAHAA4AAQARAAkAAAAHAA0AAQARAAgAAAAHAAwAAQARAAgAAAAHAAoAAQARAAkAAAAHAAkAAQARAAgAAAAHAAgAAQARAAgAAAAHAAcAAQARAAkAAAAHAAYAAQARAAkAAAAHAAUAAQARAAkAAAAHAAQAAQARAAgAAAAHAAMAAQARAAkAAAAHAAIAAQAAAAcAAAAHAAEAAQAAAAYAAAAGABIAAQAAAAYAAAAGABEAAQAAAAYAAAAGABAAAQARAAkAAAAGAA8AAQARAAkAAAAGAA4AAQARAAgAAAAGAA0AAQARAAgAAAAGAAwAAQARAAkAAAAGAAsAAQARAAgAAAAGAAoAAQARAAgAAAAGAAkAAQARAAkAAAAGAAgAAQARAAgAAAAGAAcAAQARAAgAAAAGAAYAAQARAAkAAAAGAAUAAQARAAkAAAAGAAQAAQARAAgAAAAGAAMAAQARAAgAAAAGAAIAAQAAAAcAAAAGAAEAAQAAAAgAAAAFABIAAQAAAAgAAAAFABEAAQAAAAYAAAAFABAAAQARAAgAAAAFAA8AAQARAAgAAAAFAA4AAQARAAkAAAAFAA0AAQARAAgAAAAFAAwAAQARAAgAAAAFAAsAAQARAAkAAAAFAAoAAQARAAgAAAAFAAkAAQARAAgAAAAFAAgAAQARAAkAAAAFAAcAAQARAAgAAAAFAAYAAQARAAgAAAAFAAUAAQARAAkAAAAEABQAAQAAAAgAAAAEABMAAQAAAAYAAAAEABIAAQAAAAcAAAAEABEAAQAAAAcAAAAEABAAAQAAAAgAAAAEAA8AAQAAAAgAAAAEAA4AAQAAAAcAAAAEAA0AAQAAAAYAAAAEAAwAAQAAAAgAAAAEAAsAAQAAAAcAAAAEAAoAAQAAAAcAAAAEAAkAAQAAAAgAAAAEAAgAAQAAAAgAAAAEAAcAAQAAAAYAAAAEAAYAAQAAAAYAAAAEAAUAAQAAAAcAAAAEAAMAAQAAAAgAAAAEAAIAAQAAAAYAAAAEAAEAAQAAAAgAAAAEAAAAAQAAAAgAAAADABQAAQAAAAgAAAADABMAAQAAAAgAAAADABIAAQAAAAYAAAADABEAAQAAAAcAAAADABAAAQAAAAcAAAADAA8AAQAAAAcAAAADAA4AAQAAAAYAAAADAA0AAQAAAAYAAAADAAwAAQAAAAgAAAADAAsAAQAAAAcAAAADAAoAAQAAAAgAAAADAAkAAQAAAAcAAAADAAgAAQAAAAgAAAADAAcAAQAAAAgAAAADAAYAAQAAAAYAAAADAAUAAQAAAAYAAAADAAMAAQAAAAcAAAADAAIAAQAAAAgAAAADAAEAAQAAAAgAAAADAAAAAQAAAAYAAAACABQAAQAAAAgAAAACABMAAQAAAAcAAAACABIAAQAAAAcAAAACABEAAQAAAAcAAAACABAAAQAAAAcAAAACAA8AAQAAAAYAAAACAA4AAQAAAAgAAAACAA0AAQAAAAcAAAACAAsAAQAAAAYAAAACAAoAAQAUAAsAAQACAAkAAQAAAAgAAAACAAgAAQAAAAYAAAACAAcAAQAAAAYAAAACAAYAAQAAAAcAAAACAAUAAQAAAAcAAAACAAQAAQAAAAcAAAACAAMAAQAAAAgAAAACAAIAAQAAAAYAAAACAAEAAQAAAAgAAAACAAAAAQAAAAcAAAABABQAAQAAAAgAAAABABMAAQAAAAcAAAABABIAAQAAAAgAAAABABEAAQAAAAcAAAABABAAAQAAAAgAAAABAA8AAQAAAAYAAAABAA4AAQAAAAgAAAABAA0AAQAAAAcAAAABAAsAAQAAAAgAAAABAAoAAQAAAAYAAAABAAkAAQAAAAgAAAABAAgAAQAAAAYAAAABAAYAAQAAAAgAAAABAAUAAQAAAAcAAAABAAQAAQAAAAgAAAABAAMAAQAAAAcAAAABAAIAAQAAAAYAAAABAAEAAQAAAAgAAAABAAAAAQAAAAgAAAAAAAsAAQAAAAYAAAAAAAoAAQAAAAgAAAAAAAkAAQAAAAgAAAAAAAgAAQAAAAcAAAA=")
 tile_set = SubResource("TileSet_3ruos")
+metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 469.0
@@ -1590,143 +1608,109 @@ text = "Select a map"
 [node name="Maps" type="Node2D" parent="."]
 
 [node name="Map1" type="Polygon2D" parent="Maps"]
-visible = false
 clip_children = 1
 position = Vector2(191, 128)
 polygon = PackedVector2Array(43, 1, 44, 388, 732, 388, 734, 0)
 
-[node name="MapPreview1" parent="Maps/Map1" instance=ExtResource("7_bntl6")]
-position = Vector2(43, 1)
-scale = Vector2(0.597758, 0.597758)
+[node name="MapPreview1" parent="Maps/Map1" instance=ExtResource("3_dcvat")]
+position = Vector2(48, 0)
+scale = Vector2(0.593261, 0.593261)
 script = null
 
 [node name="Player 1" parent="Maps/Map1/MapPreview1/Players" index="0"]
 script = null
 
 [node name="KOParticles" parent="Maps/Map1/MapPreview1/Players/Player 1/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_f418h")
+process_material = SubResource("ParticleProcessMaterial_cahl3")
 
 [node name="DashParticles" parent="Maps/Map1/MapPreview1/Players/Player 1/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_47hbi")
+process_material = SubResource("ParticleProcessMaterial_u5j2y")
 
 [node name="SpawnParticles" parent="Maps/Map1/MapPreview1/Players/Player 1/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_wi53i")
+process_material = SubResource("ParticleProcessMaterial_qqbcw")
 
 [node name="Player 2" parent="Maps/Map1/MapPreview1/Players" index="1"]
 script = null
 
 [node name="KOParticles" parent="Maps/Map1/MapPreview1/Players/Player 2/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_qk77v")
+process_material = SubResource("ParticleProcessMaterial_jrwar")
 
 [node name="DashParticles" parent="Maps/Map1/MapPreview1/Players/Player 2/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_g384a")
+process_material = SubResource("ParticleProcessMaterial_dgp21")
 
 [node name="SpawnParticles" parent="Maps/Map1/MapPreview1/Players/Player 2/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_sx2rs")
+process_material = SubResource("ParticleProcessMaterial_qtywr")
 
 [node name="Player 3" parent="Maps/Map1/MapPreview1/Players" index="2"]
 script = null
 
 [node name="KOParticles" parent="Maps/Map1/MapPreview1/Players/Player 3/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_ro3us")
+process_material = SubResource("ParticleProcessMaterial_dfxd5")
 
 [node name="DashParticles" parent="Maps/Map1/MapPreview1/Players/Player 3/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_3mc41")
+process_material = SubResource("ParticleProcessMaterial_tovan")
 
 [node name="SpawnParticles" parent="Maps/Map1/MapPreview1/Players/Player 3/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_wvsl7")
+process_material = SubResource("ParticleProcessMaterial_duqxr")
 
 [node name="Player 4" parent="Maps/Map1/MapPreview1/Players" index="3"]
 script = null
 
 [node name="KOParticles" parent="Maps/Map1/MapPreview1/Players/Player 4/OneShotAnimations" index="0"]
-process_material = SubResource("ParticleProcessMaterial_sr5q4")
+process_material = SubResource("ParticleProcessMaterial_87p15")
 
 [node name="DashParticles" parent="Maps/Map1/MapPreview1/Players/Player 4/OneShotAnimations" index="1"]
-process_material = SubResource("ParticleProcessMaterial_4eqag")
+process_material = SubResource("ParticleProcessMaterial_3t1ky")
 
 [node name="SpawnParticles" parent="Maps/Map1/MapPreview1/Players/Player 4/OneShotAnimations" index="2"]
-process_material = SubResource("ParticleProcessMaterial_e3r6n")
+process_material = SubResource("ParticleProcessMaterial_ee8hy")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform1" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform3" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform4" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform23" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform5" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform6" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform2" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform9" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform17" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform18" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform19" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform20" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform21" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform22" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
+shape = SubResource("RectangleShape2D_1asdm")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform10" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform24" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
+shape = SubResource("RectangleShape2D_1asdm")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform11" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_1asdm")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform12" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_o42bs")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform13" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_o42bs")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform14" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_vyruy")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform15" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_vyruy")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform16" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_1asdm")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform25" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform3" index="0"]
+shape = SubResource("RectangleShape2D_gqwjw")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform26" index="0"]
-shape = SubResource("RectangleShape2D_1sj16")
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform4" index="0"]
+shape = SubResource("RectangleShape2D_ec6i7")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform5" index="0"]
+shape = SubResource("RectangleShape2D_ec6i7")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform6" index="0"]
+shape = SubResource("RectangleShape2D_ec6i7")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform7" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_ec6i7")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform8" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+shape = SubResource("RectangleShape2D_34xlk")
 
-[node name="BGM" parent="Maps/Map1/MapPreview1" index="8"]
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform9" index="0"]
+shape = SubResource("RectangleShape2D_34xlk")
+
+[node name="BGM" parent="Maps/Map1/MapPreview1" index="9"]
 autoplay = false
 
 [node name="Label3" type="Label" parent="Maps/Map1"]
@@ -1864,6 +1848,9 @@ shape = SubResource("RectangleShape2D_lkccq")
 
 [node name="CollisionShape2D" parent="Maps/Map2/MapPreview2/Platforms/Platform7" index="0"]
 shape = SubResource("RectangleShape2D_a7r04")
+
+[node name="BGM" parent="Maps/Map2/MapPreview2" index="9"]
+autoplay = false
 
 [node name="Label4" type="Label" parent="Maps/Map2"]
 offset_left = 65.0
