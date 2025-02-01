@@ -688,6 +688,9 @@ bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
+[node name="Player 1" parent="Players/Player 1/Sprite" index="0"]
+animation = &"Hurt"
+
 [node name="KOParticles" parent="Players/Player 1/OneShotAnimations" index="0"]
 process_material = SubResource("ParticleProcessMaterial_k51rd")
 
@@ -704,6 +707,9 @@ team_id = 1
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 1" parent="Players/Player 2/Sprite" index="0"]
+animation = &"Hurt"
 
 [node name="Player 2" parent="Players/Player 2/Sprite" index="2"]
 visible = true
@@ -727,6 +733,9 @@ bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
 
+[node name="Player 1" parent="Players/Player 3/Sprite" index="0"]
+animation = &"Hurt"
+
 [node name="Player 3" parent="Players/Player 3/Sprite" index="1"]
 visible = true
 
@@ -748,6 +757,9 @@ team_id = 2
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 1" parent="Players/Player 4/Sprite" index="0"]
+animation = &"Hurt"
 
 [node name="Player 4" parent="Players/Player 4/Sprite" index="3"]
 visible = true

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scenes/map_select.gd" id="1_al5cp"]
 [ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="2_8rpu3"]
-[ext_resource type="PackedScene" uid="uid://b0lqm45h8177a" path="res://Maps/Map1.tscn" id="3_dtk64"]
 [ext_resource type="PackedScene" uid="uid://cdhng28kwjguj" path="res://Maps/Map2.tscn" id="4_wowhj"]
 [ext_resource type="PackedScene" uid="uid://svgcrq5wpqbv" path="res://Maps/Map4.tscn" id="5_5cn5e"]
 [ext_resource type="PackedScene" uid="uid://cjwhxmxd5w5hn" path="res://Maps/Map3.tscn" id="5_d05cy"]
@@ -503,6 +502,10 @@ hue_variation_min = -0.2
 hue_variation_max = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_658ko"]
+resource_local_to_scene = true
+size = Vector2(18.7935, 19.3493)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_507wj"]
 resource_local_to_scene = true
 size = Vector2(18.7935, 19.3493)
 
@@ -1592,7 +1595,7 @@ clip_children = 1
 position = Vector2(191, 128)
 polygon = PackedVector2Array(43, 1, 44, 388, 732, 388, 734, 0)
 
-[node name="MapPreview1" parent="Maps/Map1" instance=ExtResource("3_dtk64")]
+[node name="MapPreview1" parent="Maps/Map1" instance=ExtResource("7_bntl6")]
 position = Vector2(43, 1)
 scale = Vector2(0.597758, 0.597758)
 script = null
@@ -1648,8 +1651,50 @@ process_material = SubResource("ParticleProcessMaterial_e3r6n")
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform1" index="0"]
 shape = SubResource("RectangleShape2D_658ko")
 
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform3" index="0"]
+shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform4" index="0"]
+shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform23" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform5" index="0"]
+shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform6" index="0"]
+shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform2" index="0"]
+shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform9" index="0"]
+shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform17" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform18" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform19" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform20" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform21" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform22" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
+
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform10" index="0"]
 shape = SubResource("RectangleShape2D_658ko")
+
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform24" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform11" index="0"]
 shape = SubResource("RectangleShape2D_658ko")
@@ -1666,20 +1711,14 @@ shape = SubResource("RectangleShape2D_658ko")
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform15" index="0"]
 shape = SubResource("RectangleShape2D_658ko")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform2" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform16" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform3" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform25" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform4" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform5" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform6" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
+[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform26" index="0"]
+shape = SubResource("RectangleShape2D_507wj")
 
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform7" index="0"]
 shape = SubResource("RectangleShape2D_658ko")
@@ -1687,10 +1726,7 @@ shape = SubResource("RectangleShape2D_658ko")
 [node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform8" index="0"]
 shape = SubResource("RectangleShape2D_658ko")
 
-[node name="CollisionShape2D" parent="Maps/Map1/MapPreview1/Platforms/Platform9" index="0"]
-shape = SubResource("RectangleShape2D_658ko")
-
-[node name="BGM" parent="Maps/Map1/MapPreview1" index="9"]
+[node name="BGM" parent="Maps/Map1/MapPreview1" index="8"]
 autoplay = false
 
 [node name="Label3" type="Label" parent="Maps/Map1"]

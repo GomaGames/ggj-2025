@@ -527,7 +527,7 @@ size = Vector2(12.0882, 119.072)
 resource_local_to_scene = true
 size = Vector2(21.1544, 47.6289)
 
-[node name="Map2" type="Node2D"]
+[node name="Map3" type="Node2D"]
 script = ExtResource("1_eavy2")
 
 [node name="Background7" type="Sprite2D" parent="."]

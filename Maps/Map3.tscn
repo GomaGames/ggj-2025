@@ -638,62 +638,50 @@ position = Vector2(-2, 0)
 [node name="Spike" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(384, 463)
 rotation = 1.56378
-scale = Vector2(1, 1)
 
 [node name="Spike2" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(704, 367)
 rotation = 1.56378
-scale = Vector2(1, 1)
 
 [node name="Spike3" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(864, 463)
 rotation = 1.56378
-scale = Vector2(1, 1)
 
 [node name="Spike4" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(832, 207)
 rotation = 1.56378
-scale = Vector2(1, 1)
 
 [node name="Spike5" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(480, 207)
 rotation = 1.56378
-scale = Vector2(1, 1)
 
 [node name="Spike6" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(224, 335)
 rotation = 1.56378
-scale = Vector2(1, 1)
 
 [node name="Spike7" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(448, 368)
 rotation = -1.57849
-scale = Vector2(1, 1)
 
 [node name="Spike8" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(288, 464)
 rotation = -1.57849
-scale = Vector2(1, 1)
 
 [node name="Spike9" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(320, 208)
 rotation = -1.57849
-scale = Vector2(1, 1)
 
 [node name="Spike10" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(672, 208)
 rotation = -1.57849
-scale = Vector2(1, 1)
 
 [node name="Spike11" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(928, 336)
 rotation = -1.57849
-scale = Vector2(1, 1)
 
 [node name="Spike12" parent="Hazards" instance=ExtResource("12_qf5bh")]
 position = Vector2(768, 464)
 rotation = -1.57849
-scale = Vector2(1, 1)
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_e8frd")
