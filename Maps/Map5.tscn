@@ -1,0 +1,831 @@
+[gd_scene load_steps=21 format=3 uid="uid://b0lqm45h8177a"]
+
+[ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="1_eil7l"]
+[ext_resource type="Script" path="res://Scenes/Map.gd" id="1_x7tma"]
+[ext_resource type="PackedScene" uid="uid://ubrfbm4i0ttf" path="res://Sprites/spike.tscn" id="2_2hbjn"]
+[ext_resource type="Texture2D" uid="uid://bo82v4s57ehtt" path="res://Assets/Backgrounds/background6.png" id="2_wxvw1"]
+[ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
+[ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
+[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
+[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
+[ext_resource type="Texture2D" uid="uid://b8hiwgdb4hpii" path="res://Assets/Sprites/rock.png" id="9_tcwpg"]
+[ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k51rd"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3l80s"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xb0y2"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vol7d"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ljy8"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftkmh"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rf8sk"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+radial_velocity_min = 9.99998
+radial_velocity_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yy7ke"]
+resource_local_to_scene = true
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+radial_velocity_min = -150.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -10.0
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsn2s"]
+resource_local_to_scene = true
+size = Vector2(18.7935, 19.3493)
+
+[node name="Map2" type="Node2D"]
+script = ExtResource("1_x7tma")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 1155.0
+offset_bottom = 647.0
+texture = ExtResource("2_wxvw1")
+metadata/_edit_lock_ = true
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="TeamLifeSupply1" type="Node2D" parent="UI"]
+modulate = Color(1, 1, 1, 0.513726)
+position = Vector2(54, 626)
+
+[node name="Life1" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
+position = Vector2(-25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0jpcu")
+
+[node name="Life2" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
+position = Vector2(0, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0jpcu")
+
+[node name="Life3" parent="UI/TeamLifeSupply1" instance=ExtResource("3_gjw1o")]
+position = Vector2(25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0jpcu")
+
+[node name="TeamLifeSupply2" type="Node2D" parent="UI"]
+modulate = Color(1, 1, 1, 0.513726)
+position = Vector2(1099, 626)
+
+[node name="Life1" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
+position = Vector2(-25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hxww0")
+
+[node name="Life2" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
+position = Vector2(0, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hxww0")
+
+[node name="Life3" parent="UI/TeamLifeSupply2" instance=ExtResource("3_gjw1o")]
+position = Vector2(25, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hxww0")
+
+[node name="Team1Victory" parent="UI" instance=ExtResource("4_drhtd")]
+visible = false
+position = Vector2(599, 276)
+
+[node name="Team2Victory" parent="UI" instance=ExtResource("5_p4m3y")]
+visible = false
+position = Vector2(598, 275)
+
+[node name="PlayerSpawnPoints" type="Node" parent="."]
+editor_description = "This layer should be kept empty.
+When players are actually ready'd on a map, they will imprint their initial spawn points as Marker2D children here.
+If we ever choose to have different spawn points, we can add Marker2Ds to this layer and change this behavior."
+
+[node name="OneShotAnimations" type="Node" parent="."]
+editor_description = "Layer for adding animations, particles, effects etc"
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player 1" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+position = Vector2(277, 205)
+player_num = 1
+team_id = 1
+bubbles_container = NodePath("../../Bubbles")
+map_oneshot_anims_container = NodePath("../../OneShotAnimations")
+player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="KOParticles" parent="Players/Player 1/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_k51rd")
+
+[node name="SpawnParticles" parent="Players/Player 1/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_3l80s")
+
+[node name="Player 2" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+position = Vector2(150, 359)
+player_num = 2
+team_id = 1
+bubbles_container = NodePath("../../Bubbles")
+map_oneshot_anims_container = NodePath("../../OneShotAnimations")
+player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 2" parent="Players/Player 2/Sprite" index="2"]
+visible = true
+
+[node name="KOParticles" parent="Players/Player 2/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_xb0y2")
+
+[node name="SpawnParticles" parent="Players/Player 2/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_vol7d")
+
+[node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+position = Vector2(849, 201)
+rotation = -3.14159
+scale = Vector2(1, -1)
+player_num = 3
+team_id = 2
+bubbles_container = NodePath("../../Bubbles")
+map_oneshot_anims_container = NodePath("../../OneShotAnimations")
+player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 3" parent="Players/Player 3/Sprite" index="1"]
+visible = true
+
+[node name="KOParticles" parent="Players/Player 3/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_7ljy8")
+
+[node name="SpawnParticles" parent="Players/Player 3/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_ftkmh")
+
+[node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("1_eil7l")]
+position = Vector2(991, 355)
+rotation = -3.14159
+scale = Vector2(1, -1)
+player_num = 4
+team_id = 2
+bubbles_container = NodePath("../../Bubbles")
+map_oneshot_anims_container = NodePath("../../OneShotAnimations")
+player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 4" parent="Players/Player 4/Sprite" index="3"]
+visible = true
+
+[node name="KOParticles" parent="Players/Player 4/OneShotAnimations" index="0"]
+process_material = SubResource("ParticleProcessMaterial_rf8sk")
+
+[node name="SpawnParticles" parent="Players/Player 4/OneShotAnimations" index="1"]
+process_material = SubResource("ParticleProcessMaterial_yy7ke")
+
+[node name="Bubbles" type="Node" parent="."]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform1" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(86, 636)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform1"]
+offset_left = -86.0
+offset_top = -15.0
+offset_right = 114.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform3" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(288, 636)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform3"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform4" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(644, 514)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform4"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform23" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(481, 514)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform23"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform23"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform5" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(844, 634)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform5"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform5"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform6" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(1042, 635)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform6"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform6"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform2" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(86, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform2"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform9" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(179, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform9"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform9"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform17" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(99, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform17"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform17"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform18" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(299, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform18"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform18"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform19" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(1042, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform19"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform19"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform20" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(844, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform20"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform20"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform21" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(844, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform21"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform21"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform22" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(279, 219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform22"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform22"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform10" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(569, 126)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform10"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform10"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform24" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(569, 326)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform24"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform24"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform11" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(-3, 407)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform11"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform11"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform12" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(1154, 407)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform12"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform12"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform13" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(1154, 207)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform13"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform13"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform14" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(1154, 18)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform14"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform14"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform15" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(-3, 209)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform15"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform15"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform16" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(-3, 17)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform16"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform16"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform25" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(393, 243)
+rotation = 1.57079
+scale = Vector2(0.440546, 0.546291)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform25"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform25"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform26" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(756, 243)
+rotation = 1.57079
+scale = Vector2(0.440546, 0.546291)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform26"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform26"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform7" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(1042, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform7"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform8" type="StaticBody2D" parent="Platforms" groups=["platforms"]]
+position = Vector2(954, 375)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform8"]
+position = Vector2(12.5, -1)
+scale = Vector2(10.5888, 1.34372)
+shape = SubResource("RectangleShape2D_gsn2s")
+
+[node name="TextureRect" type="TextureRect" parent="Platforms/Platform8"]
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 13.0
+texture = ExtResource("9_tcwpg")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Spike" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(569, 527)
+rotation = -3.14159
+
+[node name="Spike2" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(601, 527)
+rotation = -3.14159
+
+[node name="Spike3" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(538, 527)
+rotation = -3.14159
+
+[node name="Spike4" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(29, 388)
+rotation = -3.14159
+
+[node name="Spike5" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(61, 388)
+rotation = -3.14159
+
+[node name="Spike6" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(1124, 388)
+rotation = -3.14159
+
+[node name="Spike8" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(1125, 26)
+rotation = -3.14159
+
+[node name="Spike12" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(1092, 26)
+rotation = -3.14159
+
+[node name="Spike13" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(1059, 26)
+rotation = -3.14159
+
+[node name="Spike14" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(1026, 26)
+rotation = -3.14159
+
+[node name="Spike9" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(29, 26)
+rotation = -3.14159
+
+[node name="Spike15" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(61, 26)
+rotation = -3.14159
+
+[node name="Spike16" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(91, 26)
+rotation = -3.14159
+
+[node name="Spike17" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(123, 26)
+rotation = -3.14159
+
+[node name="Spike10" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(386, 248)
+rotation = -1.57079
+
+[node name="Spike11" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(765, 246)
+rotation = 1.57081
+
+[node name="Spike7" parent="Hazards" instance=ExtResource("2_2hbjn")]
+position = Vector2(1092, 388)
+rotation = -3.14159
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_estjw")
+autoplay = true
+parameters/looping = true
+
+[editable path="Players/Player 1"]
+[editable path="Players/Player 2"]
+[editable path="Players/Player 3"]
+[editable path="Players/Player 4"]

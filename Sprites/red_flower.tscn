@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://nxbqdwvnjm1c"]
+
+[ext_resource type="Script" path="res://Sprites/spike.gd" id="1_vdn2b"]
+[ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="2_bdu0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7n3o"]
+atlas = ExtResource("2_bdu0t")
+region = Rect2(640, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pubmh"]
+atlas = ExtResource("2_bdu0t")
+region = Rect2(576, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4l6d"]
+atlas = ExtResource("2_bdu0t")
+region = Rect2(704, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ko4yg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7n3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pubmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4l6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pubmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Spike" type="Area2D" groups=["hazard"]]
+collision_mask = 7
+script = ExtResource("1_vdn2b")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 0.345098)
+polygon = PackedVector2Array(-1, -25, 1, -25, 12, 0, -11, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, 0.124999)
+scale = Vector2(1.0625, 0.541667)
+polygon = PackedVector2Array(-1.41176, -46.3846, -6.11765, -27.9231, 5.17647, -27.9231, 0.470588, -46.3846)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ko4yg")
+frame_progress = 0.603922
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/map_select.gd" id="1_al5cp"]
 [ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="2_8rpu3"]
-[ext_resource type="PackedScene" uid="uid://b0lqm45h8177a" path="res://Maps/Map1.tscn" id="3_dtk64"]
+[ext_resource type="PackedScene" uid="uid://b0lqm45h8177a" path="res://Maps/Map5.tscn" id="3_dtk64"]
 [ext_resource type="PackedScene" uid="uid://cdhng28kwjguj" path="res://Maps/Map2.tscn" id="4_wowhj"]
 [ext_resource type="PackedScene" uid="uid://svgcrq5wpqbv" path="res://Maps/Map4.tscn" id="5_5cn5e"]
 
