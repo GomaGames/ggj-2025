@@ -245,7 +245,7 @@ func handle_movement(delta:float):
 			jump_count = 0
 			horizontal_air_momentum = max(abs(velocity.x), MIN_AIR_MOVEMENT_SPEED)
 			$"Jump".play()
-		elif jump_count < 2:
+		elif jump_count < 1:
 			velocity.y = -JUMP_SPEED
 			jump_count += 1
 			playing_animation = true
