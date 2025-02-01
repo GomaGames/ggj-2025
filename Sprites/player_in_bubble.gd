@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name PlayerInBubble
 
 const PlayerInBubbleScene: PackedScene = preload("res://Sprites/PlayerInBubble.tscn")
+@onready var screen_size = get_viewport_rect().size
 
 const TTL_MS_SMALL:int = 2200
 const TTL_MS_MEDIUM:int = 3100
@@ -66,8 +67,15 @@ func _process(delta: float) -> void:
 		pop()
 	handle_ttl_color()
 
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	handle_screen_wrap()
+
 func _physics_process(delta: float) -> void:
 	pass
+
+func handle_screen_wrap():
+	position.x = wrapf(position.x, 0, screen_size.x)
+	position.y = wrapf(position.y, 0, screen_size.y)
 
 func pop():
 	$"BubblePop".play()
