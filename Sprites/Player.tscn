@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://d1opgus8oy0s2"]
+[gd_scene load_steps=92 format=3 uid="uid://d1opgus8oy0s2"]
 
 [ext_resource type="Script" path="res://Sprites/player.gd" id="1_8b4kp"]
 [ext_resource type="Texture2D" uid="uid://bm4xr22grotai" path="res://Assets/Sprites/bash_swipe.png" id="2_135b2"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cw2w5mljxkt5y" path="res://Assets/Audio/BubblePop.wav" id="8_ulumf"]
 [ext_resource type="AudioStream" uid="uid://dpijca8m6s7fi" path="res://Assets/Audio/Dash.wav" id="9_c1biv"]
 [ext_resource type="AudioStream" uid="uid://bdbegvatmjuwu" path="res://Assets/Audio/Jump.wav" id="10_utfal"]
+[ext_resource type="AudioStream" uid="uid://btvtnm4lu2wor" path="res://Assets/Audio/Respawn1.wav" id="13_fyftv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgne3"]
 
@@ -810,6 +811,9 @@ stream = ExtResource("9_c1biv")
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_utfal")
+
+[node name="Respawn1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_fyftv")
 
 [connection signal="animation_finished" from="Sprite/Player 1" to="." method="_on_animation_finished"]
 [connection signal="animation_finished" from="Sprite/Player 3" to="." method="_on_animation_finished"]

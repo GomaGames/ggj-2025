@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://svgcrq5wpqbv"]
+[gd_scene load_steps=43 format=4 uid="uid://svgcrq5wpqbv"]
 
 [ext_resource type="Script" path="res://Scenes/Map.gd" id="1_c3f3m"]
 [ext_resource type="Texture2D" uid="uid://bdfb33fnjiqcs" path="res://Assets/Backgrounds/background8.png" id="2_7ypft"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://d1opgus8oy0s2" path="res://Sprites/Player.tscn" id="9_vtpdi"]
 [ext_resource type="PackedScene" uid="uid://cd0ejj6bgehvp" path="res://Sprites/green_flower.tscn" id="10_f473t"]
 [ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_si4jf"]
+[ext_resource type="AudioStream" uid="uid://nx7g5mexo87s" path="res://Assets/Audio/Death1.wav" id="12_6lkpr"]
+[ext_resource type="AudioStream" uid="uid://ckaag0dip5v" path="res://Assets/Audio/Death2.wav" id="13_448hy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g35h"]
 resource_name = "kenny-abstract-platforms"
@@ -1178,8 +1180,13 @@ rotation = 1.5708
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 16)
 stream = ExtResource("11_si4jf")
-autoplay = true
 parameters/looping = true
+
+[node name="Death1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_6lkpr")
+
+[node name="Death2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_448hy")
 
 [editable path="Players/Player 1"]
 [editable path="Players/Player 2"]

@@ -362,6 +362,7 @@ func knocked_out():
 		play_oneshot_animation_in_map($"OneShotAnimations/KOParticles")
 		respawn_timer = RESPAWN_TIME
 		kod.emit(team_id)
+		map.get_node("Death%s" % team_id).play()
 
 func respawn():
 	if map is Map && map[(&"team_life_%s" % team_id)] as int > 0:
@@ -372,6 +373,7 @@ func respawn():
 		dead = false
 		respawned.emit()
 		play_oneshot_animation_in_map($"OneShotAnimations/SpawnParticles")
+		$"Respawn1".play()
 		
 
 func handle_screen_wrap():

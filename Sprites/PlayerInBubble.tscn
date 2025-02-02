@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://du4r64l6vgfxx"]
+[gd_scene load_steps=40 format=3 uid="uid://du4r64l6vgfxx"]
 
 [ext_resource type="Script" path="res://Sprites/player_in_bubble.gd" id="1_supdv"]
 [ext_resource type="Texture2D" uid="uid://rwyi1hglac7l" path="res://Assets/Sprites/bubble.png" id="2_de3ra"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bpu35jeb3ksg0" path="res://Assets/Sprites/DinoSprites - vita.png" id="6_87nnu"]
 [ext_resource type="Texture2D" uid="uid://bhowpsyn6gi4f" path="res://Assets/Sprites/DinoSprites - mort.png" id="7_rckl5"]
 [ext_resource type="AudioStream" uid="uid://8auxh33lumjf" path="res://Assets/Audio/BubbleBounce.wav" id="8_s8g1p"]
-[ext_resource type="AudioStream" uid="uid://cw2w5mljxkt5y" path="res://Assets/Audio/BubblePop.wav" id="9_fdo6r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_61phm"]
 
@@ -305,6 +304,3 @@ animation = &"Hurt"
 
 [node name="BubbleBounce" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_s8g1p")
-
-[node name="BubblePop" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_fdo6r")
