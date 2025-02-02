@@ -721,13 +721,14 @@ process_material = SubResource("ParticleProcessMaterial_vol7d")
 
 [node name="Player 3" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_vtpdi")]
 position = Vector2(880, 255)
-rotation = -3.14159
-scale = Vector2(1, -1)
 player_num = 3
 team_id = 2
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 1" parent="Players/Player 3/Sprite" index="0"]
+visible = false
 
 [node name="Player 3" parent="Players/Player 3/Sprite" index="1"]
 visible = true
@@ -743,13 +744,14 @@ process_material = SubResource("ParticleProcessMaterial_ftkmh")
 
 [node name="Player 4" parent="Players" node_paths=PackedStringArray("bubbles_container", "map_oneshot_anims_container", "player_spawn_points_container") instance=ExtResource("9_vtpdi")]
 position = Vector2(944, 415)
-rotation = -3.14159
-scale = Vector2(1, -1)
 player_num = 4
 team_id = 2
 bubbles_container = NodePath("../../Bubbles")
 map_oneshot_anims_container = NodePath("../../OneShotAnimations")
 player_spawn_points_container = NodePath("../../PlayerSpawnPoints")
+
+[node name="Player 1" parent="Players/Player 4/Sprite" index="0"]
+visible = false
 
 [node name="Player 4" parent="Players/Player 4/Sprite" index="3"]
 visible = true

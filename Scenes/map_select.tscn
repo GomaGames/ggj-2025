@@ -2161,9 +2161,6 @@ shape = SubResource("RectangleShape2D_8rbu4")
 [node name="CollisionShape2D" parent="Maps/Map4/MapPreview4/Platforms/Platform7" index="0"]
 shape = SubResource("RectangleShape2D_ttbbg")
 
-[node name="BGM" parent="Maps/Map4/MapPreview4" index="9"]
-autoplay = false
-
 [node name="Label6" type="Label" parent="Maps/Map4"]
 offset_left = 65.0
 offset_top = 6.0

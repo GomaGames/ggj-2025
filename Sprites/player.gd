@@ -249,7 +249,6 @@ func handle_movement(delta:float):
 			velocity.y = -JUMP_SPEED
 			jump_count += 1
 			playing_animation = true
-			animatedSprite.play(&"Hurt")
 			$"Jump".play()
 			
 	# apply any shove forces

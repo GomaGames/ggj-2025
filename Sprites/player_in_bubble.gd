@@ -64,7 +64,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	trapped_in_bubble_lifetime_ms -= delta * 1000
 	if trapped_in_bubble_lifetime_ms <= 0:
-		pop()
+		pop()									
 	handle_ttl_color()
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:

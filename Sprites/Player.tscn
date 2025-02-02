@@ -236,7 +236,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qafng")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -270,7 +270,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v08wf")
 }],
-"loop": true,
+"loop": false,
 "name": &"Kick",
 "speed": 20.0
 }, {
@@ -378,7 +378,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_80hyh")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 20.0
 }, {
@@ -412,7 +412,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hytdu")
 }],
-"loop": true,
+"loop": false,
 "name": &"Kick",
 "speed": 5.0
 }, {
@@ -520,7 +520,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bhck5")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 20.0
 }, {
@@ -554,7 +554,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5vfpf")
 }],
-"loop": true,
+"loop": false,
 "name": &"Kick",
 "speed": 20.0
 }, {
@@ -668,28 +668,28 @@ shape = SubResource("CapsuleShape2D_jgne3")
 position = Vector2(1, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_f7ulr")
-animation = &"Hurt"
+animation = &"Walk"
 
 [node name="Player 3" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
 position = Vector2(1, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6v5x1")
-animation = &"Walk"
+animation = &"Hurt"
 
 [node name="Player 2" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
 position = Vector2(2, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_61kys")
-animation = &"Kick"
+animation = &"Walk"
 
 [node name="Player 4" type="AnimatedSprite2D" parent="Sprite"]
 visible = false
 position = Vector2(0, -18)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qqjw0")
-animation = &"Kick"
+animation = &"Idle"
 
 [node name="Facing" type="Node2D" parent="."]
 
