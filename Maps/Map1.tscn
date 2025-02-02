@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://ca7vh2avkrgi6" path="res://Assets/Backgrounds/background1.png" id="3_bme3q"]
 [ext_resource type="PackedScene" uid="uid://bmmxsm1aa18a6" path="res://Sprites/UILifeSupply.tscn" id="3_gjw1o"]
 [ext_resource type="Texture2D" uid="uid://dt64653jx61h" path="res://Assets/Sprites/life_counter_b.png" id="4_0jpcu"]
-[ext_resource type="PackedScene" uid="uid://bbii5ncuy7hi3" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
+[ext_resource type="PackedScene" path="res://Sprites/UITeam1Victory.tscn" id="4_drhtd"]
 [ext_resource type="Texture2D" uid="uid://ncqkehclmr1e" path="res://Assets/Sprites/life_counter_r.png" id="5_hxww0"]
-[ext_resource type="PackedScene" uid="uid://djy0ouigy4p4e" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
-[ext_resource type="PackedScene" uid="uid://nxbqdwvnjm1c" path="res://Sprites/red_flower.tscn" id="10_k6cqv"]
-[ext_resource type="AudioStream" uid="uid://b7n1g3sbp5rqs" path="res://Assets/Audio/BGM.mp3" id="11_estjw"]
+[ext_resource type="PackedScene" path="res://Sprites/UITeam2Victory.tscn" id="5_p4m3y"]
+[ext_resource type="PackedScene" path="res://Sprites/red_flower.tscn" id="10_k6cqv"]
 [ext_resource type="Texture2D" uid="uid://cnu58ab2sjyot" path="res://Assets/Tilesets/kenny-abstract-platformer.png" id="12_285mq"]
 [ext_resource type="AudioStream" uid="uid://nx7g5mexo87s" path="res://Assets/Audio/Death1.wav" id="12_fbmbv"]
 [ext_resource type="AudioStream" uid="uid://ckaag0dip5v" path="res://Assets/Audio/Death2.wav" id="13_ptdu2"]
+[ext_resource type="AudioStream" uid="uid://j8ae370qpkfj" path="res://Assets/Audio/Map 1 BGM.wav" id="13_vk78f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7etdv"]
 resource_name = "kenny-abstract-platforms"
@@ -726,16 +726,16 @@ rotation = -3.14159
 position = Vector2(92, 376)
 rotation = -3.14159
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_estjw")
-autoplay = true
-parameters/looping = true
-
 [node name="Death1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_fbmbv")
 
 [node name="Death2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_ptdu2")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_vk78f")
+volume_db = -8.0
+autoplay = true
 
 [editable path="Players/Player 1"]
 [editable path="Players/Player 2"]
