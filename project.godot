@@ -21,6 +21,7 @@ config/icon="res://Assets/Icons/icon.svg"
 
 [display]
 
+window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 

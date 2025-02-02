@@ -11,6 +11,8 @@ extends Node2D
 @onready var change_timer:Timer = $"ChangeTimer"
 var change_map_delay_done = true
 
+var initial_delay_done = false
+
 var _selected_map:int = 0
 var selected_map:int:
 	set(value):
@@ -39,7 +41,7 @@ func _process(delta: float) -> void:
 			selected_map = (maps.size() + selected_map + 1) % maps.size()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_released(&"any_start"):
+	if initial_delay_done && event.is_action_released(&"any_start"):
 		get_tree().change_scene_to_file(&"res://Maps/Map%s.tscn" % (selected_map+1))
 		return
 
@@ -62,3 +64,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_change_timer_timeout() -> void:
 	change_map_delay_done = true
+
+
+func _on_initial_delay_timer_timeout() -> void:
+	initial_delay_done = true

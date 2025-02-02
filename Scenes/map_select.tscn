@@ -2320,7 +2320,12 @@ text = "1 (OG)"
 [node name="ChangeTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="InitialDelayTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="timeout" from="ChangeTimer" to="." method="_on_change_timer_timeout"]
+[connection signal="timeout" from="InitialDelayTimer" to="." method="_on_initial_delay_timer_timeout"]
 
 [editable path="Maps/Map1/MapPreview1"]
 [editable path="Maps/Map1/MapPreview1/Players/Player 1"]
