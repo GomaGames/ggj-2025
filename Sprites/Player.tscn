@@ -583,7 +583,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgcfs"]
-radius = 23.1772
+radius = 27.6807
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j7lgv"]
 resource_local_to_scene = true
@@ -742,7 +742,6 @@ scale = Vector2(0.155215, 0.155215)
 texture = ExtResource("2_135b2")
 
 [node name="BubbleShield" type="Area2D" parent="Facing"]
-visible = false
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Facing/BubbleShield"]
@@ -751,14 +750,14 @@ scale = Vector2(1.55385, 1.55385)
 shape = SubResource("CircleShape2D_tgcfs")
 
 [node name="BashSwipe" type="Sprite2D" parent="Facing/BubbleShield"]
-position = Vector2(3, -9)
-scale = Vector2(0.188162, 0.368162)
+position = Vector2(7, -1)
+scale = Vector2(0.260661, 0.584845)
 texture = ExtResource("2_135b2")
 
 [node name="BashSwipe2" type="Sprite2D" parent="Facing/BubbleShield"]
 position = Vector2(-2, -27)
 rotation = 3.07437
-scale = Vector2(0.188162, 0.368162)
+scale = Vector2(0.287455, 0.703739)
 texture = ExtResource("2_135b2")
 
 [node name="OneShotAnimations" type="Node2D" parent="."]
